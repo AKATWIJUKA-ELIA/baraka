@@ -1,10 +1,67 @@
 "use client";
 
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useEffect } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { Calendar, MapPin, Star, ChevronDown } from "lucide-react";
 
+const heroSlides = [
+  {
+    image: "/images/hero.jpg",
+    title: "Experience",
+    highlight: "Unparalleled Luxury",
+    description:
+      "Welcome to Baraka Hotel, where every moment is crafted to perfection. Discover a sanctuary of elegance, comfort, and world-class hospitality.",
+  },
+  {
+    image: "/images/hero2.jpg",
+    title: "Discover",
+    highlight: "Timeless Elegance",
+    description:
+      "Immerse yourself in the refined atmosphere of our meticulously designed spaces, where modern comfort meets classic sophistication.",
+  },
+  {
+    image: "/images/hero3.jpg",
+    title: "Indulge in",
+    highlight: "World-Class Amenities",
+    description:
+      "From our infinity pool to our award-winning spa, experience amenities that redefine luxury and create unforgettable memories.",
+  },
+];
+
 export function Hero() {
+  const [api, setApi] = React.useState<any>();
+  const [current, setCurrent] = React.useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
   const scrollToRooms = () => {
     document.getElementById("rooms")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -14,18 +71,38 @@ export function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image with Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
+      {/* Background Carousel */}
+      <Carousel
+        setApi={setApi}
+        opts={{
+          loop: true,
         }}
+        className="absolute inset-0 w-full h-full"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-      </div>
+        <CarouselContent className="h-screen ml-0">
+          {heroSlides.map((slide, index) => (
+            <CarouselItem key={index} className="h-full pl-0 relative">
+              <div
+                className="w-full h-full bg-cover bg-center bg-no-repeat"
+                style={{
+                  backgroundImage: `url('${slide.image}')`,
+                }}
+              >
+                <div className="absolute bottom-0 left-0 right-0 top-2 bg-linear-to-b from-black/60 via-black/40 to-black/70" />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+
+        {/* Carousel Navigation Arrows */}
+        <CarouselPrevious className="left-4 md:left-8 h-12 w-12 bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 hover:text-white" />
+        <CarouselNext className="right-4 md:right-8 h-12 w-12 bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 hover:text-white" />
+      </Carousel>
+
+
 
       {/* Floating Elements */}
-      <div className="absolute top-40 left-10 hidden lg:block">
+      <div className="absolute top-40 left-10 hidden lg:block z-20">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-white animate-pulse">
           <div className="flex items-center gap-2">
             <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
@@ -35,7 +112,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-40 right-10 hidden lg:block">
+      <div className="absolute bottom-40 right-10 hidden lg:block z-20">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-white">
           <div className="flex items-center gap-2">
             <MapPin className="h-5 w-5 text-amber-400" />
@@ -52,15 +129,15 @@ export function Hero() {
         </Badge>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          Experience
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
-            Unparalleled Luxury
+          {heroSlides[current]?.title || "Experience"}
+          <span className="block text-transparent bg-clip-text bg-linear-to-b from-amber-400 to-amber-600">
+            {heroSlides[current]?.highlight || "Unparalleled Luxury"}
           </span>
         </h1>
 
         <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10">
-          Welcome to Baraka Hotel, where every moment is crafted to perfection.
-          Discover a sanctuary of elegance, comfort, and world-class hospitality.
+          {heroSlides[current]?.description ||
+            "Welcome to Baraka Hotel, where every moment is crafted to perfection."}
         </p>
 
         {/* Search/Booking Form */}

@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/navigation";
+import { Navigation } from "@/components/navBar";
 import { Hero } from "@/components/hero";
 import { Rooms } from "@/components/rooms";
 import { Amenities } from "@/components/amenities";
