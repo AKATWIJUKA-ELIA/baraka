@@ -15,6 +15,7 @@ import {
   Baby,
   HeartPulse,
 } from "lucide-react";
+import Image from "next/image";
 
 const amenities = [
   {
@@ -118,9 +119,11 @@ export function Amenities() {
         {/* Feature Highlight */}
         <div className="mt-20 grid md:grid-cols-2 gap-8 items-center">
           <div className="relative">
-            <img
-              src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            <Image
+              src="/images/whyus.jpg"
               alt="Hotel Spa"
+              width={600}
+                  height={400}
               className="rounded-2xl shadow-2xl"
             />
             <div className="absolute -bottom-6 -right-6 bg-amber-600 text-white p-6 rounded-2xl shadow-xl hidden md:block">
