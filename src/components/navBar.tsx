@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 import * as React from "react"
 import Link from "next/link"
 import { Menu, Phone, MapPin, Mail } from "lucide-react"
@@ -8,12 +7,12 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 
 const navItems = [
-  { title: "Home", href: "#home" },
-  { title: "Rooms", href: "#rooms" },
-  { title: "Amenities", href: "#amenities" },
-  { title: "Gallery", href: "#gallery" },
-  { title: "Testimonials", href: "#testimonials" },
-  { title: "Contact", href: "#contact" },
+  { title: "Home", href: "/" },
+  { title: "Rooms", href: "/#rooms" },
+  { title: "Amenities", href: "/#amenities" },
+  { title: "Gallery", href: "/gallery" },
+  { title: "Testimonials", href: "/#testimonials" },
+  { title: "Contact", href: "/#contact" },
 ]
 
 export function Navigation() {
@@ -41,7 +40,7 @@ export function Navigation() {
       <div
         className={cn(
           "border-b border-white/10 transition-all duration-500",
-          isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-65 bg-white",
+          isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto  ",
         )}
       >
         <div className="container mx-auto px-4 backdrop-blur-lg">

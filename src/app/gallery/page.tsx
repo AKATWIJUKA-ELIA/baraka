@@ -4,48 +4,48 @@ import { Badge } from "@/components/ui/badge";
 
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    src: "/images/IMG-20251214-WA0007.jpg",
     alt: "Hotel Exterior",
     category: "Exterior",
   },
   {
-    src: "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    src: "/images/IMG-20251214-WA0009.jpg",
     alt: "Lobby",
     category: "Lobby",
   },
   {
-    src: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    src: "/images/IMG-20251214-WA0010.jpg",
     alt: "Deluxe Room",
     category: "Rooms",
   },
   {
-    src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    src: "/images/IMG-20251214-WA0011.jpg",
     alt: "Spa",
     category: "Spa",
   },
   {
-    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    src: "/images/IMG-20251214-WA0014.jpg",
     alt: "Restaurant",
     category: "Dining",
   },
   {
-    src: "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    src: "/images/IMG-20251214-WA0019.jpg",
     alt: "Pool",
     category: "Pool",
   },
 ];
 
-export function Gallery() {
+export default function Gallery() {
   return (
     <section id="gallery" className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 mt-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <Badge className="bg-amber-600 text-white border-none mb-4">
             Photo Gallery
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Explore Our Hotel
+            Baraka in Pictures
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             Take a visual tour of our stunning facilities and experience the
