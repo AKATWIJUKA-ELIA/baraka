@@ -183,7 +183,7 @@ export function Navigation() {
                 </nav>
 
                 {/* Mobile Contact Info */}
-                <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200">
+                <div className="flex flex-col space-y-3 px-4 border-t border-gray-200">
                   <div className="flex items-center gap-3 text-gray-600 text-sm">
                     <Phone className="h-4 w-4 text-amber-600" />
                     <span>+1 (555) 123-4567</span>
