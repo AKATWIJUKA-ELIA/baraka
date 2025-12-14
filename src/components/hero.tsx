@@ -69,7 +69,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen w-full flex items-center justify-center  overflow-hidden"
     >
       {/* Background Carousel */}
       <Carousel
@@ -88,13 +88,12 @@ export function Hero() {
                   backgroundImage: `url('${slide.image}')`,
                 }}
               >
-                <div className="absolute bottom-0 left-0 right-0 top-2 bg-linear-to-b from-black/60 via-black/40 to-black/70" />
+                <div className="absolute bottom-0 left-0 right-0 top-2 bg" />
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
 
-        {/* Carousel Navigation Arrows */}
         <CarouselPrevious className="left-4 md:left-8 h-12 w-12 bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 hover:text-white" />
         <CarouselNext className="right-4 md:right-8 h-12 w-12 bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 hover:text-white" />
       </Carousel>
@@ -123,10 +122,10 @@ export function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <Badge className="bg-amber-600/90 text-white border-none mb-6 px-4 py-1.5">
+      <div className=" absolute z-10 md:left-20 mx-2 top-[60%] md:top-[50%] backdrop-blur-xl bg-black/10 rounded-2xl  p-4 text-center">
+        {/* <Badge className="bg-amber-600/90 text-white border-none mb-6 px-4 py-1.5">
           ✨ Luxury Redefined
-        </Badge>
+        </Badge> */}
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
           {heroSlides[current]?.title || "Experience"}
@@ -141,44 +140,44 @@ export function Hero() {
         </p>
 
         {/* Search/Booking Form */}
-        <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-lg rounded-2xl p-6 mb-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="bg-white rounded-xl p-4 text-left">
-              <label className="text-sm text-gray-500 font-medium">
-                Check In
-              </label>
-              <div className="flex items-center gap-2 mt-1">
-                <Calendar className="h-5 w-5 text-amber-600" />
-                <span className="font-semibold text-gray-800">
-                  Dec 15, 2025
-                </span>
-              </div>
-            </div>
-            <div className="bg-white rounded-xl p-4 text-left">
-              <label className="text-sm text-gray-500 font-medium">
-                Check Out
-              </label>
-              <div className="flex items-center gap-2 mt-1">
-                <Calendar className="h-5 w-5 text-amber-600" />
-                <span className="font-semibold text-gray-800">
-                  Dec 20, 2025
-                </span>
-              </div>
-            </div>
-            <div className="bg-white rounded-xl p-4 text-left">
-              <label className="text-sm text-gray-500 font-medium">Guests</label>
-              <div className="flex items-center gap-2 mt-1">
-                <span className="font-semibold text-gray-800">2 Adults</span>
-              </div>
-            </div>
-            <Button className="h-full bg-amber-600 hover:bg-amber-700 text-white text-lg font-semibold rounded-xl">
-              Check Availability
-            </Button>
-          </div>
-        </div>
+                {/* <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-lg rounded-2xl p-6 mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="bg-white rounded-xl p-4 text-left">
+                <label className="text-sm text-gray-500 font-medium">
+                        Check In
+                </label>
+                <div className="flex items-center gap-2 mt-1">
+                        <Calendar className="h-5 w-5 text-amber-600" />
+                        <span className="font-semibold text-gray-800">
+                        Dec 15, 2025
+                        </span>
+                </div>
+                </div>
+                <div className="bg-white rounded-xl p-4 text-left">
+                <label className="text-sm text-gray-500 font-medium">
+                        Check Out
+                </label>
+                <div className="flex items-center gap-2 mt-1">
+                        <Calendar className="h-5 w-5 text-amber-600" />
+                        <span className="font-semibold text-gray-800">
+                        Dec 20, 2025
+                        </span>
+                </div>
+                </div>
+                <div className="bg-white rounded-xl p-4 text-left">
+                <label className="text-sm text-gray-500 font-medium">Guests</label>
+                <div className="flex items-center gap-2 mt-1">
+                        <span className="font-semibold text-gray-800">2 Adults</span>
+                </div>
+                </div>
+                <Button className="h-full bg-amber-600 hover:bg-amber-700 text-white text-lg font-semibold rounded-xl">
+                Check Availability
+                </Button>
+                </div>
+                </div> */}
 
         {/* Stats */}
-        <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+        {/* <div className="flex flex-wrap justify-center gap-8 md:gap-16">
           <div className="text-center">
             <p className="text-3xl md:text-4xl font-bold text-white">150+</p>
             <p className="text-white/70">Luxury Rooms</p>
@@ -195,7 +194,7 @@ export function Hero() {
             <p className="text-3xl md:text-4xl font-bold text-white">10K+</p>
             <p className="text-white/70">Happy Guests</p>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Scroll Indicator */}
