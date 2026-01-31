@@ -8,8 +8,8 @@ import { Star, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Guest",
-    role: "Deluxe Executive Room",
+    name: "Grace Nakato",
+    role: "Business Traveler",
     avatar: "",
     rating: 5,
     comment:
@@ -17,8 +17,8 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Traveler",
-    role: "Standard Room",
+    name: "Patrick Ochen",
+    role: "Solo Traveler",
     avatar: "",
     rating: 5,
     comment:
@@ -26,8 +26,8 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Business Guest",
-    role: "Conference & Stay",
+    name: "Maria Atim",
+    role: "Frequent Guest",
     avatar: "",
     rating: 5,
     comment:
@@ -35,8 +35,8 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Visitor",
-    role: "Overnight Stay",
+    name: "John Okello",
+    role: "Transit Guest",
     avatar: "",
     rating: 5,
     comment:
@@ -44,12 +44,12 @@ const testimonials = [
   },
   {
     id: 5,
-    name: "Workshop Organizer",
-    role: "Conference Room",
+    name: "Sarah Achieng",
+    role: "Workshop Organizer",
     avatar: "",
     rating: 5,
     comment:
-      "I organized a small workshop at Baraka Hotel, and the experience was flawless. The conference room was perfect for our group of 45—air-conditioned, spacious, and well-lit. Staff handled the setup efficiently and ensured refreshments were ready on time. Between sessions, we spent a little time on the rooftop, which provided a peaceful break with nice views.",
+      "I organized a small workshop at Baraka Hotel, and the experience was flawless. The conference room was perfect for our group of 45—air-conditioned, spacious, and well-lit. Staff handled the setup efficiently and ensured refreshments were ready on time.",
   },
 ];
 

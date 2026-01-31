@@ -3,10 +3,22 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Users, Maximize, Wifi, Bath, Tv, Fan, Desk, ShowerHead } from "lucide-react";
-import Link from "next/link";
+import { Users, Bed, Wifi, Bath, Tv, Fan, Armchair, ShowerHead, LucideIcon } from "lucide-react";
 
-const rooms = [
+interface Room {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  guests: number;
+  features: string[];
+  badge: string;
+  amenityIcons: LucideIcon[];
+  isShared?: boolean;
+}
+
+const rooms: Room[] = [
   {
     id: 1,
     name: "Standard Room",
@@ -15,13 +27,9 @@ const rooms = [
     price: 40000,
     image: "/baraka/hero.jpg",
     guests: 1,
-    features: ["Comfortable Bed", "Private Bathroom", "Fan"],
+    features: ["Comfortable bed", "Private bathroom", "Fan", "Reading desk"],
     badge: "Budget Friendly",
-    amenities: [
-      { icon: Bath, label: "Private Bathroom" },
-      { icon: Fan, label: "Fan" },
-      { icon: Desk, label: "Reading Table" },
-    ],
+    amenityIcons: [Bed, Bath, Fan, Armchair],
   },
   {
     id: 2,
@@ -30,14 +38,10 @@ const rooms = [
       "Enjoy extra convenience and comfort with added amenities for a more relaxing stay.",
     price: 50000,
     image: "/baraka/hero2.jpg",
-    guests: 1,
-    features: ["Hot Shower", "Television", "Wi-Fi"],
-    badge: "Popular Choice",
-    amenities: [
-      { icon: ShowerHead, label: "Hot Shower" },
-      { icon: Tv, label: "Television" },
-      { icon: Wifi, label: "Wi-Fi" },
-    ],
+    guests: 2,
+    features: ["Hot shower", "Television", "Wi-Fi", "Wardrobe"],
+    badge: "Most Popular",
+    amenityIcons: [ShowerHead, Tv, Wifi, Bed],
   },
   {
     id: 3,
@@ -47,13 +51,9 @@ const rooms = [
     price: 70000,
     image: "/baraka/hero3.jpg",
     guests: 2,
-    features: ["Large Workspace", "Extra Space", "Hot Shower"],
+    features: ["Large workspace", "DSTV", "Extra space", "Hot shower"],
     badge: "Best Value",
-    amenities: [
-      { icon: Desk, label: "Large Desk" },
-      { icon: Tv, label: "Television" },
-      { icon: Wifi, label: "Wi-Fi" },
-    ],
+    amenityIcons: [Armchair, Tv, Wifi, ShowerHead],
   },
   {
     id: 4,
@@ -63,13 +63,10 @@ const rooms = [
     price: 60000,
     image: "/baraka/hero.jpg",
     guests: 2,
-    features: ["Two Beds", "Wi-Fi", "Shared Bathroom"],
-    badge: "Great for Friends",
-    amenities: [
-      { icon: Users, label: "Two Beds" },
-      { icon: Wifi, label: "Wi-Fi" },
-      { icon: Fan, label: "Fan" },
-    ],
+    features: ["Two beds", "Wi-Fi", "Shared bathroom", "Fan"],
+    badge: "Great for Groups",
+    amenityIcons: [Bed, Wifi, Fan, Users],
+    isShared: true,
   },
 ];
 
@@ -108,6 +105,11 @@ export function Rooms() {
                 <Badge className="absolute top-4 left-4 bg-amber-600 text-white border-none">
                   {room.badge}
                 </Badge>
+                {room.isShared && (
+                  <Badge className="absolute top-4 right-4 bg-stone-700 text-white border-none text-xs">
+                    Shared Facilities
+                  </Badge>
+                )}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-24" />
               </div>
 
@@ -125,6 +127,18 @@ export function Rooms() {
                     <Users className="h-4 w-4" />
                     <span>{room.guests} {room.guests > 1 ? "Guests" : "Guest"}</span>
                   </div>
+                </div>
+
+                {/* Amenity Icons */}
+                <div className="flex gap-3 mb-4">
+                  {room.amenityIcons.map((Icon, index) => (
+                    <div
+                      key={index}
+                      className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center"
+                    >
+                      <Icon className="h-4 w-4 text-amber-600" />
+                    </div>
+                  ))}
                 </div>
 
                 {/* Features */}
@@ -159,15 +173,13 @@ export function Rooms() {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Link href="/rooms">
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white"
-            >
-              Explore All Rooms
-            </Button>
-          </Link>
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white"
+          >
+            Explore All Rooms
+          </Button>
         </div>
       </div>
     </section>
