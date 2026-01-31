@@ -8,57 +8,48 @@ import { Star, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Business Traveler",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    name: "Guest",
+    role: "Deluxe Executive Room",
+    avatar: "",
     rating: 5,
     comment:
-      "Absolutely stunning hotel! The attention to detail is remarkable. From the moment I arrived, the staff made me feel like royalty. The room was immaculate and the view was breathtaking.",
+      "I stayed in the Deluxe Executive Room and it was amazing: spacious with large workspace. The rooftop was beautiful for evening relaxation, and having DSTV in the room made winding down so easy. Highly recommend!",
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "Honeymoon Guest",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    name: "Traveler",
+    role: "Standard Room",
+    avatar: "",
     rating: 5,
     comment:
-      "We chose Baraka Hotel for our honeymoon and it exceeded all expectations. The romantic dinner they arranged was unforgettable. We'll definitely be coming back for our anniversary!",
+      "Great location, very convenient for travelers. I loved the standard room. It was simple, comfortable, budget-friendly, and with a very clean bathroom.",
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    role: "Family Vacation",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    name: "Business Guest",
+    role: "Conference & Stay",
+    avatar: "",
     rating: 5,
     comment:
-      "Traveling with kids can be challenging, but Baraka Hotel made it so easy. The kids club was amazing and gave us some much-needed relaxation time. The pool was a hit with the whole family!",
+      "The hotel has everything you need: comfortable rooms, a well-lit conference room, and safe parking. I also appreciated the laundry service and the restaurant's tasty meals. Definitely my go-to place when traveling north.",
   },
   {
     id: 4,
-    name: "David Thompson",
-    role: "Corporate Event",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    name: "Visitor",
+    role: "Overnight Stay",
+    avatar: "",
     rating: 5,
     comment:
-      "We hosted our annual conference at Baraka Hotel and it was flawless. The event spaces are world-class and the catering was exceptional. Our clients were thoroughly impressed.",
+      "The hotel is in a quiet area, which made sleeping easy. Staff were very friendly and made small gestures, like offering directions and helping with luggage, which made a big difference.",
   },
   {
     id: 5,
-    name: "Lisa Wang",
-    role: "Spa Weekend",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    name: "Workshop Organizer",
+    role: "Conference Room",
+    avatar: "",
     rating: 5,
     comment:
-      "The spa at Baraka Hotel is a slice of heaven. I left feeling completely rejuvenated. The therapists are skilled and the facilities are top-notch. Already planning my next visit!",
-  },
-  {
-    id: 6,
-    name: "James Wilson",
-    role: "Luxury Traveler",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-    rating: 5,
-    comment:
-      "I've stayed at many luxury hotels around the world, and Baraka Hotel stands among the best. The service is impeccable, the dining is superb, and the amenities are unmatched.",
+      "I organized a small workshop at Baraka Hotel, and the experience was flawless. The conference room was perfect for our group of 45—air-conditioned, spacious, and well-lit. Staff handled the setup efficiently and ensured refreshments were ready on time. Between sessions, we spent a little time on the rooftop, which provided a peaceful break with nice views.",
   },
 ];
 
