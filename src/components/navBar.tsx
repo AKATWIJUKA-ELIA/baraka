@@ -48,16 +48,16 @@ export function Navigation() {
             <div className="flex items-center gap-6 text-white/90">
               <div className="flex items-center gap-2">
                 <MapPin className="h-3.5 w-3.5" />
-                <span>123 Luxury Avenue, Paradise City</span>
+                <span>Along Kampala-Gulu Highway, Bweyale, Kiryandongo District – Uganda</span>
               </div>
-              <div className="hidden md:flex items-center gap-2">
+              {/* <div className="hidden md:flex items-center gap-2">
                 <Mail className="h-3.5 w-3.5" />
                 <span>info@barakahotel.com</span>
-              </div>
+              </div> */}
             </div>
             <div className="flex items-center gap-2 text-white/90">
               <Phone className="h-3.5 w-3.5" />
-              <span className="font-medium">+1 (555) 123-4567</span>
+              <span  className="font-medium"> <a href="tel:+256768666505">+256 768 666 505</a> / <a href="tel:+256744628976">+256 744 628 976</a></span>
             </div>
           </div>
         </div>
@@ -91,7 +91,7 @@ export function Navigation() {
                   isScrolled ? "text-amber-600" : "text-amber-200",
                 )}
               >
-                Luxury & Comfort
+               For a memorable experience
               </span>
             </div>
           </Link>
@@ -186,7 +186,7 @@ export function Navigation() {
                 <div className="flex flex-col space-y-3 px-4 border-t border-gray-200">
                   <div className="flex items-center gap-3 text-gray-600 text-sm">
                     <Phone className="h-4 w-4 text-amber-600" />
-                    <span>+1 (555) 123-4567</span>
+                    <span>+256 768 666 505/ +256 744 628 976</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-600 text-sm">
                     <Mail className="h-4 w-4 text-amber-600" />

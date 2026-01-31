@@ -15,21 +15,21 @@ import { Calendar, MapPin, Star, ChevronDown } from "lucide-react";
 
 const heroSlides = [
   {
-    image: "/images/hero.jpg",
-    title: "Experience",
-    highlight: "Unparalleled Luxury",
+    image: "/baraka/hero.jpg",
+    title: " Rest, refresh, and recharge",
+    highlight: "For a memorable experience",
     description:
       "Welcome to Baraka Hotel, where every moment is crafted to perfection. Discover a sanctuary of elegance, comfort, and world-class hospitality.",
   },
   {
-    image: "/images/hero2.jpg",
-    title: "Discover",
-    highlight: "Timeless Elegance",
+    image: "/baraka/hero2.jpg",
+    title: "Welcome to Baraka ",
+    highlight: "Hotel",
     description:
-      "Immerse yourself in the refined atmosphere of our meticulously designed spaces, where modern comfort meets classic sophistication.",
+      " a welcoming haven for travelers and guests seeking comfort, great meals, and a peaceful stay.",
   },
   {
-    image: "/images/hero3.jpg",
+    image: "/baraka/hero3.jpg",
     title: "Indulge in",
     highlight: "World-Class Amenities",
     description:
@@ -57,13 +57,13 @@ export function Hero() {
 
     const interval = setInterval(() => {
       api.scrollNext();
-    }, 6000);
+    }, 12000);
 
     return () => clearInterval(interval);
   }, [api]);
 
   const scrollToRooms = () => {
-    document.getElementById("rooms")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("belowHero")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -101,7 +101,7 @@ export function Hero() {
 
 
       {/* Floating Elements */}
-      <div className="absolute top-40 left-10 hidden lg:block z-20">
+      {/* <div className="absolute top-40 left-10 hidden lg:block z-20">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-white animate-pulse">
           <div className="flex items-center gap-2">
             <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
@@ -109,7 +109,7 @@ export function Hero() {
           </div>
           <p className="text-sm text-white/70">500+ Reviews</p>
         </div>
-      </div>
+      </div> */}
 
       <div className="absolute bottom-40 right-10 hidden lg:block z-20">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-white">
@@ -122,7 +122,7 @@ export function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className=" absolute z-10 md:left-20 mx-2 top-[60%] md:top-[50%] backdrop-blur-xl bg-black/10 rounded-2xl  p-4 text-center">
+      <div className=" absolute z-10 md:left-20 mx-2 top-[60%] md:top-[50%]  bg-black/50   p-4 text-center">
         {/* <Badge className="bg-amber-600/90 text-white border-none mb-6 px-4 py-1.5">
           ✨ Luxury Redefined
         </Badge> */}
@@ -200,9 +200,9 @@ export function Hero() {
       {/* Scroll Indicator */}
       <button
         onClick={scrollToRooms}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce cursor-pointer"
+        className="absolute bg-white/50 border rounded-full py-4 z-40 bottom-0 left-1/2 transform -translate-x-1/2 text-white  cursor-pointer"
       >
-        <ChevronDown className="h-8 w-8" />
+        <ChevronDown className="h-12 w-9 animate-bounce " />
       </button>
     </section>
   );
