@@ -8,11 +8,12 @@ import { cn } from "@/lib/utils"
 
 const navItems = [
   { title: "Home", href: "/" },
-  { title: "Rooms", href: "/#rooms" },
+  { title: "Rooms", href: "/rooms" },
   { title: "Amenities", href: "/#amenities" },
   { title: "Gallery", href: "/gallery" },
   { title: "Testimonials", href: "/#testimonials" },
-  { title: "Contact", href: "/#contact" },
+  { title: "Contact", href: "/contact" },
+  { title: "About Us", href: "/about" },
 ]
 
 export function Navigation() {
@@ -80,7 +81,7 @@ export function Navigation() {
               <span
                 className={cn(
                   "font-serif text-2xl font-bold tracking-wide transition-colors duration-300",
-                  isScrolled ? "text-gray-900" : "text-white",
+                  isScrolled ? "text-gray-900" : "text-red-600",
                 )}
               >
                 Baraka <span className="text-blue-600" >Hotel</span>
@@ -120,21 +121,9 @@ export function Navigation() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              className={cn(
-                "gap-2 font-medium transition-all duration-300",
-                isScrolled
-                  ? "text-gray-700 hover:text-amber-600 hover:bg-amber-50"
-                  : "text-white hover:text-amber-200 hover:bg-white/10",
-              )}
-            >
-              <Phone className="h-4 w-4" />
-              Call Us
-            </Button>
+
             <Button className="bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6">
-              Book Now
+              <Phone className="h-4 w-4" /> Book Now 
             </Button>
           </div>
 

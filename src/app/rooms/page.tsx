@@ -103,7 +103,7 @@ export default function RoomsPage() {
       <section className="relative py-24 lg:py-32 bg-stone-900">
         <div className="absolute inset-0">
           <Image
-            src="/baraka/hero3.jpg"
+            src="/baraka/room2.jpg"
             alt="Rooms at Baraka Hotel"
             fill
             className="object-cover opacity-30"
