@@ -35,6 +35,7 @@ const services = [
 ];
 
 export function Footer() {
+        const currentYear = new Date().getFullYear();
   return (
     <footer id="contact" className="bg-gray-900 text-white">
       {/* Newsletter Section */}
@@ -168,7 +169,7 @@ export function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © 2025 Baraka Hotel. All rights reserved.
+            © {currentYear} Baraka Hotel. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <Link
