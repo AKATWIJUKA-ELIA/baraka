@@ -3,6 +3,7 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 import { Users, Bed, Wifi, Bath, Tv, Fan, Armchair, ShowerHead, LucideIcon } from "lucide-react";
 
 interface Room {
@@ -12,6 +13,7 @@ interface Room {
   price: number;
   image: string;
   guests: number;
+  classification?: string;
   features: string[];
   badge: string;
   amenityIcons: LucideIcon[];
@@ -22,6 +24,7 @@ const rooms: Room[] = [
   {
     id: 1,
     name: "Standard Room",
+    classification: "standard",
     description:
       "A simple and comfortable room ideal for solo travelers looking for affordability and privacy.",
     price: 40000,
@@ -34,6 +37,7 @@ const rooms: Room[] = [
   {
     id: 2,
     name: "Standard Plus Room",
+    classification: "standard-plus",
     description:
       "Enjoy extra convenience and comfort with added amenities for a more relaxing stay.",
     price: 50000,
@@ -46,6 +50,7 @@ const rooms: Room[] = [
   {
     id: 3,
     name: "Deluxe Executive Room",
+    classification: "deluxe-executive",
     description:
       "A spacious and well-designed room perfect for business travelers or guests who appreciate extra space and comfort.",
     price: 70000,
@@ -58,6 +63,7 @@ const rooms: Room[] = [
   {
     id: 4,
     name: "Twin Economy Room",
+    classification: "twin-economy",
     description:
       "A budget-friendly twin room suitable for friends or travelers who prefer shared facilities.",
     price: 60000,
@@ -162,10 +168,13 @@ export function Rooms() {
                 </div>
               </CardContent>
 
-              <CardFooter className="p-6 pt-0">
-                <Button className="w-full bg-gray-900 hover:bg-amber-600 text-white transition-colors">
+              <CardFooter className="p-2 space-x-4  flex  justify-center items-center">
+                <Button className="w-24 bg-gray-900 hover:bg-amber-600 text-white transition-colors">
                   Book Now
                 </Button>
+                <Link href={`/rooms/${room.classification}`} className="w-24 p-2 items-center border rounded-lg bg-gray-900 hover:bg-amber-600 text-white transition-colors">
+                  Explore
+                </Link>
               </CardFooter>
             </Card>
           ))}
@@ -173,13 +182,12 @@ export function Rooms() {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white"
+          <Link href="/rooms"
+            
+            className="border-amber-600 p-4 border rounded-full text-amber-600 hover:bg-amber-600 hover:text-white"
           >
             Explore All Rooms
-          </Button>
+          </Link >
         </div>
       </div>
     </section>
