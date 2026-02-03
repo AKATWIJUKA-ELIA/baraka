@@ -39,7 +39,7 @@ export function Navigation() {
       {/* Top Bar - Only visible when not scrolled */}
       <div
         className={cn(
-          "border-b border-white/10 transition-all duration-500",
+          "border-b hidden md:flex border-white/10 transition-all duration-500",
           isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto  ",
         )}
       >
@@ -83,7 +83,7 @@ export function Navigation() {
                   isScrolled ? "text-gray-900" : "text-white",
                 )}
               >
-                Baraka Hotel
+                Baraka <span className="text-blue-600" >Hotel</span>
               </span>
               <span
                 className={cn(
