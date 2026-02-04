@@ -15,21 +15,21 @@ import { Calendar, MapPin, Star, ChevronDown } from "lucide-react";
 
 const heroSlides = [
   {
-    image: "/baraka/hero.jpg",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/6983983d000c2644f5df/view?project=6983916c002e052ab84d",
     title: " Rest, refresh, and recharge",
     highlight: "For a memorable experience",
     description:
       "Welcome to Baraka Hotel, where every moment is crafted to perfection. Discover a sanctuary of elegance, comfort, and world-class hospitality.",
   },
   {
-    image: "/baraka/hero2.jpg",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/6983934a0024357726e2/view?project=6983916c002e052ab84d",
     title: "Welcome to Baraka ",
     highlight: "Hotel",
     description:
       " a welcoming haven for travelers and guests seeking comfort, great meals, and a peaceful stay.",
   },
   {
-    image: "/baraka/hero3.jpg",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/6983935c000fc3d2ab75/view?project=6983916c002e052ab84d",
     title: "Indulge in",
     highlight: "World-Class Amenities",
     description:
