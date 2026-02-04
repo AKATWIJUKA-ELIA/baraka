@@ -28,7 +28,7 @@ const rooms: Room[] = [
     description:
       "A simple and comfortable room ideal for solo travelers looking for affordability and privacy.",
     price: 40000,
-    image: "/baraka/room.jpg",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/69839a520025669d6ac4/view?project=6983916c002e052ab84d",
     guests: 1,
     features: ["Comfortable bed", "Private bathroom", "Fan", "Reading desk"],
     badge: "Budget Friendly",
@@ -41,7 +41,7 @@ const rooms: Room[] = [
     description:
       "Enjoy extra convenience and comfort with added amenities for a more relaxing stay.",
     price: 50000,
-    image: "/baraka/room32.jpg",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/69839b28001100c89ca5/view?project=6983916c002e052ab84d",
     guests: 2,
     features: ["Hot shower", "Television", "Wi-Fi", "Wardrobe"],
     badge: "Most Popular",
@@ -54,7 +54,7 @@ const rooms: Room[] = [
     description:
       "A spacious and well-designed room perfect for business travelers or guests who appreciate extra space and comfort.",
     price: 70000,
-    image: "/baraka/room5.jpg",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/69839a9c002222c258b7/view?project=6983916c002e052ab84d",
     guests: 2,
     features: ["Large workspace", "DSTV", "Extra space", "Hot shower"],
     badge: "Best Value",
@@ -67,7 +67,7 @@ const rooms: Room[] = [
     description:
       "A budget-friendly twin room suitable for friends or travelers who prefer shared facilities.",
     price: 60000,
-    image: "/baraka/room3.jpg",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/69839a78000036441902/view?project=6983916c002e052ab84d",
     guests: 2,
     features: ["Two beds", "Wi-Fi", "Shared bathroom", "Fan"],
     badge: "Great for Groups",
