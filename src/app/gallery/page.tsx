@@ -4,34 +4,94 @@ import { Badge } from "@/components/ui/badge";
 
 const images = [
   {
-    src: "/images/IMG-20251214-WA0007.jpg",
+    src: "/baraka/hero.jpg",
     alt: "Hotel Exterior",
     category: "Exterior",
   },
   {
-    src: "/images/IMG-20251214-WA0009.jpg",
-    alt: "Lobby",
+    src: "/baraka/_DSC7498.jpg",
+    alt: "Lobby Entrance",
     category: "Lobby",
   },
   {
-    src: "/images/IMG-20251214-WA0010.jpg",
-    alt: "Deluxe Room",
+    src: "/baraka/room.jpg",
+    alt: "Deluxe Suite",
     category: "Rooms",
   },
   {
-    src: "/images/IMG-20251214-WA0011.jpg",
-    alt: "Spa",
-    category: "Spa",
+    src: "/baraka/_DSC7503.jpg",
+    alt: "Hotel Lounge",
+    category: "Lounge",
   },
   {
-    src: "/images/IMG-20251214-WA0014.jpg",
-    alt: "Restaurant",
+    src: "/baraka/room2.jpg",
+    alt: "Premium Room",
+    category: "Rooms",
+  },
+  {
+    src: "/baraka/_DSC7513.jpg",
+    alt: "Restaurant Area",
     category: "Dining",
   },
   {
-    src: "/images/IMG-20251214-WA0019.jpg",
-    alt: "Pool",
-    category: "Pool",
+    src: "/baraka/room3.jpg",
+    alt: "Executive Suite",
+    category: "Rooms",
+  },
+  {
+    src: "/baraka/_DSC7521.jpg",
+    alt: "Reception",
+    category: "Lobby",
+  },
+  {
+    src: "/baraka/hero2.jpg",
+    alt: "Hotel View",
+    category: "Exterior",
+  },
+  {
+    src: "/baraka/_DSC7540.jpg",
+    alt: "Dining Experience",
+    category: "Dining",
+  },
+  {
+    src: "/baraka/room4.jpg",
+    alt: "Standard Room",
+    category: "Rooms",
+  },
+  {
+    src: "/baraka/_DSC7559.jpg",
+    alt: "Hotel Amenities",
+    category: "Amenities",
+  },
+  {
+    src: "/baraka/room5.jpg",
+    alt: "Family Suite",
+    category: "Rooms",
+  },
+  {
+    src: "/baraka/_DSC7576.jpg",
+    alt: "Relaxation Area",
+    category: "Lounge",
+  },
+  {
+    src: "/baraka/hero3.jpg",
+    alt: "Hotel Grounds",
+    category: "Exterior",
+  },
+  {
+    src: "/baraka/_DSC7601.jpg",
+    alt: "Meeting Space",
+    category: "Facilities",
+  },
+  {
+    src: "/baraka/room6.jpg",
+    alt: "Cozy Room",
+    category: "Rooms",
+  },
+  {
+    src: "/baraka/_DSC7620.jpg",
+    alt: "Hotel Interior",
+    category: "Interior",
   },
 ];
 
