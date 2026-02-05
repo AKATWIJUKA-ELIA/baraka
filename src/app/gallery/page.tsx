@@ -1,6 +1,7 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 const images = [
   {
@@ -122,9 +123,11 @@ export default function Gallery() {
                 index === 0 ? "md:col-span-2 md:row-span-2" : ""
               }`}
             >
-              <img
+              <Image
                 src={image.src}
                 alt={image.alt}
+                width={500}
+                height={300}
                 className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
                   index === 0 ? "h-[500px]" : "h-60"
                 }`}
