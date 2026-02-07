@@ -1,11 +1,9 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
   Target, 
   Eye, 
-  Heart, 
   MapPin, 
   Shield, 
   Users, 
@@ -15,6 +13,24 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Learn about Baraka Hotel's story, mission, and vision. Discover why we're the preferred hotel in Kiryandongo District, Uganda, offering exceptional hospitality since December 2024.",
+  openGraph: {
+    title: "About Baraka Hotel | Our Story & Mission",
+    description: "Learn about Baraka Hotel's story, mission, and vision. Discover why we're the preferred hotel in Kiryandongo District, Uganda.",
+    images: ["/baraka/hero2.jpg"],
+  },
+  twitter: {
+    title: "About Baraka Hotel | Our Story & Mission",
+    description: "Learn about Baraka Hotel's story, mission, and vision.",
+    images: ["/baraka/hero2.jpg"],
+  },
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 const whyUsPoints = [
   {

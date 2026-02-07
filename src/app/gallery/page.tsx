@@ -1,7 +1,24 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+  description: "Take a visual tour of Baraka Hotel. Browse our photo gallery featuring stunning rooms, restaurant, lobby, and facilities in Kiryandongo, Uganda.",
+  openGraph: {
+    title: "Photo Gallery | Baraka Hotel",
+    description: "Take a visual tour of Baraka Hotel. Browse photos of our stunning rooms, restaurant, and facilities.",
+    images: ["/baraka/hero.jpg"],
+  },
+  twitter: {
+    title: "Photo Gallery | Baraka Hotel",
+    description: "Take a visual tour of Baraka Hotel.",
+    images: ["/baraka/hero.jpg"],
+  },
+  alternates: {
+    canonical: "/gallery",
+  },
+};
 
 const images = [
   {
