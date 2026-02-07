@@ -150,7 +150,23 @@ export const rooms: Room[] = [
   },
 ];
 
+// Serializable room type for passing to client components (excludes function references)
+export type SerializableRoom = Omit<Room, 'amenityIcons'>;
+
 export function getRoomByClassification(classification: string): Room | undefined {
   return rooms.find(room => room.classification === classification);
+}
+
+export function getSerializableRoom(classification: string): SerializableRoom | undefined {
+  const room = rooms.find(room => room.classification === classification);
+  if (!room) return undefined;
+  
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { amenityIcons, ...serializableRoom } = room;
+  return serializableRoom;
+}
+
+export function getSerializableRooms(): SerializableRoom[] {
+  return rooms.map(({ amenityIcons, ...rest }) => rest);
 }
 

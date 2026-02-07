@@ -1,14 +1,10 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
   Coffee, 
-  UtensilsCrossed, 
   Clock,
-  Utensils,
-  Salad,
   Beef,
   Soup,
   Sandwich,
@@ -17,6 +13,77 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://barakahotel.com";
+
+export const metadata: Metadata = {
+  title: "Restaurant & Coffee Bar",
+  description: "Enjoy authentic Ugandan cuisine and continental favorites at Baraka Hotel's restaurant. View our menu featuring local dishes, breakfast, snacks, and beverages at affordable prices.",
+  openGraph: {
+    title: "Restaurant & Coffee Bar | Baraka Hotel",
+    description: "Enjoy authentic Ugandan cuisine and continental favorites. View our menu featuring local dishes and beverages.",
+    images: ["/baraka/hero2.jpg"],
+  },
+  twitter: {
+    title: "Restaurant & Coffee Bar | Baraka Hotel",
+    description: "Enjoy authentic Ugandan cuisine and continental favorites at Baraka Hotel.",
+    images: ["/baraka/hero2.jpg"],
+  },
+  alternates: {
+    canonical: "/restaurant",
+  },
+};
+
+// JSON-LD Structured Data for Restaurant
+const restaurantJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: "Baraka Hotel Restaurant",
+  description: "Restaurant offering authentic Ugandan cuisine and continental favorites at Baraka Hotel.",
+  url: `${siteUrl}/restaurant`,
+  telephone: "+256768666505",
+  image: `${siteUrl}/baraka/hero2.jpg`,
+  servesCuisine: ["Ugandan", "African", "Continental"],
+  priceRange: "UGX 2,000 - UGX 25,000",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Kampala-Gulu Highway",
+    addressLocality: "Bweyale",
+    addressRegion: "Kiryandongo District",
+    addressCountry: "UG",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "06:30",
+      closes: "22:00",
+    },
+  ],
+  menu: `${siteUrl}/restaurant`,
+  hasMenu: {
+    "@type": "Menu",
+    name: "Restaurant Menu",
+    hasMenuSection: [
+      {
+        "@type": "MenuSection",
+        name: "Breakfast",
+        hasMenuItem: [
+          { "@type": "MenuItem", name: "Full English Breakfast", offers: { "@type": "Offer", price: "15000", priceCurrency: "UGX" } },
+          { "@type": "MenuItem", name: "Rolex (Chapati & Eggs)", offers: { "@type": "Offer", price: "5000", priceCurrency: "UGX" } },
+        ],
+      },
+      {
+        "@type": "MenuSection",
+        name: "Main Dishes",
+        hasMenuItem: [
+          { "@type": "MenuItem", name: "Grilled Tilapia with Sides", offers: { "@type": "Offer", price: "25000", priceCurrency: "UGX" } },
+          { "@type": "MenuItem", name: "Beef Stew with Rice", offers: { "@type": "Offer", price: "18000", priceCurrency: "UGX" } },
+        ],
+      },
+    ],
+  },
+};
 
 const menuCategories = [
   {
@@ -85,31 +152,36 @@ const openingHours = [
 
 export default function RestaurantPage() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-24 lg:py-32 bg-stone-900">
-        <div className="absolute inset-0">
-          <Image
-            src="/baraka/hero2.jpg"
-            alt="Restaurant at Baraka Hotel"
-            fill
-            className="object-cover opacity-30"
-          />
-        </div>
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <Badge className="bg-amber-600/20 text-amber-400 border-amber-600/30 mb-4">
-            Dining at Baraka
-          </Badge>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Restaurant & <span className="text-amber-500">Coffee Bar</span>
-          </h1>
-          <p className="text-stone-300 text-lg md:text-xl max-w-3xl mx-auto">
-            Our restaurant offers a variety of freshly prepared meals, including local 
-            Ugandan dishes and continental favorites. Whether you&apos;re in the mood for 
-            a hearty meal or a refreshing drink, we&apos;ve got you covered.
-          </p>
-        </div>
-      </section>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
+      />
+      <main className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative py-24 lg:py-32 bg-stone-900">
+          <div className="absolute inset-0">
+            <Image
+              src="/baraka/hero2.jpg"
+              alt="Restaurant at Baraka Hotel"
+              fill
+              className="object-cover opacity-30"
+            />
+          </div>
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <Badge className="bg-amber-600/20 text-amber-400 border-amber-600/30 mb-4">
+              Dining at Baraka
+            </Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Restaurant & <span className="text-amber-500">Coffee Bar</span>
+            </h1>
+            <p className="text-stone-300 text-lg md:text-xl max-w-3xl mx-auto">
+              Our restaurant offers a variety of freshly prepared meals, including local 
+              Ugandan dishes and continental favorites. Whether you&apos;re in the mood for 
+              a hearty meal or a refreshing drink, we&apos;ve got you covered.
+            </p>
+          </div>
+        </section>
 
       {/* Opening Hours */}
       <section className="py-12 bg-amber-600">
@@ -240,6 +312,7 @@ export default function RestaurantPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

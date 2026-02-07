@@ -1,8 +1,6 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { 
   Building2, 
   Sun, 
@@ -19,6 +17,24 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Facilities",
+  description: "Explore Baraka Hotel facilities including conference room, rooftop venue, secure parking, laundry services, and DSTV entertainment. Perfect for business and leisure travelers.",
+  openGraph: {
+    title: "Hotel Facilities | Baraka Hotel",
+    description: "Explore our facilities: conference room, rooftop venue, secure parking, laundry services, and DSTV entertainment.",
+    images: ["/baraka/hero3.jpg"],
+  },
+  twitter: {
+    title: "Hotel Facilities | Baraka Hotel",
+    description: "Explore Baraka Hotel facilities including conference room, rooftop venue, and more.",
+    images: ["/baraka/hero3.jpg"],
+  },
+  alternates: {
+    canonical: "/facilities",
+  },
+};
 
 const facilities = [
   {
