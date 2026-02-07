@@ -1,21 +1,32 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
-  Bed, 
-  Bath, 
-  Wifi, 
-  Tv, 
-  Fan, 
-  ShowerHead,
   Users,
   Check,
   Phone
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Rooms & Accommodation",
+  description: "Browse Baraka Hotel rooms - Standard, Standard Plus, Deluxe Executive, and Twin Economy rooms. Affordable accommodation in Kiryandongo, Uganda starting from UGX 40,000 per night.",
+  openGraph: {
+    title: "Rooms & Accommodation | Baraka Hotel",
+    description: "Browse our rooms - Standard, Standard Plus, Deluxe Executive, and Twin Economy. Affordable accommodation starting from UGX 40,000/night.",
+    images: ["/baraka/room2.jpg"],
+  },
+  twitter: {
+    title: "Rooms & Accommodation | Baraka Hotel",
+    description: "Affordable, comfortable rooms in Kiryandongo, Uganda starting from UGX 40,000 per night.",
+    images: ["/baraka/room2.jpg"],
+  },
+  alternates: {
+    canonical: "/rooms",
+  },
+};
 
 const rooms = [
   {
