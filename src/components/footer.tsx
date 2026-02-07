@@ -18,11 +18,11 @@ import {
 
 const quickLinks = [
   { title: "Home", href: "#home" },
-  { title: "Rooms & Suites", href: "#rooms" },
+  { title: "Rooms & Suites", href: "/rooms" },
   { title: "Amenities", href: "#amenities" },
-  { title: "Gallery", href: "#gallery" },
+  { title: "Gallery", href: "/gallery" },
   { title: "Testimonials", href: "#testimonials" },
-  { title: "Contact", href: "#contact" },
+  { title: "Contact", href: "/contact" },
 ];
 
 const services = [
@@ -143,19 +143,20 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-amber-500 mt-1 shrink-0" />
                 <span className="text-gray-400">
-                  123 Paradise Avenue, Downtown
+                Along Kampala-Gulu Highway,
                   <br />
-                  New York, NY 10001
+                  Bweyale, Kiryandongo District – Uganda
                 </span>
               </li>
+               
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-amber-500 shrink-0" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                    <span  className="text-sm font-medium"> <a href="tel:+256768666505">+256 768 666 505</a> / <a href="tel:+256744628976">+256 744 628 976</a></span>
               </li>
-              <li className="flex items-center gap-3">
+              {/* <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-amber-500 shrink-0" />
                 <span className="text-gray-400">info@barakahotel.com</span>
-              </li>
+              </li> */}
               <li className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-amber-500 shrink-0" />
                 <span className="text-gray-400">24/7 Front Desk</span>
