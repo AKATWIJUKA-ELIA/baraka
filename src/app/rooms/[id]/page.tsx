@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { rooms, getRoomByClassification } from "@/lib/rooms-data";
+import { rooms, getRoomByClassification, getSerializableRoom, getSerializableRooms } from "@/lib/rooms-data";
 import { RoomDetailContent } from "@/components/RoomDetailContent";
 
 interface RoomDetailPageProps {
@@ -48,7 +47,7 @@ export function generateStaticParams() {
 
 export default async function RoomDetailPage({ params }: RoomDetailPageProps) {
   const { id } = await params;
-  const room = getRoomByClassification(id);
+  const room = getSerializableRoom(id);
 
   if (!room) {
     return (
@@ -67,5 +66,8 @@ export default async function RoomDetailPage({ params }: RoomDetailPageProps) {
     );
   }
 
-  return <RoomDetailContent room={room} />;
+  // Get other rooms for suggestions (excluding current room)
+  const otherRooms = getSerializableRooms().filter(r => r.id !== room.id).slice(0, 3);
+
+  return <RoomDetailContent room={room} otherRooms={otherRooms} />;
 }

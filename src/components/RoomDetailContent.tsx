@@ -20,13 +20,14 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Room, rooms } from "@/lib/rooms-data";
+import type { SerializableRoom } from "@/lib/rooms-data";
 
 interface RoomDetailContentProps {
-  room: Room;
+  room: SerializableRoom;
+  otherRooms: SerializableRoom[];
 }
 
-export function RoomDetailContent({ room }: RoomDetailContentProps) {
+export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
@@ -36,9 +37,6 @@ export function RoomDetailContent({ room }: RoomDetailContentProps) {
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + room.images.length) % room.images.length);
   };
-
-  // Get other rooms for suggestions
-  const otherRooms = rooms.filter(r => r.id !== room.id).slice(0, 3);
 
   return (
     <main className="min-h-screen bg-stone-50">
