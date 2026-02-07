@@ -185,11 +185,17 @@ export default function RoomsPage() {
                         </span>
                         <span className="text-stone-500 ml-2">/ night</span>
                       </div>
-                      <Link href="/contact">
+                      <a
+                        href={`https://wa.me/256768666505?text=${encodeURIComponent(
+                          `Hello Baraka Hotel!\n\nI would like to book the following room:\n\n🏨 Room: ${room.name}\n💰 Price: UGX ${room.price.toLocaleString()} per night\n👥 Guests: ${room.guests}\n\nPlease let me know the availability. Thank you!`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8">
                           Book Now
                         </Button>
-                      </Link>
+                      </a>
                     </div>
                   </CardContent>
                 </div>

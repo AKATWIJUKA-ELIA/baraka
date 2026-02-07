@@ -275,11 +275,18 @@ export default function RoomDetailPage() {
                     </div>
 
                     <div className="space-y-3">
-                      <Link href="/contact" className="block">
+                      <a
+                        href={`https://wa.me/256768666505?text=${encodeURIComponent(
+                          `Hello Baraka Hotel!\n\nI would like to book the following room:\n\n🏨 Room: ${room.name}\n💰 Price: UGX ${room.price.toLocaleString()} per night\n👥 Guests: ${room.guests}\n🛏️ Beds: ${room.beds}\n📐 Size: ${room.size}\n\nPlease let me know the availability. Thank you!`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
                         <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white py-6 text-lg rounded-xl">
                           Book This Room
                         </Button>
-                      </Link>
+                      </a>
                       <a href="tel:+256768666505" className="block">
                         <Button variant="outline" className="w-full py-6 text-lg rounded-xl border-stone-300">
                           <Phone className="w-5 h-5 mr-2" />

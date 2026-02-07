@@ -76,9 +76,10 @@ export function Restaurant() {
                 View Menu
               </Button>
               <Button
+              onClick={() => window.location.href = '/contact'}
                 size="lg"
                 variant="outline"
-                className="border-stone-600 text-white hover:bg-stone-800 px-8 py-6 text-lg rounded-xl"
+                className="bg-blue-600 border-stone-600 text-white hover:bg-stone-800 px-8 py-6 text-lg rounded-xl"
               >
                 Make Reservation
               </Button>
