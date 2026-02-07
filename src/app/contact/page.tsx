@@ -79,7 +79,7 @@ export default function ContactPage() {
               {/* Contact Cards */}
               <div className="space-y-4">
                 <Card className="border-0 shadow-lg">
-                  <CardContent className="p-6 flex items-start gap-4">
+                  <CardContent className="p-4 flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
                       <Phone className="w-6 h-6 text-amber-600" />
                     </div>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                 </Card>
 
                 <Card className="border-0 shadow-lg">
-                  <CardContent className="p-6 flex items-start gap-4">
+                  <CardContent className="p-4 flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
                       <MessageCircle className="w-6 h-6 text-green-600" />
                     </div>
@@ -121,7 +121,7 @@ export default function ContactPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-lg">
+                {/* <Card className="border-0 shadow-lg">
                   <CardContent className="p-6 flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
                       <Mail className="w-6 h-6 text-blue-600" />
@@ -135,10 +135,10 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </CardContent>
-                </Card>
+                </Card> */}
 
                 <Card className="border-0 shadow-lg">
-                  <CardContent className="p-6 flex items-start gap-4">
+                  <CardContent className="p-4 flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-6 h-6 text-red-600" />
                     </div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                 </Card>
 
                 <Card className="border-0 shadow-lg">
-                  <CardContent className="p-6 flex items-start gap-4">
+                  <CardContent className="p-4 flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0">
                       <Clock className="w-6 h-6 text-purple-600" />
                     </div>
@@ -312,7 +312,7 @@ export default function ContactPage() {
 
       {/* Google Map Section */}
       <section className="h-96 bg-stone-200">
-        <iframe
+        {/* <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6889761983473!2d32.0883!3d2.0408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwMDInMjYuOSJOIDMywrAwNScxNy45IkU!5e0!3m2!1sen!2sug!4v1234567890"
           width="100%"
           height="100%"
@@ -321,7 +321,14 @@ export default function ContactPage() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Baraka Hotel Location"
-        />
+        /> */}
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.513504230181!2d32.13965640000001!3d1.9502472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177a9b00702ab5f3%3A0x2ec6c28ed78ce1a2!2sBaraka%20Hotel%20-%20Bweyale%20-%20Kiryandongo!5e1!3m2!1sen!2sug!4v1770488092503!5m2!1sen!2sug" 
+        width="100%" 
+        height="100%" 
+        style={{border:0 }}
+        allowFullScreen 
+        loading="lazy" 
+        referrerPolicy="no-referrer-when-downgrade"/>
       </section>
 
       {/* Quick Contact CTA */}

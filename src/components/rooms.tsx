@@ -50,7 +50,7 @@ const rooms: Room[] = [
   {
     id: 3,
     name: "Deluxe Executive Room",
-    classification: "deluxe-executive",
+    classification: "deluxe-executive-room",
     description:
       "A spacious and well-designed room perfect for business travelers or guests who appreciate extra space and comfort.",
     price: 70000,
@@ -169,9 +169,17 @@ export function Rooms() {
               </CardContent>
 
               <CardFooter className="p-2 space-x-4  flex  justify-center items-center">
-                <Button className="w-24 bg-gray-900 hover:bg-amber-600 text-white transition-colors">
-                  Book Now
-                </Button>
+                <a
+                  href={`https://wa.me/256768666505?text=${encodeURIComponent(
+                    `Hello Baraka Hotel!\n\nI would like to book the following room:\n\n🏨 Room: ${room.name}\n💰 Price: UGX ${room.price.toLocaleString()} per night\n👥 Guests: ${room.guests}\n\nPlease let me know the availability. Thank you!`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-24 bg-gray-900 hover:bg-amber-600 text-white transition-colors">
+                    Book Now
+                  </Button>
+                </a>
                 <Link href={`/rooms/${room.classification}`} className="w-24 p-2 items-center border rounded-lg bg-gray-900 hover:bg-amber-600 text-white transition-colors">
                   Explore
                 </Link>

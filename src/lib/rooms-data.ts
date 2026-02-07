@@ -123,7 +123,7 @@ export const rooms: Room[] = [
   {
     id: 4,
     name: "Twin Economy Room",
-    classification: "twin-economy-room",
+    classification: "twin-economy",
     description: "A budget-friendly twin room suitable for friends or travelers who prefer shared facilities.",
     longDescription: "The Twin Economy Room is an excellent choice for friends, colleagues, or travelers who don't mind sharing facilities and want to save on accommodation costs. This spacious room features two comfortable single beds, providing a restful night's sleep for both guests. The room is equipped with a ceiling fan, wooden chairs for relaxation, and complimentary Wi-Fi to keep you connected. While the bathroom and toilet facilities are shared with other guests on the same floor, they are cleaned regularly and maintained to high standards. This room offers great value for money and is perfect for travelers who prioritize location and comfort over private amenities.",
     price: 60000,

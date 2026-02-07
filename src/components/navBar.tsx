@@ -172,25 +172,25 @@ export function Navigation() {
                 </nav>
 
                 {/* Mobile Contact Info */}
-                <div className="flex flex-col space-y-3 px-4 border-t border-gray-200">
+                <div className="flex flex-col space-y-3 p-4 border-t border-gray-200">
                   <div className="flex items-center gap-3 text-gray-600 text-sm">
                     <Phone className="h-4 w-4 text-amber-600" />
                     <span>+256 768 666 505/ +256 744 628 976</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-600 text-sm">
+                  {/* <div className="flex items-center gap-3 text-gray-600 text-sm">
                     <Mail className="h-4 w-4 text-amber-600" />
                     <span>info@barakahotel.com</span>
-                  </div>
+                  </div> */}
                   <div className="flex items-center gap-3 text-gray-600 text-sm">
                     <MapPin className="h-4 w-4 text-amber-600" />
-                    <span>123 Luxury Avenue</span>
+                    <span>Along Kampala-Gulu Highway, Bweyale, Kiryandongo District – Uganda</span>
                   </div>
                 </div>
 
                 {/* Mobile CTA */}
-                <Button className="w-full bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white shadow-lg font-semibold py-6">
+                {/* <Button className="w-full bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white shadow-lg font-semibold py-6">
                   Book Now
-                </Button>
+                </Button> */}
               </div>
             </SheetContent>
           </Sheet>
