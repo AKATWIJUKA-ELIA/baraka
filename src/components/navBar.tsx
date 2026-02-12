@@ -3,6 +3,7 @@ import * as React from "react"
 import Link from "next/link"
 import { Menu, Phone, MapPin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 
@@ -74,7 +75,13 @@ export function Navigation() {
             <div className={cn("relative transition-all duration-300", isScrolled ? "w-12 h-12" : "w-14 h-14")}>
               <div className="absolute inset-0 bg-linear-to-br from-amber-400 via-amber-500 to-amber-700 rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
               <div className="relative w-full h-full bg-linear-to-br from-amber-500 to-amber-700 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-2xl">B</span>
+                <Image className=" font-bold text-2xl"
+                src="/logo.png"
+                alt="Baraka Hotel Logo"
+                className="rounded-lg shadow-lg"
+                width={isScrolled ? 48 : 56}
+                height={isScrolled ? 48 : 56}
+                />
               </div>
             </div>
             <div className="flex flex-col">
