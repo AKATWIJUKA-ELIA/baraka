@@ -150,18 +150,37 @@ export function Navigation() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-80 bg-white">
-              <div className="flex flex-col space-y-8 mt-8">
+              <div className="flex flex-col space-y-8 mt-8 p-2">
                 {/* Mobile Logo */}
                 <Link href="/" className="flex items-center space-x-3">
                   <div className="relative w-12 h-12">
-                    <div className="absolute inset-0 bg-linear-to-br from-bred via-amber-500 to-bred rounded-lg rotate-6"></div>
-                    <div className="relative w-full h-full bg-linear-to-br from-bred to-bblue rounded-lg flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-xl">B</span>
-                    </div>
+                    <div className="absolute inset-0  rounded-lg rotate-6"></div>
+                   <div className="relative  w-full h-full   rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-300 flex items-center justify-center ">
+                <Image className=" flex bg-transparent h-full w-full  font-bold text-2xl"
+                src="/logonbg.png"
+                alt="Baraka Hotel Logo"
+                width={isScrolled ? 48 : 56}
+                height={isScrolled ? 48 : 56}
+                />
+              </div>
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-serif text-xl font-bold text-gray-900">Baraka Hotel</span>
-                    <span className="text-xs tracking-widest uppercase text-amber-500">Luxury & Comfort</span>
+                    <span
+                className={cn(
+                  "font-serif text-2xl font-bold tracking-wide transition-colors duration-300",
+                  isScrolled ? "text-gray-900" : "text-bred",
+                )}
+              >
+                Baraka <span className="text-bblue" >Hotel</span>
+              </span>
+                    <span
+                className={cn(
+                  "text-xs tracking-widest uppercase transition-colors duration-300",
+                  isScrolled ? "text-amber-500" : "text-amber-200",
+                )}
+              >
+               For a memorable experience
+              </span>
                   </div>
                 </Link>
 
