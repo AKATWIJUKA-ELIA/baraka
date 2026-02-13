@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 import {
   MapPin,
   Phone,
@@ -17,21 +18,18 @@ import {
 } from "lucide-react";
 
 const quickLinks = [
-  { title: "Home", href: "#home" },
+  { title: "Home", href: "/" },
   { title: "Rooms & Suites", href: "/rooms" },
-  { title: "Amenities", href: "#amenities" },
+  { title: "Amenities", href: "/#amenities" },
   { title: "Gallery", href: "/gallery" },
-  { title: "Testimonials", href: "#testimonials" },
+  { title: "Testimonials", href: "/#testimonials" },
   { title: "Contact", href: "/contact" },
 ];
 
 const services = [
   "Room Service",
-  "Airport Transfer",
-  "Spa & Wellness",
   "Fine Dining",
   "Event Hosting",
-  "Concierge",
 ];
 
 export function Footer() {
@@ -68,16 +66,36 @@ export function Footer() {
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* About */}
-          <div>
-            <Link href="/" className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-bred to-bblue rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">B</span>
+          <div className="p-2" >
+            <Link href="/" className="flex flex-col  items-center space-x-2 mb-6">
+            <div className="flex  " >
+                <Image
+                  src="/logowide.png"
+                  alt="Baraka Hotel Logo"
+                  className="flex rotate-3"
+                  width={200}
+                  height={100}
+                />
+            </div>
+
+              <div className="gap-6  rounded-full flex items-center justify-center">
+                <Image
+                  src="/logonbg.png"
+                  alt="Baraka Hotel Logo"
+                  className="flex -rotate-3"
+                  width={24}
+                  height={24}
+                />
+
+                  <div className="flex text-2xl font-bold">
+                        <h1 className="" >
+                        Baraka Hotel</h1>
+                        </div>
               </div>
-              <span className="text-2xl font-bold">Baraka Hotel</span>
+            
             </Link>
-            <p className="text-gray-400 mb-6">
-              Experience unparalleled luxury at Baraka Hotel. Where every moment
-              is crafted to perfection and every guest is treated like royalty.
+            <p className="text-center font-bold text-gray-400 mb-6">
+               For a memorable experience
             </p>
             <div className="flex gap-4">
               <a
@@ -172,26 +190,6 @@ export function Footer() {
           <p className="text-gray-500 text-sm">
             © {currentYear} Baraka Hotel. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm">
-            <Link
-              href="#"
-              className="text-gray-500 hover:text-bred transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="#"
-              className="text-gray-500 hover:text-bblue transition-colors"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="#"
-              className="text-gray-500 hover:text-bred transition-colors"
-            >
-              Cookie Policy
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

@@ -59,9 +59,7 @@ export function Testimonials() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge className="bg-bblue/10 text-bblue border-none mb-4">
-            Guest Reviews
-          </Badge>
+        
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
             What Our Guests Say
           </h2>

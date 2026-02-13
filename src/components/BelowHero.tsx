@@ -4,8 +4,27 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Quote } from "lucide-react";
 import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { use, useRef } from "react";
+gsap.registerPlugin(ScrollTrigger);
 
 export function BelowHero() {
+        useGSAP(() => {
+                gsap.from("#belowHero", {
+                  opacity: 0,
+                  y: 50,
+                  scale: 0.95,
+                duration: 4,
+                ease: "power3.out",
+                // stagger: 0.3,
+                scrollTrigger: {
+                  trigger: "#belowHero",
+                  start: "top 80%",
+                },
+        }) 
+        },[])
   return (
     <section id="belowHero" className="relative py-20 lg:py-28 bg-linear-to-b from-stone-50 to-white overflow-hidden">
       {/* Decorative elements */}
@@ -15,12 +34,6 @@ export function BelowHero() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16 ">
-          <Badge
-            variant="outline"
-            className="mb-4 px-4 py-1.5 text-bred border-bred/30 bg-bred/5"
-          >
-            Welcome to Baraka
-          </Badge>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 mb-4">
             Bweyale <span className="text-bred">Baraka</span> Hotel
           </h2>

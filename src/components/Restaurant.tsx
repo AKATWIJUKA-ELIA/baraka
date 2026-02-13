@@ -36,10 +36,10 @@ export function Restaurant() {
           {/* Text Content */}
           <div className="space-y-8">
             <div>
-              <Badge className="bg-bred/20 text-bred border-bred/30 mb-4">
+              <h1 className=" text-bred font-bold md:text-5xl border-bred/30 mb-4">
                 Restaurant & Coffee Bar
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              </h1>
+              <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold mb-4">
                 Feast Like a King,{" "}
                 <span className="text-bblue">Spend Small</span>
               </h2>

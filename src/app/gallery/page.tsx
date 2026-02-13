@@ -119,9 +119,6 @@ export default function Gallery() {
       <div className="container mx-auto px-4 mt-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge className="bg-bred text-white border-none mb-4">
-            Photo Gallery
-          </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Baraka in Pictures
           </h2>
