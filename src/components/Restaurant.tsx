@@ -36,12 +36,12 @@ export function Restaurant() {
           {/* Text Content */}
           <div className="space-y-8">
             <div>
-              <Badge className="bg-amber-600/20 text-amber-400 border-amber-600/30 mb-4">
+              <h1 className=" text-bred font-bold md:text-5xl border-bred/30 mb-4">
                 Restaurant & Coffee Bar
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              </h1>
+              <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold mb-4">
                 Feast Like a King,{" "}
-                <span className="text-amber-500">Spend Small</span>
+                <span className="text-bblue">Spend Small</span>
               </h2>
               <p className="text-stone-300 text-lg leading-relaxed">
                 From refreshing drinks to satisfying meals, our restaurant and bar 
@@ -54,8 +54,8 @@ export function Restaurant() {
             <div className="grid grid-cols-2 gap-6">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-amber-600/20 flex items-center justify-center">
-                    <feature.icon className="w-5 h-5 text-amber-500" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-bred/20 flex items-center justify-center">
+                    <feature.icon className="w-5 h-5 text-bred" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-white mb-1">
@@ -71,7 +71,7 @@ export function Restaurant() {
             <div className="flex flex-wrap gap-4 pt-4">
               <Button
                 size="lg"
-                className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-amber-600/25 transition-all hover:shadow-xl"
+                className="bg-bred hover:bg-bred/90 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-bred/25 transition-all hover:shadow-xl"
               >
                 View Menu
               </Button>
@@ -103,10 +103,10 @@ export function Restaurant() {
               <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-amber-400 font-semibold text-lg">Open Daily</p>
+                    <p className="text-bblue font-semibold text-lg">Open Daily</p>
                     <p className="text-stone-300 text-sm">Breakfast • Lunch • Dinner</p>
                   </div>
-                  <div className="w-12 h-12 rounded-full bg-amber-600 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-bred flex items-center justify-center">
                     <UtensilsCrossed className="w-6 h-6 text-white" />
                   </div>
                 </div>
@@ -114,8 +114,8 @@ export function Restaurant() {
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-32 h-32 border-2 border-amber-600/30 rounded-2xl -z-10" />
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-amber-600/10 rounded-full blur-xl" />
+            <div className="absolute -top-4 -right-4 w-32 h-32 border-2 border-bblue/30 rounded-2xl -z-10" />
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-bred/10 rounded-full blur-xl" />
           </div>
         </div>
       </div>

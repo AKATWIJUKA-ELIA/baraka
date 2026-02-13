@@ -121,11 +121,11 @@ export default function RoomsPage() {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <Badge className="bg-amber-600/20 text-amber-400 border-amber-600/30 mb-4">
+          <Badge className="bg-bred/20 text-bred border-bred/30 mb-4">
             Our Rooms
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Comfortable <span className="text-amber-500">Accommodation</span>
+            Comfortable <span className="text-bblue">Accommodation</span>
           </h1>
           <p className="text-stone-300 text-lg md:text-xl max-w-3xl mx-auto">
             At Baraka Hotel, we offer a range of clean and comfortable rooms to suit different 
@@ -150,7 +150,7 @@ export default function RoomsPage() {
                       fill
                       className="object-cover"
                     />
-                    <Badge className="absolute top-4 left-4 bg-amber-600 text-white border-none">
+                    <Badge className="absolute top-4 left-4 bg-bred text-white border-none">
                       {room.badge}
                     </Badge>
                     {room.isShared && (
@@ -181,7 +181,7 @@ export default function RoomsPage() {
                       <div className="grid grid-cols-2 gap-2">
                         {room.amenities.map((amenity, i) => (
                           <div key={i} className="flex items-center gap-2 text-stone-600">
-                            <Check className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                            <Check className="w-4 h-4 text-bblue flex-shrink-0" />
                             <span className="text-sm">{amenity}</span>
                           </div>
                         ))}
@@ -191,7 +191,7 @@ export default function RoomsPage() {
                     {/* Price and CTA */}
                     <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-200">
                       <div>
-                        <span className="text-3xl font-bold text-amber-600">
+                        <span className="text-3xl font-bold text-bred">
                           UGX {room.price.toLocaleString()}
                         </span>
                         <span className="text-stone-500 ml-2">/ night</span>
@@ -203,7 +203,7 @@ export default function RoomsPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8">
+                        <Button className="bg-bred hover:bg-bred/90 text-white px-8">
                           Book Now
                         </Button>
                       </a>
@@ -227,7 +227,7 @@ export default function RoomsPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/contact">
-              <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg rounded-xl">
+              <Button size="lg" className="bg-bblue hover:bg-bblue/90 text-white px-8 py-6 text-lg rounded-xl">
                 <Phone className="w-5 h-5 mr-2" />
                 Contact Us
               </Button>

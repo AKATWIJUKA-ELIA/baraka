@@ -33,7 +33,7 @@ export function KeyHighlights() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <Badge className="bg-amber-100 text-amber-700 border-none mb-4">
+          <Badge className="bg-bred/10 text-bred border-none mb-4">
             Why Choose Us
           </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-stone-800 mb-4">
@@ -49,11 +49,11 @@ export function KeyHighlights() {
           {highlights.map((highlight, index) => (
             <div
               key={index}
-              className="group relative p-8 rounded-2xl bg-stone-50 hover:bg-amber-50 border border-stone-100 hover:border-amber-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-center"
+              className="group relative p-8 rounded-2xl bg-stone-50 hover:bg-bred/5 border border-stone-100 hover:border-bred/20 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-center"
             >
               {/* Icon */}
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-amber-100 group-hover:bg-amber-600 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110">
-                <highlight.icon className="h-8 w-8 text-amber-600 group-hover:text-white transition-colors duration-300" />
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-bblue/10 group-hover:bg-bblue flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110">
+                <highlight.icon className="h-8 w-8 text-bblue group-hover:text-white transition-colors duration-300" />
               </div>
 
               {/* Content */}
@@ -65,8 +65,8 @@ export function KeyHighlights() {
               </p>
 
               {/* Decorative corner */}
-              <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-amber-200 rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-amber-200 rounded-bl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-bred/30 rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-bred/30 rounded-bl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>

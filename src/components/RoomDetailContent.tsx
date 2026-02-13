@@ -73,11 +73,11 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
 
           {/* Badges */}
           <div className="absolute top-40 right-6 flex gap-2">
-            <Badge className="bg-amber-600 text-white border-none text-sm px-4 py-1">
+            <Badge className="bg-bred text-white border-none text-sm px-4 py-1">
               {room.badge}
             </Badge>
             {room.isShared && (
-              <Badge className="bg-stone-700 text-white border-none text-sm px-4 py-1">
+              <Badge className="bg-bblue text-white border-none text-sm px-4 py-1">
                 Shared Facilities
               </Badge>
             )}
@@ -108,7 +108,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
                   className={`relative w-24 h-16 md:w-32 md:h-20 rounded-lg overflow-hidden shadow-lg transition-all ${
-                    index === currentImageIndex ? 'ring-4 ring-amber-500 scale-105' : 'opacity-70 hover:opacity-100'
+                    index === currentImageIndex ? 'ring-4 ring-bred scale-105' : 'opacity-70 hover:opacity-100'
                   }`}
                 >
                   <Image
@@ -147,19 +147,19 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                 </h1>
                 <div className="flex flex-wrap gap-6 text-stone-600">
                   <div className="flex items-center gap-2">
-                    <Users className="w-5 h-5 text-amber-600" />
+                    <Users className="w-5 h-5 text-bred" />
                     <span>{room.guests} {room.guests > 1 ? 'Guests' : 'Guest'}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Bed className="w-5 h-5 text-amber-600" />
+                    <Bed className="w-5 h-5 text-bblue" />
                     <span>{room.beds} {room.beds > 1 ? 'Beds' : 'Bed'}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Bath className="w-5 h-5 text-amber-600" />
+                    <Bath className="w-5 h-5 text-bred" />
                     <span>{room.bathrooms > 0 ? `${room.bathrooms} Bathroom` : 'Shared Bathroom'}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Maximize className="w-5 h-5 text-amber-600" />
+                    <Maximize className="w-5 h-5 text-bblue" />
                     <span>{room.size}</span>
                   </div>
                 </div>
@@ -182,8 +182,8 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {room.amenities.map((amenity, index) => (
                       <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-stone-50">
-                        <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                          <Check className="w-4 h-4 text-amber-600" />
+                        <div className="w-8 h-8 rounded-full bg-bblue/10 flex items-center justify-center flex-shrink-0">
+                          <Check className="w-4 h-4 text-bblue" />
                         </div>
                         <span className="text-stone-700">{amenity}</span>
                       </div>
@@ -198,8 +198,8 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                   <h2 className="text-xl font-bold text-stone-800 mb-6">Hotel Policies</h2>
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-5 h-5 text-amber-600" />
+                      <div className="w-10 h-10 rounded-lg bg-bred/10 flex items-center justify-center flex-shrink-0">
+                        <Clock className="w-5 h-5 text-bred" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-stone-800">Check-in/out</h3>
@@ -208,8 +208,8 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
-                        <Shield className="w-5 h-5 text-amber-600" />
+                      <div className="w-10 h-10 rounded-lg bg-bblue/10 flex items-center justify-center flex-shrink-0">
+                        <Shield className="w-5 h-5 text-bblue" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-stone-800">Security</h3>
@@ -238,15 +238,15 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                 <Card className="border-0 shadow-xl">
                   <CardContent className="p-6 md:p-8">
                     <div className="text-center mb-6">
-                      <span className="text-4xl font-bold text-amber-600">
+                      <span className="text-4xl font-bold text-bred">
                         UGX {room.price.toLocaleString()}
                       </span>
                       <span className="text-stone-500 ml-2">/ night</span>
                     </div>
 
                     <div className="space-y-4 mb-6">
-                      <div className="p-4 rounded-lg bg-amber-50 border border-amber-100">
-                        <p className="text-sm text-amber-700 text-center">
+                      <div className="p-4 rounded-lg bg-bblue/5 border border-bblue/20">
+                        <p className="text-sm text-bblue text-center">
                           Best rate guaranteed when booking directly
                         </p>
                       </div>
@@ -261,7 +261,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                         rel="noopener noreferrer"
                         className="block"
                       >
-                        <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white py-6 text-lg rounded-xl">
+                        <Button className="w-full bg-bred hover:bg-bred/90 text-white py-6 text-lg rounded-xl">
                           Book This Room
                         </Button>
                       </a>
@@ -319,7 +319,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                       fill
                       className="object-cover"
                     />
-                    <Badge className="absolute top-3 left-3 bg-amber-600 text-white border-none text-xs">
+                    <Badge className="absolute top-3 left-3 bg-bblue text-white border-none text-xs">
                       {otherRoom.badge}
                     </Badge>
                   </div>
@@ -329,7 +329,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                       {otherRoom.description}
                     </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-amber-600 font-bold">
+                      <span className="text-bred font-bold">
                         UGX {otherRoom.price.toLocaleString()}
                       </span>
                       <span className="text-stone-500 text-sm">/ night</span>
@@ -353,7 +353,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/contact">
-              <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg rounded-xl">
+              <Button size="lg" className="bg-bred hover:bg-bred/90 text-white px-8 py-6 text-lg rounded-xl">
                 <Phone className="w-5 h-5 mr-2" />
                 Contact Us
               </Button>
