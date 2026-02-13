@@ -70,7 +70,7 @@ export function Footer() {
           {/* About */}
           <div>
             <Link href="/" className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-700 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-bred to-bblue rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xl">B</span>
               </div>
               <span className="text-2xl font-bold">Baraka Hotel</span>
@@ -82,25 +82,25 @@ export function Footer() {
             <div className="flex gap-4">
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-amber-600 flex items-center justify-center transition-colors"
+                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-bred flex items-center justify-center transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-amber-600 flex items-center justify-center transition-colors"
+                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-bblue flex items-center justify-center transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-amber-600 flex items-center justify-center transition-colors"
+                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-bred flex items-center justify-center transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-amber-600 flex items-center justify-center transition-colors"
+                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-bblue flex items-center justify-center transition-colors"
               >
                 <Youtube className="h-5 w-5" />
               </a>
@@ -115,7 +115,7 @@ export function Footer() {
                 <li key={link.title}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-amber-500 transition-colors"
+                    className="text-gray-400 hover:text-bblue transition-colors"
                   >
                     {link.title}
                   </Link>
@@ -141,7 +141,7 @@ export function Footer() {
             <h4 className="text-lg font-semibold mb-6">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-amber-500 mt-1 shrink-0" />
+                <MapPin className="h-5 w-5 text-bred mt-1 shrink-0" />
                 <span className="text-gray-400">
                 Along Kampala-Gulu Highway,
                   <br />
@@ -150,7 +150,7 @@ export function Footer() {
               </li>
                
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-amber-500 shrink-0" />
+                <Phone className="h-5 w-5 text-bblue shrink-0" />
                     <span  className="text-sm font-medium"> <a href="tel:+256768666505">+256 768 666 505</a> / <a href="tel:+256744628976">+256 744 628 976</a></span>
               </li>
               {/* <li className="flex items-center gap-3">
@@ -175,19 +175,19 @@ export function Footer() {
           <div className="flex gap-6 text-sm">
             <Link
               href="#"
-              className="text-gray-500 hover:text-amber-500 transition-colors"
+              className="text-gray-500 hover:text-bred transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="#"
-              className="text-gray-500 hover:text-amber-500 transition-colors"
+              className="text-gray-500 hover:text-bblue transition-colors"
             >
               Terms of Service
             </Link>
             <Link
               href="#"
-              className="text-gray-500 hover:text-amber-500 transition-colors"
+              className="text-gray-500 hover:text-bred transition-colors"
             >
               Cookie Policy
             </Link>

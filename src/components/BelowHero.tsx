@@ -9,7 +9,7 @@ export function BelowHero() {
   return (
     <section id="belowHero" className="relative py-20 lg:py-28 bg-linear-to-b from-stone-50 to-white overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-amber-100/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute top-0 left-0 w-72 h-72 bg-bblue/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-stone-200/40 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
@@ -17,14 +17,14 @@ export function BelowHero() {
         <div className="text-center mb-16 ">
           <Badge
             variant="outline"
-            className="mb-4 px-4 py-1.5 text-amber-700 border-amber-300 bg-amber-50"
+            className="mb-4 px-4 py-1.5 text-bred border-bred/30 bg-bred/5"
           >
             Welcome to Baraka
           </Badge>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 mb-4">
-            Bweyale <span className="text-amber-600">Baraka</span> Hotel
+            Bweyale <span className="text-bred">Baraka</span> Hotel
           </h2>
-          <p className="text-xl md:text-2xl text-amber-600 font-medium italic">
+          <p className="text-xl md:text-2xl text-bblue font-medium italic">
             For a memorable experience.
           </p>
         </div>
@@ -54,8 +54,8 @@ export function BelowHero() {
             </div>
 
             {/* Decorative accent */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-amber-500/20 rounded-full blur-xl" />
-            <div className="absolute -top-4 -left-4 w-32 h-32 border-2 border-amber-200 rounded-2xl -z-10" />
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-bblue/20 rounded-full blur-xl" />
+            <div className="absolute -top-4 -left-4 w-32 h-32 border-2 border-bred/20 rounded-2xl -z-10" />
           </div>
 
           {/* Text content */}
@@ -76,7 +76,7 @@ export function BelowHero() {
 
             {/* Location info */}
             <div className="flex items-start gap-4 p-5 bg-stone-100 rounded-xl">
-              <div className="flex-shrink-0 w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center">
+              <div className="flex-shrink-0 w-12 h-12 bg-bred rounded-full flex items-center justify-center">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -89,18 +89,18 @@ export function BelowHero() {
             </div>
 
             {/* Contact info */}
-            <div className="flex items-start gap-4 p-5 bg-amber-50 rounded-xl border border-amber-100">
-              <div className="flex-shrink-0 w-12 h-12 bg-stone-800 rounded-full flex items-center justify-center">
+            <div className="flex items-start gap-4 p-5 bg-bblue/5 rounded-xl border border-bblue/20">
+              <div className="flex-shrink-0 w-12 h-12 bg-bblue rounded-full flex items-center justify-center">
                 <Phone className="w-6 h-6 text-white" />
               </div>
               <div>
                 <h3 className="font-semibold text-stone-800 mb-1">Contact Us</h3>
                 <p className="text-stone-600">
-                  <a href="tel:+256768666505" className="hover:text-amber-600 transition-colors">
+                  <a href="tel:+256768666505" className="hover:text-bred transition-colors">
                     +256 768 666 505
                   </a>
                   <span className="mx-2">/</span>
-                  <a href="tel:+256744628976" className="hover:text-amber-600 transition-colors">
+                  <a href="tel:+256744628976" className="hover:text-bred transition-colors">
                     +256 744 628 976
                   </a>
                 </p>
@@ -111,7 +111,7 @@ export function BelowHero() {
             <div className="pt-4">
               <Button
                 size="lg"
-                className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-xl hover:shadow-amber-500/30"
+                className="bg-bred hover:bg-bred/90 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-bred/25 transition-all hover:shadow-xl hover:shadow-bred/30"
                 onClick={() =>
                   document.getElementById("rooms")?.scrollIntoView({ behavior: "smooth" })
                 }

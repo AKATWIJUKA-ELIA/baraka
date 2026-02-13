@@ -69,11 +69,11 @@ export default function AboutPage() {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <Badge className="bg-amber-600/20 text-amber-400 border-amber-600/30 mb-4">
+          <Badge className="bg-bred/20 text-bred border-bred/30 mb-4">
             About Us
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Welcome to <span className="text-amber-500">Baraka Hotel</span>
+            Welcome to <span className="text-bblue">Baraka Hotel</span>
           </h1>
           <p className="text-stone-300 text-lg md:text-xl max-w-3xl mx-auto">
             A welcoming haven for travelers and guests seeking comfort, great meals, and a peaceful stay.
@@ -93,7 +93,7 @@ export default function AboutPage() {
                 height={450}
                 className="rounded-2xl shadow-2xl"
               />
-              <div className="absolute -bottom-6 -right-6 bg-amber-600 text-white p-6 rounded-2xl shadow-xl hidden md:flex items-center gap-3">
+              <div className="absolute -bottom-6 -right-6 bg-bred text-white p-6 rounded-2xl shadow-xl hidden md:flex items-center gap-3">
                 <Calendar className="w-8 h-8" />
                 <div>
                   <p className="text-2xl font-bold">Dec 13</p>
@@ -103,7 +103,7 @@ export default function AboutPage() {
             </div>
             
             <div className="space-y-6">
-              <Badge className="bg-amber-100 text-amber-700 border-none">
+              <Badge className="bg-bblue/10 text-bblue border-none">
                 Our Story
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
@@ -129,8 +129,8 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Mission */}
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-stone-100">
-              <div className="w-16 h-16 rounded-2xl bg-amber-100 flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-amber-600" />
+              <div className="w-16 h-16 rounded-2xl bg-bred/10 flex items-center justify-center mb-6">
+                <Target className="w-8 h-8 text-bred" />
               </div>
               <h3 className="text-2xl font-bold text-stone-800 mb-4">Our Mission</h3>
               <p className="text-stone-600 text-lg leading-relaxed">
@@ -141,8 +141,8 @@ export default function AboutPage() {
 
             {/* Vision */}
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-stone-100">
-              <div className="w-16 h-16 rounded-2xl bg-amber-100 flex items-center justify-center mb-6">
-                <Eye className="w-8 h-8 text-amber-600" />
+              <div className="w-16 h-16 rounded-2xl bg-bblue/10 flex items-center justify-center mb-6">
+                <Eye className="w-8 h-8 text-bblue" />
               </div>
               <h3 className="text-2xl font-bold text-stone-800 mb-4">Our Vision</h3>
               <p className="text-stone-600 text-lg leading-relaxed">
@@ -158,7 +158,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <Badge className="bg-amber-100 text-amber-700 border-none mb-4">
+            <Badge className="bg-bred/10 text-bred border-none mb-4">
               Why Choose Us
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
@@ -170,10 +170,10 @@ export default function AboutPage() {
             {whyUsPoints.map((point, index) => (
               <div
                 key={index}
-                className="text-center p-6 rounded-2xl bg-stone-50 hover:bg-amber-50 border border-stone-100 hover:border-amber-200 transition-all duration-300"
+                className="text-center p-6 rounded-2xl bg-stone-50 hover:bg-bblue/5 border border-stone-100 hover:border-bblue/20 transition-all duration-300"
               >
-                <div className="w-14 h-14 mx-auto rounded-xl bg-amber-100 flex items-center justify-center mb-4">
-                  <point.icon className="w-7 h-7 text-amber-600" />
+                <div className="w-14 h-14 mx-auto rounded-xl bg-bblue/10 flex items-center justify-center mb-4">
+                  <point.icon className="w-7 h-7 text-bblue" />
                 </div>
                 <p className="text-stone-700 font-medium">{point.title}</p>
               </div>
@@ -183,17 +183,17 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-amber-600">
+      <section className="py-16 bg-bred">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Experience Baraka Hotel?
           </h2>
-          <p className="text-amber-100 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
             Book your stay today and discover why guests love coming back.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/rooms">
-              <Button size="lg" className="bg-white text-amber-600 hover:bg-stone-100 px-8 py-6 text-lg rounded-xl">
+              <Button size="lg" className="bg-white text-bred hover:bg-stone-100 px-8 py-6 text-lg rounded-xl">
                 View Our Rooms
               </Button>
             </Link>

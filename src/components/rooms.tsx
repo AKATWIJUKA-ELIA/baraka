@@ -82,7 +82,7 @@ export function Rooms() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge className="bg-amber-100 text-amber-700 border-none mb-4">
+          <Badge className="bg-bred/10 text-bred border-none mb-4">
             Our Accommodations
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -108,7 +108,7 @@ export function Rooms() {
                   alt={room.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <Badge className="absolute top-4 left-4 bg-amber-600 text-white border-none">
+                <Badge className="absolute top-4 left-4 bg-bred text-white border-none">
                   {room.badge}
                 </Badge>
                 {room.isShared && (
@@ -140,9 +140,9 @@ export function Rooms() {
                   {room.amenityIcons.map((Icon, index) => (
                     <div
                       key={index}
-                      className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center"
+                      className="w-8 h-8 rounded-lg bg-bblue/10 flex items-center justify-center"
                     >
-                      <Icon className="h-4 w-4 text-amber-600" />
+                      <Icon className="h-4 w-4 text-bblue" />
                     </div>
                   ))}
                 </div>
@@ -161,7 +161,7 @@ export function Rooms() {
 
                 {/* Price */}
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-bold text-amber-600">
+                  <span className="text-2xl font-bold text-bred">
                     UGX {room.price.toLocaleString()}
                   </span>
                   <span className="text-sm text-gray-500">/ night</span>
@@ -176,11 +176,11 @@ export function Rooms() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button className="w-24 bg-gray-900 hover:bg-amber-600 text-white transition-colors">
+                  <Button className="w-24 bg-bred hover:bg-bred/90 text-white transition-colors">
                     Book Now
                   </Button>
                 </a>
-                <Link href={`/rooms/${room.classification}`} className="w-24 p-2 items-center border rounded-lg bg-gray-900 hover:bg-amber-600 text-white transition-colors">
+                <Link href={`/rooms/${room.classification}`} className="w-24 p-2 items-center border rounded-lg bg-bblue hover:bg-bblue/90 text-white transition-colors">
                   Explore
                 </Link>
               </CardFooter>
@@ -192,7 +192,7 @@ export function Rooms() {
         <div className="text-center mt-12">
           <Link href="/rooms"
             
-            className="border-amber-600 p-4 border rounded-full text-amber-600 hover:bg-amber-600 hover:text-white"
+            className="border-bred p-4 border rounded-full text-bred hover:bg-bred hover:text-white"
           >
             Explore All Rooms
           </Link >

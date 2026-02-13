@@ -55,11 +55,11 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 bg-amber-50">
+    <section id="testimonials" className="py-20 bg-bblue/5">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge className="bg-amber-100 text-amber-700 border-none mb-4">
+          <Badge className="bg-bblue/10 text-bblue border-none mb-4">
             Guest Reviews
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -80,7 +80,7 @@ export function Testimonials() {
             >
               <CardContent className="p-6">
                 {/* Quote Icon */}
-                <Quote className="h-10 w-10 text-amber-200 mb-4" />
+                <Quote className="h-10 w-10 text-bblue/30 mb-4" />
 
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">
@@ -123,25 +123,6 @@ export function Testimonials() {
           ))}
         </div>
 
-        {/* Trust Badges */}
-        <div className="mt-16 flex flex-wrap justify-center items-center gap-8 md:gap-16">
-          <div className="text-center">
-            <p className="text-4xl font-bold text-amber-600">4.9/5</p>
-            <p className="text-gray-600">Average Rating</p>
-          </div>
-          <div className="text-center">
-            <p className="text-4xl font-bold text-amber-600">10,000+</p>
-            <p className="text-gray-600">Happy Guests</p>
-          </div>
-          <div className="text-center">
-            <p className="text-4xl font-bold text-amber-600">98%</p>
-            <p className="text-gray-600">Would Recommend</p>
-          </div>
-          <div className="text-center">
-            <p className="text-4xl font-bold text-amber-600">50+</p>
-            <p className="text-gray-600">Awards Won</p>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -169,11 +169,11 @@ export default function RestaurantPage() {
             />
           </div>
           <div className="container mx-auto px-4 relative z-10 text-center">
-            <Badge className="bg-amber-600/20 text-amber-400 border-amber-600/30 mb-4">
+            <Badge className="bg-bred/20 text-bred border-bred/30 mb-4">
               Dining at Baraka
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Restaurant & <span className="text-amber-500">Coffee Bar</span>
+              Restaurant & <span className="text-bblue">Coffee Bar</span>
             </h1>
             <p className="text-stone-300 text-lg md:text-xl max-w-3xl mx-auto">
               Our restaurant offers a variety of freshly prepared meals, including local 
@@ -184,7 +184,7 @@ export default function RestaurantPage() {
         </section>
 
       {/* Opening Hours */}
-      <section className="py-12 bg-amber-600">
+      <section className="py-12 bg-bred">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
             {openingHours.map((item, index) => (
@@ -204,7 +204,7 @@ export default function RestaurantPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="bg-amber-100 text-amber-700 border-none mb-4">
+            <Badge className="bg-bblue/10 text-bblue border-none mb-4">
               Our Menu
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-stone-800 mb-4">
@@ -221,7 +221,7 @@ export default function RestaurantPage() {
             {menuCategories.map((category, index) => (
               <Card key={index} className="border-0 shadow-lg overflow-hidden">
                 <div className="bg-stone-800 text-white p-4 flex items-center gap-3">
-                  <category.icon className="w-6 h-6 text-amber-500" />
+                  <category.icon className="w-6 h-6 text-bblue" />
                   <h3 className="text-xl font-bold">{category.title}</h3>
                 </div>
                 <CardContent className="p-6">
@@ -229,7 +229,7 @@ export default function RestaurantPage() {
                     {category.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex justify-between items-center border-b border-stone-100 pb-3 last:border-0 last:pb-0">
                         <span className="text-stone-700">{item.name}</span>
-                        <span className="font-semibold text-amber-600">{item.price}</span>
+                        <span className="font-semibold text-bred">{item.price}</span>
                       </li>
                     ))}
                   </ul>
@@ -241,14 +241,14 @@ export default function RestaurantPage() {
           {/* Beverages Section */}
           <div className="bg-stone-50 rounded-2xl p-8">
             <div className="flex items-center gap-3 mb-6">
-              <CupSoda className="w-8 h-8 text-amber-600" />
+              <CupSoda className="w-8 h-8 text-bblue" />
               <h3 className="text-2xl font-bold text-stone-800">Beverages</h3>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {beverages.map((item, index) => (
                 <div key={index} className="bg-white rounded-xl p-4 shadow-sm">
                   <p className="text-stone-700 font-medium">{item.name}</p>
-                  <p className="text-amber-600 font-bold">{item.price}</p>
+                  <p className="text-bred font-bold">{item.price}</p>
                 </div>
               ))}
             </div>
@@ -260,7 +260,7 @@ export default function RestaurantPage() {
       <section className="py-20 bg-stone-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <Badge className="bg-amber-100 text-amber-700 border-none mb-4">
+            <Badge className="bg-bred/10 text-bred border-none mb-4">
               Food Gallery
             </Badge>
             <h2 className="text-3xl font-bold text-stone-800">
@@ -293,7 +293,7 @@ export default function RestaurantPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-amber-600 hover:bg-amber-700 text-white px-8"
+              className="bg-bred hover:bg-bred/90 text-white px-8"
               asChild
             >
               <Link href="/contact">Make Reservation</Link>
