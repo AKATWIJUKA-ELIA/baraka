@@ -111,15 +111,6 @@ export function Hero() {
         </div>
       </div> */}
 
-      <div className="absolute bottom-40 right-10 hidden lg:block z-20">
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-white">
-          <div className="flex items-center gap-2">
-            <MapPin className="h-5 w-5 text-amber-400" />
-            <span className="font-semibold">Prime Location</span>
-          </div>
-          <p className="text-sm text-white/70">Downtown Paradise</p>
-        </div>
-      </div>
 
       {/* Main Content */}
       <div className=" absolute z-10 md:left-20 mx-2 top-[60%] md:top-[50%]  bg-black/50   p-4 text-center">
@@ -129,7 +120,7 @@ export function Hero() {
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
           {heroSlides[current]?.title || "Experience"}
-          <span className="block text-transparent bg-clip-text bg-linear-to-b from-amber-400 to-amber-600">
+          <span className="block text-transparent bg-clip-text bg-linear-to-b from-bblue to-bred">
             {heroSlides[current]?.highlight || "Unparalleled Luxury"}
           </span>
         </h1>
@@ -200,7 +191,7 @@ export function Hero() {
       {/* Scroll Indicator */}
       <button
         onClick={scrollToRooms}
-        className="absolute bg-white/50 border rounded-full py-4 z-40 bottom-0 left-1/2 transform -translate-x-1/2 text-white  cursor-pointer"
+        className="absolute bg-white/50 border border-bblue/30 rounded-full py-4 z-40 bottom-0 left-1/2 transform -translate-x-1/2 text-bred  cursor-pointer"
       >
         <ChevronDown className="h-12 w-9 animate-bounce " />
       </button>

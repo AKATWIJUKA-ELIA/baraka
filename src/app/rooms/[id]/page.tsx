@@ -56,7 +56,7 @@ export default async function RoomDetailPage({ params }: RoomDetailPageProps) {
           <h1 className="text-4xl font-bold text-stone-800 mb-4">Room Not Found</h1>
           <p className="text-stone-600 mb-8">The room you&apos;re looking for doesn&apos;t exist.</p>
           <Link href="/rooms">
-            <Button className="bg-amber-600 hover:bg-amber-700 text-white">
+            <Button className="bg-bred hover:bg-bred/90 text-white">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Rooms
             </Button>

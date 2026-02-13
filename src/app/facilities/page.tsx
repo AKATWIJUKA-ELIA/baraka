@@ -110,11 +110,11 @@ export default function FacilitiesPage() {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <Badge className="bg-amber-600/20 text-amber-400 border-amber-600/30 mb-4">
+          <Badge className="bg-bblue/20 text-bblue border-bblue/30 mb-4">
             Extra Facilities
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Our <span className="text-amber-500">Facilities</span>
+            Our <span className="text-bred">Facilities</span>
           </h1>
           <p className="text-stone-300 text-lg md:text-xl max-w-3xl mx-auto">
             Beyond comfortable rooms and great food, we offer additional facilities 
@@ -145,13 +145,13 @@ export default function FacilitiesPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   </div>
                   {/* Decorative elements */}
-                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-amber-500/20 rounded-full blur-xl" />
-                  <div className={`absolute -top-4 ${index % 2 === 1 ? '-right-4' : '-left-4'} w-32 h-32 border-2 border-amber-200 rounded-2xl -z-10`} />
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-bblue/20 rounded-full blur-xl" />
+                  <div className={`absolute -top-4 ${index % 2 === 1 ? '-right-4' : '-left-4'} w-32 h-32 border-2 border-bred/20 rounded-2xl -z-10`} />
                 </div>
 
                 {/* Content */}
                 <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <Badge className="bg-amber-100 text-amber-700 border-none">
+                  <Badge className="bg-bblue/10 text-bblue border-none">
                     {facility.title}
                   </Badge>
                   <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
@@ -168,8 +168,8 @@ export default function FacilitiesPage() {
                         key={featureIndex}
                         className="flex items-center gap-3 p-3 bg-stone-50 rounded-xl"
                       >
-                        <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
-                          <feature.icon className="w-5 h-5 text-amber-600" />
+                        <div className="w-10 h-10 rounded-lg bg-bred/10 flex items-center justify-center flex-shrink-0">
+                          <feature.icon className="w-5 h-5 text-bred" />
                         </div>
                         <span className="text-stone-700 font-medium">{feature.text}</span>
                       </div>
@@ -183,17 +183,17 @@ export default function FacilitiesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-amber-600 text-white">
+      <section className="py-16 bg-bred text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Need More Information?</h2>
-          <p className="text-amber-100 mb-8 max-w-xl mx-auto">
+          <p className="text-red-100 mb-8 max-w-xl mx-auto">
             Contact us to learn more about our facilities or to make a booking for 
             our conference room or rooftop space.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              className="bg-white text-amber-600 hover:bg-stone-100 px-8"
+              className="bg-white text-bred hover:bg-stone-100 px-8"
               asChild
             >
               <Link href="/contact">Contact Us</Link>

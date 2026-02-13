@@ -34,7 +34,7 @@ export function Navigation() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "bg-white/98 backdrop-blur-lg shadow-xl border-b border-amber-100/50"
+          ? "bg-white/98 backdrop-blur-lg shadow-xl border-b border-bblue/20"
           : "bg-linear-to-b from-black/60 via-black/40 to-transparent",
       )}
     >
@@ -72,13 +72,12 @@ export function Navigation() {
         >
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className={cn("relative transition-all duration-300", isScrolled ? "w-12 h-12" : "w-14 h-14")}>
-              <div className="absolute inset-0 bg-linear-to-br from-amber-400 via-amber-500 to-amber-700 rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-300"></div>
-              <div className="relative w-full h-full bg-linear-to-br from-amber-500 to-amber-700 rounded-lg flex items-center justify-center shadow-lg">
-                <Image className=" font-bold text-2xl"
-                src="/logo.png"
+            <div className={cn("relative transition-all duration-300", isScrolled ? "w-12 h-12" : "w-16 h-14")}>
+              <div className="absolute inset-0 rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
+              <div className="relative  w-full h-full   rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-300 flex items-center justify-center ">
+                <Image className=" flex bg-transparent h-full w-full  font-bold text-2xl"
+                src="/logonbg.png"
                 alt="Baraka Hotel Logo"
-                className="rounded-lg shadow-lg"
                 width={isScrolled ? 48 : 56}
                 height={isScrolled ? 48 : 56}
                 />
@@ -88,15 +87,15 @@ export function Navigation() {
               <span
                 className={cn(
                   "font-serif text-2xl font-bold tracking-wide transition-colors duration-300",
-                  isScrolled ? "text-gray-900" : "text-red-600",
+                  isScrolled ? "text-gray-900" : "text-bred",
                 )}
               >
-                Baraka <span className="text-blue-600" >Hotel</span>
+                Baraka <span className="text-bblue" >Hotel</span>
               </span>
               <span
                 className={cn(
                   "text-xs tracking-widest uppercase transition-colors duration-300",
-                  isScrolled ? "text-amber-600" : "text-amber-200",
+                  isScrolled ? "text-amber-500" : "text-amber-200",
                 )}
               >
                For a memorable experience
@@ -112,14 +111,14 @@ export function Navigation() {
                 href={item.href}
                 className={cn(
                   "relative px-5 py-2 text-sm font-medium tracking-wide transition-all duration-300 rounded-lg group",
-                  isScrolled ? "text-gray-700 hover:text-amber-600" : "text-white hover:text-amber-200",
+                  isScrolled ? "bg-transparent text-gray-700 hover:text-bred" : "text-white hover:text-bblue",
                 )}
               >
                 {item.title}
                 <span
                   className={cn(
                     "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-3/4 transition-all duration-300",
-                    isScrolled ? "bg-amber-600" : "bg-amber-200",
+                    isScrolled ? "bg-bred" : "bg-bblue",
                   )}
                 ></span>
               </Link>
@@ -129,9 +128,11 @@ export function Navigation() {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
 
-            <Button className="bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6">
+            
+              
+              <Link href="tel:+256768666505" className="flex  items-center justify-center rounded-lg  p-2 gap-3 ml-2 bg-linear-to-r from-bred to-bred/90 hover:from-bred/90 hover:to-bred text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6">
               <Phone className="h-4 w-4" /> Book Now 
-            </Button>
+              </Link>
           </div>
 
           {/* Mobile Menu */}
@@ -142,7 +143,7 @@ export function Navigation() {
                 size="icon"
                 className={cn(
                   "transition-colors duration-300",
-                  isScrolled ? "text-gray-900 hover:bg-amber-50" : "text-white hover:bg-white/10",
+                  isScrolled ? "text-gray-900 hover:bg-bblue/10" : "text-white hover:bg-white/10",
                 )}
               >
                 <Menu className="h-6 w-6" />
@@ -153,14 +154,14 @@ export function Navigation() {
                 {/* Mobile Logo */}
                 <Link href="/" className="flex items-center space-x-3">
                   <div className="relative w-12 h-12">
-                    <div className="absolute inset-0 bg-linear-to-br from-amber-400 via-amber-500 to-amber-700 rounded-lg rotate-6"></div>
-                    <div className="relative w-full h-full bg-linear-to-br from-amber-500 to-amber-700 rounded-lg flex items-center justify-center shadow-lg">
+                    <div className="absolute inset-0 bg-linear-to-br from-bred via-amber-500 to-bred rounded-lg rotate-6"></div>
+                    <div className="relative w-full h-full bg-linear-to-br from-bred to-bblue rounded-lg flex items-center justify-center shadow-lg">
                       <span className="text-white font-bold text-xl">B</span>
                     </div>
                   </div>
                   <div className="flex flex-col">
                     <span className="font-serif text-xl font-bold text-gray-900">Baraka Hotel</span>
-                    <span className="text-xs tracking-widest uppercase text-amber-600">Luxury & Comfort</span>
+                    <span className="text-xs tracking-widest uppercase text-amber-500">Luxury & Comfort</span>
                   </div>
                 </Link>
 
@@ -171,7 +172,7 @@ export function Navigation() {
                       key={item.title}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-base font-medium text-gray-700 hover:text-amber-600 hover:bg-amber-50 transition-colors py-3 px-4 rounded-lg border-b border-gray-100 last:border-0"
+                      className="text-base font-medium text-gray-700 hover:text-bred hover:bg-bred/5 transition-colors py-3 px-4 rounded-lg border-b border-gray-100 last:border-0"
                     >
                       {item.title}
                     </Link>
@@ -181,15 +182,15 @@ export function Navigation() {
                 {/* Mobile Contact Info */}
                 <div className="flex flex-col space-y-3 p-4 border-t border-gray-200">
                   <div className="flex items-center gap-3 text-gray-600 text-sm">
-                    <Phone className="h-4 w-4 text-amber-600" />
+                    <Phone className="h-4 w-4 text-bred" />
                     <span>+256 768 666 505/ +256 744 628 976</span>
                   </div>
                   {/* <div className="flex items-center gap-3 text-gray-600 text-sm">
-                    <Mail className="h-4 w-4 text-amber-600" />
+                    <Mail className="h-4 w-4 text-bred" />
                     <span>info@barakahotel.com</span>
                   </div> */}
                   <div className="flex items-center gap-3 text-gray-600 text-sm">
-                    <MapPin className="h-4 w-4 text-amber-600" />
+                    <MapPin className="h-4 w-4 text-bblue" />
                     <span>Along Kampala-Gulu Highway, Bweyale, Kiryandongo District – Uganda</span>
                   </div>
                 </div>

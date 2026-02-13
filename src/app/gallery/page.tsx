@@ -119,9 +119,6 @@ export default function Gallery() {
       <div className="container mx-auto px-4 mt-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge className="bg-amber-600 text-white border-none mb-4">
-            Photo Gallery
-          </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Baraka in Pictures
           </h2>
@@ -152,7 +149,7 @@ export default function Gallery() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <Badge className="bg-amber-600 text-white border-none mb-2">
+                <Badge className="bg-bblue text-white border-none mb-2">
                   {image.category}
                 </Badge>
                 <h3 className="text-xl font-semibold text-white">

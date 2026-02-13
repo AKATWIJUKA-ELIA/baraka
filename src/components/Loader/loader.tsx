@@ -10,8 +10,8 @@ const loader = () => {
                                             visible={true}
                                             height="30"
                                             width="30"
-                                            color="#0000FF"
-                                            secondaryColor="#FFD700"
+                                            color="#f71f14"
+                                            secondaryColor="#46c1ee"
                                             ariaLabel="oval-loading"
                                             />
                             </div>

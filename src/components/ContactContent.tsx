@@ -44,11 +44,11 @@ export function ContactContent() {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <span className="inline-flex items-center rounded-md bg-amber-600/20 px-2 py-1 text-xs font-medium text-amber-400 ring-1 ring-inset ring-amber-600/30 mb-4">
+          <span className="inline-flex items-center rounded-md bg-bred/20 px-2 py-1 text-xs font-medium text-bred ring-1 ring-inset ring-bred/30 mb-4">
             Contact Us
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Get in <span className="text-amber-500">Touch</span>
+            Get in <span className="text-bblue">Touch</span>
           </h1>
           <p className="text-stone-300 text-lg md:text-xl max-w-3xl mx-auto">
             We would love to hear from you. Whether you&apos;re making a reservation or 
@@ -76,18 +76,18 @@ export function ContactContent() {
               <div className="space-y-4">
                 <Card className="border-0 shadow-lg">
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-amber-600" />
+                    <div className="w-12 h-12 rounded-xl bg-bred/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-bred" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-stone-800 mb-1">Phone Numbers</h3>
                       <p className="text-stone-600">
-                        <a href="tel:+256768666505" className="hover:text-amber-600 transition-colors">
+                        <a href="tel:+256768666505" className="hover:text-bred transition-colors">
                           +256 768 666 505
                         </a>
                       </p>
                       <p className="text-stone-600">
-                        <a href="tel:+256744628976" className="hover:text-amber-600 transition-colors">
+                        <a href="tel:+256744628976" className="hover:text-bred transition-colors">
                           +256 744 628 976
                         </a>
                       </p>
@@ -119,8 +119,8 @@ export function ContactContent() {
 
                 <Card className="border-0 shadow-lg">
                   <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-red-600" />
+                    <div className="w-12 h-12 rounded-xl bg-bblue/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-bblue" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-stone-800 mb-1">Physical Address</h3>
@@ -277,7 +277,7 @@ export function ContactContent() {
 
                     <Button 
                       type="submit" 
-                      className="w-full bg-amber-600 hover:bg-amber-700 text-white py-6 text-lg rounded-xl"
+                      className="w-full bg-bred hover:bg-bred/90 text-white py-6 text-lg rounded-xl"
                     >
                       <Send className="w-5 h-5 mr-2" />
                       Send Reservation Request
@@ -318,7 +318,7 @@ export function ContactContent() {
             </div>
             <div className="flex flex-wrap gap-4">
               <a href="tel:+256768666505">
-                <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg rounded-xl">
+                <Button className="bg-bred hover:bg-bred/90 text-white px-8 py-6 text-lg rounded-xl">
                   <Phone className="w-5 h-5 mr-2" />
                   Call Now
                 </Button>

@@ -74,9 +74,6 @@ export function Amenities() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge className="bg-amber-100 text-amber-700 border-none mb-4">
-            Hotel Amenities
-          </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
             Our Facilities & Services
           </h2>
@@ -91,10 +88,10 @@ export function Amenities() {
           {amenities.map((amenity, index) => (
             <div
               key={index}
-              className="group p-6 rounded-2xl bg-gray-50 hover:bg-amber-50 border border-transparent hover:border-amber-200 transition-all duration-300 hover:shadow-lg cursor-pointer"
+              className="group p-6 rounded-2xl bg-gray-50 hover:bg-bblue/5 border border-transparent hover:border-bblue/20 transition-all duration-300 hover:shadow-lg cursor-pointer"
             >
-              <div className="w-14 h-14 rounded-xl bg-amber-100 group-hover:bg-amber-600 flex items-center justify-center mb-4 transition-colors duration-300">
-                <amenity.icon className="h-7 w-7 text-amber-600 group-hover:text-white transition-colors duration-300" />
+              <div className="w-14 h-14 rounded-xl bg-bblue/10 group-hover:bg-bblue flex items-center justify-center mb-4 transition-colors duration-300">
+                <amenity.icon className="h-7 w-7 text-bblue group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {amenity.title}
@@ -114,13 +111,13 @@ export function Amenities() {
                   height={400}
               className="rounded-2xl shadow-2xl"
             />
-            <div className="absolute -bottom-6 -right-6 bg-amber-600 text-white p-6 rounded-2xl shadow-xl hidden md:block">
+            <div className="absolute -bottom-6 -right-6 bg-bred text-white p-6 rounded-2xl shadow-xl hidden md:block">
               <p className="text-3xl font-bold">2024</p>
               <p className="text-sm">Newly Opened</p>
             </div>
           </div>
           <div className="space-y-6">
-            <Badge className="bg-amber-100 text-amber-700 border-none">
+            <Badge className="bg-bred/10 text-bred border-none">
               Why Choose Us
             </Badge>
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -134,32 +131,32 @@ export function Amenities() {
             </p>
             <ul className="space-y-4">
               <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center">
-                  <span className="text-amber-600 text-sm">✓</span>
+                <div className="w-6 h-6 rounded-full bg-bred/10 flex items-center justify-center">
+                  <span className="text-bred text-sm">✓</span>
                 </div>
                 <span className="text-gray-700">
                   Clean and comfortable rooms
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center">
-                  <span className="text-amber-600 text-sm">✓</span>
+                <div className="w-6 h-6 rounded-full bg-bblue/10 flex items-center justify-center">
+                  <span className="text-bblue text-sm">✓</span>
                 </div>
                 <span className="text-gray-700">
                   Affordable pricing
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center">
-                  <span className="text-amber-600 text-sm">✓</span>
+                <div className="w-6 h-6 rounded-full bg-bred/10 flex items-center justify-center">
+                  <span className="text-bred text-sm">✓</span>
                 </div>
                 <span className="text-gray-700">
                   Friendly and professional staff
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center">
-                  <span className="text-amber-600 text-sm">✓</span>
+                <div className="w-6 h-6 rounded-full bg-bblue/10 flex items-center justify-center">
+                  <span className="text-bblue text-sm">✓</span>
                 </div>
                 <span className="text-gray-700">
                   Convenient location

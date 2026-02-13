@@ -24,7 +24,7 @@ export function CallToAction() {
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
             Planning your journey?{" "}
-            <span className="text-amber-500">Make Baraka Hotel</span> your stop of choice.
+            <span className="text-bblue">Make Baraka Hotel</span> your stop of choice.
           </h2>
 
           {/* Description */}
@@ -37,14 +37,14 @@ export function CallToAction() {
           {/* Contact Info */}
           <div className="flex flex-wrap gap-6 mb-10">
             <div className="flex items-center gap-3 text-stone-300">
-              <div className="w-10 h-10 rounded-full bg-amber-600/20 flex items-center justify-center">
-                <Phone className="w-5 h-5 text-amber-500" />
+              <div className="w-10 h-10 rounded-full bg-bred/20 flex items-center justify-center">
+                <Phone className="w-5 h-5 text-bred" />
               </div>
               <span>+256 768 666 505</span>
             </div>
             <div className="flex items-center gap-3 text-stone-300">
-              <div className="w-10 h-10 rounded-full bg-amber-600/20 flex items-center justify-center">
-                <MapPin className="w-5 h-5 text-amber-500" />
+              <div className="w-10 h-10 rounded-full bg-bblue/20 flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-bblue" />
               </div>
               <span>Bweyale, Kiryandongo</span>
             </div>
@@ -54,7 +54,7 @@ export function CallToAction() {
           <div className="flex flex-wrap gap-4">
             <Button
               size="lg"
-              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-amber-600/25 transition-all hover:shadow-xl hover:scale-105 group"
+              className="bg-bred hover:bg-bred/90 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-bred/25 transition-all hover:shadow-xl hover:scale-105 group"
             >
               <Calendar className="w-5 h-5 mr-2" />
               Book a Room
@@ -73,8 +73,8 @@ export function CallToAction() {
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-amber-600/10 rounded-full blur-3xl" />
-      <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-bred/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-bblue/5 rounded-full blur-2xl" />
     </section>
   );
 }
