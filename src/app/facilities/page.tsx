@@ -41,7 +41,11 @@ const facilities = [
     id: "conference",
     title: "Conference Room",
     description: "Perfect for meetings, workshops, and corporate events. Our well-equipped conference room provides a professional setting for your business needs.",
-    image: "/baraka/hero3.jpg",
+    images: [
+      "/baraka/conference.jpg",
+      "/baraka/conference1.jpg",
+      "/baraka/conference2.jpg",
+    ],
     features: [
       { icon: Users, text: "Seats up to 45 people" },
       { icon: Wind, text: "Well aerated and air-conditioned" },
@@ -53,7 +57,13 @@ const facilities = [
     id: "rooftop",
     title: "Rooftop",
     description: "An open-air relaxing atmosphere perfect for small events, gatherings, and evening relaxation with scenic views of the surroundings.",
-    image: "/baraka/hero2.jpg",
+    images: [
+      "/baraka/roof.jpg",
+      "/baraka/roof1.jpg",
+      "/baraka/roof2.jpg",
+      "/baraka/roof3.jpg",
+      "/baraka/roof4.jpg",
+    ],
     features: [
       { icon: Sun, text: "Open-air and relaxing atmosphere" },
       { icon: PartyPopper, text: "Ideal for small events and birthday parties" },
@@ -65,7 +75,11 @@ const facilities = [
     id: "parking",
     title: "Parking",
     description: "Rest easy knowing your vehicle is safe in our spacious, secure parking area with 24/7 surveillance.",
-    image: "/baraka/hero.jpg",
+    images: [
+      "/baraka/parking.jpg",
+      "/baraka/parking1.jpg",
+      "/baraka/parking2.jpg",
+    ],
     features: [
       { icon: Car, text: "Spacious parking area" },
       { icon: Shield, text: "Safe and secure" },
@@ -76,7 +90,11 @@ const facilities = [
     id: "laundry",
     title: "Laundry Services",
     description: "Professional washing and ironing services at affordable rates. Keep your clothes fresh during your stay.",
-    image: "/baraka/hero3.jpg",
+    images: [
+      "/baraka/laundry.jpg",
+      "/baraka/laundry1.jpg",
+      "/baraka/laundry2.jpg",
+    ],
     features: [
       { icon: Shirt, text: "Professional washing" },
       { icon: Shirt, text: "Ironing services" },
@@ -87,7 +105,11 @@ const facilities = [
     id: "dstv",
     title: "DSTV Entertainment",
     description: "Stay entertained with our DSTV service. Watch live football matches and stay updated with local and international news.",
-    image: "/baraka/hero2.jpg",
+    images: [
+      "/baraka/dstv.jpg",
+      "/baraka/dstv1.jpg",
+      "/baraka/dstv2.jpg",
+    ],
     features: [
       { icon: Tv, text: "Live football matches" },
       { icon: Tv, text: "Local and international news" },
@@ -110,9 +132,9 @@ export default function FacilitiesPage() {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <Badge className="bg-bblue/20 text-bblue border-bblue/30 mb-4">
+          {/* <Badge className="bg-bblue/20 text-bblue border-bblue/30 mb-4">
             Extra Facilities
-          </Badge>
+          </Badge> */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Our <span className="text-bred">Facilities</span>
           </h1>
@@ -132,17 +154,35 @@ export default function FacilitiesPage() {
                 key={facility.id} 
                 className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
               >
-                {/* Image */}
+                {/* Images Gallery */}
                 <div className={`relative ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                    <Image
-                      src={facility.image}
-                      alt={facility.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-[350px] lg:h-[450px] object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="space-y-3">
+                    {/* Main Image */}
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                      <Image
+                        src={facility.images[0]}
+                        alt={facility.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-[300px] lg:h-[350px] object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    </div>
+                    {/* Thumbnail Gallery */}
+                    {facility.images.length > 1 && (
+                      <div className="grid grid-cols-4 gap-2">
+                        {facility.images.slice(1, 5).map((img, imgIndex) => (
+                          <div key={imgIndex} className="relative rounded-lg overflow-hidden aspect-square">
+                            <Image
+                              src={img}
+                              alt={`${facility.title} ${imgIndex + 2}`}
+                              fill
+                              className="object-cover hover:scale-110 transition-transform duration-300"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   {/* Decorative elements */}
                   <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-bblue/20 rounded-full blur-xl" />
@@ -151,9 +191,9 @@ export default function FacilitiesPage() {
 
                 {/* Content */}
                 <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <Badge className="bg-bblue/10 text-bblue border-none">
+                  {/* <Badge className="bg-bblue/10 text-bblue border-none">
                     {facility.title}
-                  </Badge>
+                  </Badge> */}
                   <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
                     {facility.title}
                   </h2>
@@ -201,7 +241,7 @@ export default function FacilitiesPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white/10 px-8"
+              className="border-white bg-bblue text-white hover:bg-white/10 px-8"
               asChild
             >
               <a href="tel:+256768666505">

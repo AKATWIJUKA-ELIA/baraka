@@ -69,9 +69,7 @@ export default function AboutPage() {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <Badge className="bg-bred/20 text-bred border-bred/30 mb-4">
-            About Us
-          </Badge>
+          
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Welcome to <span className="text-bblue">Baraka Hotel</span>
           </h1>
@@ -82,9 +80,9 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white ">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center  border-r-3 border-r-red-700">
             <div className="relative">
               <Image
                 src="/baraka/hero.jpg"
@@ -93,7 +91,7 @@ export default function AboutPage() {
                 height={450}
                 className="rounded-2xl shadow-2xl"
               />
-              <div className="absolute -bottom-6 -right-6 bg-bred text-white p-6 rounded-2xl shadow-xl hidden md:flex items-center gap-3">
+              <div className="absolute -bottom-6 -right-6 bg-red-700 text-white p-6 rounded-2xl shadow-xl hidden md:flex items-center gap-3">
                 <Calendar className="w-8 h-8" />
                 <div>
                   <p className="text-2xl font-bold">Dec 13</p>
@@ -103,9 +101,9 @@ export default function AboutPage() {
             </div>
             
             <div className="space-y-6">
-              <Badge className="bg-bblue/10 text-bblue border-none">
+              <div className=" text-3xl text-bred font-bold bg-bblue/10  border-none">
                 Our Story
-              </Badge>
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
                 A Trusted Stop for Comfort
               </h2>
@@ -124,9 +122,9 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 bg-stone-50">
+      <section className="py-20 bg-stone-50 ">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 border-t-4 border-l-4 border-bblue p-2">
             {/* Mission */}
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-stone-100">
               <div className="w-16 h-16 rounded-2xl bg-bred/10 flex items-center justify-center mb-6">
@@ -155,12 +153,12 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <Badge className="bg-bred/10 text-bred border-none mb-4">
+      <section className="py-20 bg-white ">
+        <div className="container mx-auto px-4 border-b-4 border-r-4 border-bred p-2">
+          <div className="text-center mb-12 ">
+            {/* <Badge className="bg-bred/10 text-bred border-none mb-4">
               Why Choose Us
-            </Badge>
+            </Badge> */}
             <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
               What Makes Us Different
             </h2>
@@ -183,7 +181,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-bred">
+      <section className="py-16 bg-gray-900">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Experience Baraka Hotel?
@@ -198,7 +196,7 @@ export default function AboutPage() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg rounded-xl">
+              <Button size="lg" variant="outline" className="border-white text-white bg-bblue px-8 py-6 text-lg rounded-xl">
                 Contact Us
               </Button>
             </Link>

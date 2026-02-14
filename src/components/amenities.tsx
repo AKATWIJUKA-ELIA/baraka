@@ -1,6 +1,7 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Wifi,
   UtensilsCrossed,
@@ -12,63 +13,76 @@ import {
   Building2,
   Shirt,
   Sun,
+  ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const amenities = [
   {
     icon: UtensilsCrossed,
     title: "Restaurant",
     description: "Fresh local and continental dishes served daily",
+    details:""
   },
   {
     icon: Coffee,
     title: "Coffee Bar",
     description: "Premium coffee and refreshing beverages",
+    details:""
   },
   {
     icon: Building2,
     title: "Conference Room",
     description: "Well-lit, air-conditioned room seating up to 45 people",
+    details:""
   },
   {
     icon: Sun,
     title: "Rooftop",
     description: "Open-air space perfect for events and relaxation",
+    details:""
   },
   {
     icon: Wifi,
     title: "Free Wi-Fi",
     description: "Complimentary high-speed internet access",
+    details:""
   },
   {
     icon: Car,
     title: "Safe Parking",
     description: "Spacious and secure parking area",
+    details:""
   },
   {
     icon: Shirt,
     title: "Laundry Service",
     description: "Professional washing and ironing at affordable rates",
+    details:""
   },
   {
     icon: Shield,
     title: "24/7 Security",
     description: "Round-the-clock security for your peace of mind",
+    details:""
   },
   {
     icon: Tv,
     title: "DSTV",
     description: "Enjoy live football and international news",
+    details:""
   },
   {
     icon: Clock,
     title: "24/7 Reception",
     description: "Always available to assist with your needs",
+    details:""
   },
 ];
 
 export function Amenities() {
+
   return (
     <section id="amenities" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -101,6 +115,16 @@ export function Amenities() {
           ))}
         </div>
 
+        {/* View All Facilities Button */}
+        <div className="flex justify-center mt-10">
+          <Link href="/facilities">
+            <Button className="bg-bblue hover:bg-bblue/90 text-white px-8 py-6 text-lg rounded-xl group">
+              View All Facilities
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
+        </div>
+
         {/* Feature Highlight */}
         <div className="mt-20 grid md:grid-cols-2 gap-8 items-center">
           <div className="relative">
@@ -117,9 +141,9 @@ export function Amenities() {
             </div>
           </div>
           <div className="space-y-6">
-            <Badge className="bg-bred/10 text-bred border-none">
-              Why Choose Us
-            </Badge>
+                {/* <Badge className="bg-bred/10 text-bred border-none">
+                Why Choose Us
+                </Badge> */}
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
               Your Comfort is Our Priority
             </h3>

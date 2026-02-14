@@ -9,11 +9,11 @@ import { CallToAction } from "@/components/CallToAction";
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full overflow-x-hidden">
+    <main className="min-h-screen w-full overflow-x-hidden ">
       <Hero />
       <BelowHero />
-      <Rooms />
       <KeyHighlights />
+      <Rooms />
       <Restaurant />
       <Amenities />
       <Testimonials />
