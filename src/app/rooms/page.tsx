@@ -121,9 +121,9 @@ export default function RoomsPage() {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <Badge className="bg-bred/20 text-bred border-bred/30 mb-4">
+          {/* <Badge className="bg-bred/20 text-bred border-bred/30 mb-4">
             Our Rooms
-          </Badge>
+          </Badge> */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Comfortable <span className="text-bblue">Accommodation</span>
           </h1>

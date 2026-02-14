@@ -44,9 +44,7 @@ export function ContactContent() {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <span className="inline-flex items-center rounded-md bg-bred/20 px-2 py-1 text-xs font-medium text-bred ring-1 ring-inset ring-bred/30 mb-4">
-            Contact Us
-          </span>
+          
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Get in <span className="text-bblue">Touch</span>
           </h1>
@@ -58,11 +56,11 @@ export function ContactContent() {
       </section>
 
       {/* Contact Info & Form Section */}
-      <section className="py-20 bg-stone-50">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
+      <section className="py-20 bg-red-50">
+        <div className=" px-2 w-full">
+          <div className="flex flex-col lg:flex-row gap-12">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="px-6 w-full  ">
               <div>
                 <h2 className="text-3xl font-bold text-stone-800 mb-6">
                   Contact Information
@@ -73,7 +71,7 @@ export function ContactContent() {
               </div>
 
               {/* Contact Cards */}
-              <div className="space-y-4">
+              <div className="space-y-4  w-full grid md:grid-cols-2 gap-4">
                 <Card className="border-0 shadow-lg">
                   <CardContent className="p-4 flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-bred/10 flex items-center justify-center flex-shrink-0">
@@ -151,7 +149,7 @@ export function ContactContent() {
             </div>
 
             {/* Booking Form */}
-            <div>
+            {/* <div>
               <Card className="border-0 shadow-xl">
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-stone-800 mb-2">
@@ -285,7 +283,7 @@ export function ContactContent() {
                   </form>
                 </CardContent>
               </Card>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

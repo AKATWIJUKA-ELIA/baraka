@@ -72,8 +72,8 @@ export function Footer() {
                 <Image
                   src="/logowide.png"
                   alt="Baraka Hotel Logo"
-                  className="flex rotate-3"
-                  width={200}
+                  className="flex "
+                  width={300}
                   height={100}
                 />
             </div>
@@ -82,7 +82,7 @@ export function Footer() {
                 <Image
                   src="/logonbg.png"
                   alt="Baraka Hotel Logo"
-                  className="flex -rotate-3"
+                  className="flex "
                   width={24}
                   height={24}
                 />
@@ -97,7 +97,7 @@ export function Footer() {
             <p className="text-center font-bold text-gray-400 mb-6">
                For a memorable experience
             </p>
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               <a
                 href="#"
                 className="w-10 h-10 rounded-full bg-gray-800 hover:bg-bred flex items-center justify-center transition-colors"
@@ -122,7 +122,7 @@ export function Footer() {
               >
                 <Youtube className="h-5 w-5" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
