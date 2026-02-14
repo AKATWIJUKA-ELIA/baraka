@@ -92,7 +92,7 @@ export function Restaurant() {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/baraka/hero2.jpg"
+                src="/baraka/coffebar.jpg"
                 alt="Restaurant and Coffee Bar at Baraka Hotel"
                 width={600}
                 height={500}
