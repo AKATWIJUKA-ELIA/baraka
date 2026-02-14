@@ -82,10 +82,10 @@ export function Rooms() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge className="bg-bred/10 text-bred border-none mb-4">
+          {/* <Badge className="bg-bred/10 text-bred border-none mb-4">
             Our Accommodations
-          </Badge>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+          </Badge> */}
+          <h2 className="text-3xl md:text-7xl font-bold text-gray-900 mb-4">
             Relax in Comfort
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">

@@ -30,20 +30,22 @@ const features = [
 
 export function Restaurant() {
   return (
-    <section id="restaurant" className="py-20 lg:py-28 bg-stone-900 text-white overflow-hidden">
+    <section id="restaurant" className="py-20 lg:py-28   overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className=" text-black font-bold md:text-7xl border-bred/30 mb-4">
+                Restaurant & <span className="text-orange-950" >Coffee Bar</span>
+              </div>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
+          
           <div className="space-y-8">
             <div>
-              <h1 className=" text-bred font-bold md:text-5xl border-bred/30 mb-4">
-                Restaurant & Coffee Bar
-              </h1>
+              
               <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold mb-4">
                 Feast Like a King,{" "}
                 <span className="text-bblue">Spend Small</span>
               </h2>
-              <p className="text-stone-300 text-lg leading-relaxed">
+              <p className=" text-lg leading-relaxed">
                 From refreshing drinks to satisfying meals, our restaurant and bar 
                 offer the perfect setting to unwind after a long journey. We serve 
                 freshly prepared dishes made with quality ingredients.

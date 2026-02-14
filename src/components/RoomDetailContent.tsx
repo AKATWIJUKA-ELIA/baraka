@@ -193,7 +193,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
               </Card>
 
               {/* Hotel Policies */}
-              <Card className="border-0 shadow-lg">
+              {/* <Card className="border-0 shadow-lg">
                 <CardContent className="p-6 md:p-8">
                   <h2 className="text-xl font-bold text-stone-800 mb-6">Hotel Policies</h2>
                   <div className="grid md:grid-cols-3 gap-6">
@@ -229,7 +229,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
 
             {/* Sidebar - Booking Card */}
@@ -359,7 +359,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
               </Button>
             </Link>
             <a href="tel:+256768666505">
-              <Button size="lg" variant="outline" className="border-stone-600 text-white hover:bg-stone-800 px-8 py-6 text-lg rounded-xl">
+              <Button size="lg" variant="outline" className=" bg-bblue hover:cursor-pointer border-stone-600 text-white hover:bg-stone-800 px-8 py-6 text-lg rounded-xl">
                 Call: +256 768 666 505
               </Button>
             </a>
