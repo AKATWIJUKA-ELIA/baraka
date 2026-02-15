@@ -31,8 +31,8 @@ const features = [
 export function Restaurant() {
   return (
     <section id="restaurant" className="py-20 lg:py-28   overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className=" text-black font-bold md:text-7xl border-bred/30 mb-4">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 ">
+        <div className=" text-black text-center font-bold md:text-7xl border-bred/30 mb-4">
                 Restaurant & <span className="text-orange-950" >Coffee Bar</span>
               </div>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -46,7 +46,7 @@ export function Restaurant() {
                 <span className="text-bblue">Spend Small</span>
               </h2>
               <p className=" text-lg leading-relaxed">
-                From refreshing drinks to satisfying meals, our restaurant and bar 
+                From refreshing drinks to satisfying meals, our restaurant and Coffee bar 
                 offer the perfect setting to unwind after a long journey. We serve 
                 freshly prepared dishes made with quality ingredients.
               </p>

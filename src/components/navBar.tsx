@@ -73,8 +73,8 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className={cn("relative transition-all duration-300", isScrolled ? "w-12 h-12" : "w-16 h-14")}>
-              <div className="absolute inset-0 rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
-              <div className="relative  w-full h-full   rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-300 flex items-center justify-center ">
+              <div className="absolute inset-0 rounded-lg   transition-transform duration-500"></div>
+              <div className="relative  w-full h-full   rounded-lg  group-hover:scale-110 transition-transform duration-300 flex items-center justify-center ">
                 <Image className=" flex bg-transparent h-full w-full  font-bold text-2xl"
                 src="/logonbg.png"
                 alt="Baraka Hotel Logo"
@@ -154,8 +154,8 @@ export function Navigation() {
                 {/* Mobile Logo */}
                 <Link href="/" className="flex items-center space-x-3">
                   <div className="relative w-12 h-12">
-                    <div className="absolute inset-0  rounded-lg rotate-6"></div>
-                   <div className="relative  w-full h-full   rounded-lg rotate-6 group-hover:rotate-12 transition-transform duration-300 flex items-center justify-center ">
+                    <div className="absolute inset-0  rounded-lg"></div>
+                   <div className="relative  w-full h-full   rounded-lg  group-hover:scale-110 transition-transform duration-300 flex items-center justify-center ">
                 <Image className=" flex bg-transparent h-full w-full  font-bold text-2xl"
                 src="/logonbg.png"
                 alt="Baraka Hotel Logo"

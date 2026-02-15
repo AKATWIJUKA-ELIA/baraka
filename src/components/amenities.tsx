@@ -20,65 +20,60 @@ import Link from "next/link";
 
 const amenities = [
   {
+    id: "restaurant",
     icon: UtensilsCrossed,
     title: "Restaurant",
     description: "Fresh local and continental dishes served daily",
-    details:""
   },
   {
+    id: "coffee-bar",
     icon: Coffee,
     title: "Coffee Bar",
     description: "Premium coffee and refreshing beverages",
-    details:""
   },
   {
+    id: "conference",
     icon: Building2,
     title: "Conference Room",
     description: "Well-lit, air-conditioned room seating up to 45 people",
-    details:""
   },
   {
+    id: "rooftop",
     icon: Sun,
     title: "Rooftop",
     description: "Open-air space perfect for events and relaxation",
-    details:""
   },
   {
+    id: "wifi",
     icon: Wifi,
     title: "Free Wi-Fi",
     description: "Complimentary high-speed internet access",
-    details:""
   },
   {
+    id: "parking",
     icon: Car,
     title: "Safe Parking",
     description: "Spacious and secure parking area",
-    details:""
   },
   {
+    id: "laundry",
     icon: Shirt,
     title: "Laundry Service",
     description: "Professional washing and ironing at affordable rates",
-    details:""
   },
   {
+    id: "security",
     icon: Shield,
     title: "24/7 Security",
     description: "Round-the-clock security for your peace of mind",
-    details:""
   },
   {
+    id: "dstv",
     icon: Tv,
     title: "DSTV",
     description: "Enjoy live football and international news",
-    details:""
   },
-  {
-    icon: Clock,
-    title: "24/7 Reception",
-    description: "Always available to assist with your needs",
-    details:""
-  },
+
 ];
 
 export function Amenities() {
@@ -99,9 +94,10 @@ export function Amenities() {
 
         {/* Amenities Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {amenities.map((amenity, index) => (
-            <div
-              key={index}
+          {amenities.map((amenity) => (
+            <Link
+              key={amenity.id}
+              href={`/facilities/${amenity.id}`}
               className="group p-6 rounded-2xl bg-gray-50 hover:bg-bblue/5 border border-transparent hover:border-bblue/20 transition-all duration-300 hover:shadow-lg cursor-pointer"
             >
               <div className="w-14 h-14 rounded-xl bg-bblue/10 group-hover:bg-bblue flex items-center justify-center mb-4 transition-colors duration-300">
@@ -111,7 +107,7 @@ export function Amenities() {
                 {amenity.title}
               </h3>
               <p className="text-sm text-gray-600">{amenity.description}</p>
-            </div>
+            </Link>
           ))}
         </div>
 
