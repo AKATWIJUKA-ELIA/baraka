@@ -65,9 +65,10 @@ export function CallToAction() {
                     Book Now
                 </a>
             <Button
+            onClick={() => window.location.href = '/contact'}
               size="lg"
               variant="outline"
-              className="border-white/30 text-white bg-bblue hover:bg-white/10 px-8 py-6 text-lg rounded-xl backdrop-blur-sm"
+              className=" hover:cursor-pointer border-white/30 text-white bg-bblue hover:bg-white/10 px-8 py-6 text-lg rounded-xl backdrop-blur-sm"
             >
               <Phone className="w-5 h-5 mr-2" />
               Contact Us
