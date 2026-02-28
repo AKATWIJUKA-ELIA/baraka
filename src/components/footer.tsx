@@ -169,12 +169,19 @@ export function Footer() {
                
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-bblue shrink-0" />
-                    <span  className="text-sm font-medium"> <a href="tel:+256768666505">+256 768 666 505</a> / <a href="tel:+256744628976">+256 744 628 976</a></span>
+                    <span  className="text-sm font-medium flex flex-col"> 
+                        <a href="tel:+256768666505">+256 768 666 505</a>
+                    <a href="tel:+256744628976">+256 744 628 976</a>
+                        <a href="tel:+256770404091">+256 770 404 091</a>
+                    
+                    </span>
               </li>
-              {/* <li className="flex items-center gap-3">
+              <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-amber-500 shrink-0" />
-                <span className="text-gray-400">info@barakahotel.com</span>
-              </li> */}
+                <span className="text-gray-400">
+                  <a href="mailto:barakahotelbweyale@gmail.com">barakahotelbweyale@gmail.com</a>
+                </span>
+              </li>
               <li className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-amber-500 shrink-0" />
                 <span className="text-gray-400">24/7 Front Desk</span>
