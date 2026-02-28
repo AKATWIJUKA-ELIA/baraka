@@ -116,6 +116,11 @@ export function BelowHero() {
                   <a href="tel:+256744628976" className="hover:text-bred transition-colors">
                     +256 744 628 976
                   </a>
+                  <span className="mx-2">/</span>
+                  <a href="tel:+256770404091" className="hover:text-bred transition-colors">
+                    +256 770 404 091
+                  </a>
+                  
                 </p>
               </div>
             </div>

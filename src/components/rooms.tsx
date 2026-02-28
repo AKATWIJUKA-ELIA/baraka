@@ -170,7 +170,7 @@ export function Rooms() {
 
               <CardFooter className="p-2 space-x-4  flex  justify-center items-center">
                 <a
-                  href={`https://wa.me/256768666505?text=${encodeURIComponent(
+                  href={`https://wa.me/+256770404091?text=${encodeURIComponent(
                     `Hello Baraka Hotel!\n\nI would like to book the following room:\n\n🏨 Room: ${room.name}\n💰 Price: UGX ${room.price.toLocaleString()} per night\n👥 Guests: ${room.guests}\n\nPlease let me know the availability. Thank you!`
                   )}`}
                   target="_blank"
