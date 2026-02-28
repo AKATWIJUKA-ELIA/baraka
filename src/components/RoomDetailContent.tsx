@@ -291,7 +291,15 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
                         <strong>Phone:</strong> +256 768 666 505
                       </p>
                       <p className="text-stone-600">
-                        <strong>WhatsApp:</strong> +256 768 666 505
+                        <strong>WhatsApp:</strong>{" "}
+                        <a
+                          href="https://wa.me/256770404091"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-bblue hover:underline"
+                        >
+                          +256 770 404091
+                        </a>
                       </p>
                     </div>
                   </CardContent>

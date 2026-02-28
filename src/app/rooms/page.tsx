@@ -197,7 +197,7 @@ export default function RoomsPage() {
                         <span className="text-stone-500 ml-2">/ night</span>
                       </div>
                       <a
-                        href={`https://wa.me/256768666505?text=${encodeURIComponent(
+                        href={`https://wa.me/+256770404091?text=${encodeURIComponent(
                           `Hello Baraka Hotel!\n\nI would like to book the following room:\n\n🏨 Room: ${room.name}\n💰 Price: UGX ${room.price.toLocaleString()} per night\n👥 Guests: ${room.guests}\n\nPlease let me know the availability. Thank you!`
                         )}`}
                         target="_blank"
@@ -233,7 +233,7 @@ export default function RoomsPage() {
               </Button>
             </Link>
             <a href="tel:+256768666505">
-              <Button size="lg" variant="outline" className="border-stone-600 text-white hover:bg-stone-800 px-8 py-6 text-lg rounded-xl">
+              <Button size="lg" variant="outline" className="bg-stone-400 border-stone-600 text-white hover:text-black hover:bg-white px-8 py-6 text-lg rounded-xl">
                 Call: +256 768 666 505
               </Button>
             </a>
