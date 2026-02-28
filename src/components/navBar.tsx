@@ -202,12 +202,14 @@ export function Navigation() {
                 <div className="flex flex-col space-y-3 p-4 border-t border-gray-200">
                   <div className="flex items-center gap-3 text-gray-600 text-sm">
                     <Phone className="h-4 w-4 text-bred" />
-                    <span>+256 768 666 505/ +256 744 628 976</span>
+                    <span>+256 768 666 505/ +256 744 628 976 / +256 770 404 091</span>
                   </div>
-                  {/* <div className="flex items-center gap-3 text-gray-600 text-sm">
+                  <div className="flex items-center gap-3 text-gray-600 text-sm">
                     <Mail className="h-4 w-4 text-bred" />
-                    <span>info@barakahotel.com</span>
-                  </div> */}
+                    <span className="text-gray-400">
+                      <a href="mailto:barakahotelbweyale@gmail.com">barakahotelbweyale@gmail.com</a>
+                    </span>
+                  </div>
                   <div className="flex items-center gap-3 text-gray-600 text-sm">
                     <MapPin className="h-4 w-4 text-bblue" />
                     <span>Along Kampala-Gulu Highway, Bweyale, Kiryandongo District – Uganda</span>

@@ -28,7 +28,7 @@ export function ContactContent() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const whatsappMessage = `Hello! I would like to make a reservation.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nCheck-in: ${formData.checkIn}\nCheck-out: ${formData.checkOut}\nGuests: ${formData.guests}\nRoom: ${formData.roomType}\nMessage: ${formData.message}`;
-    window.open(`https://wa.me/256768666505?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+    window.open(`https://wa.me/+256770404091?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
   };
 
   return (
@@ -89,6 +89,11 @@ export function ContactContent() {
                           +256 744 628 976
                         </a>
                       </p>
+                      <p>
+                        <a href="tel:+256770404091" className="hover:text-bred transition-colors">
+                          +256 770 404 091
+                        </a>
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -102,12 +107,12 @@ export function ContactContent() {
                       <h3 className="font-semibold text-stone-800 mb-1">WhatsApp</h3>
                       <p className="text-stone-600">
                         <a 
-                          href="https://wa.me/256768666505" 
+                          href="https://wa.me/+256770404091" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="hover:text-green-600 transition-colors"
                         >
-                          +256 768 666 505
+                          +256 770 404 091
                         </a>
                       </p>
                       <p className="text-stone-500 text-sm">Click to chat with us</p>
@@ -321,7 +326,7 @@ export function ContactContent() {
                   Call Now
                 </Button>
               </a>
-              <a href="https://wa.me/256768666505" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/+256770404091" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg rounded-xl">
                   <MessageCircle className="w-5 h-5 mr-2" />
                   WhatsApp
