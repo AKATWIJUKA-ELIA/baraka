@@ -26,61 +26,53 @@ const images = [
     alt: "Hotel Exterior",
     category: "Exterior",
   },
-  {
-    src: "/baraka/_DSC7498.jpg",
-    alt: "Lobby Entrance",
-    category: "Lobby",
-  },
+
   {
     src: "/baraka/room.jpg",
     alt: "Deluxe Suite",
     category: "Rooms",
   },
-  {
-    src: "/baraka/_DSC7503.jpg",
-    alt: "Hotel Lounge",
-    category: "Lounge",
-  },
+
   {
     src: "/baraka/room2.jpg",
     alt: "Premium Room",
     category: "Rooms",
   },
-  {
-    src: "/baraka/_DSC7513.jpg",
-    alt: "Restaurant Area",
-    category: "Dining",
-  },
+ 
   {
     src: "/baraka/room3.jpg",
     alt: "Executive Suite",
     category: "Rooms",
   },
-  {
-    src: "/baraka/_DSC7521.jpg",
-    alt: "Reception",
-    category: "Lobby",
-  },
+  
   {
     src: "/baraka/hero2.jpg",
     alt: "Hotel View",
     category: "Exterior",
   },
+
+    {
+    src: "/baraka/dstv.jpg",
+    alt: "Dstv",
+    category: "Dstv",
+  },
+
+    {
+    src: "/baraka/laundry.jpg",
+    alt: "Laundry",
+    category: "Laundry",
+  },
   {
-    src: "/baraka/_DSC7540.jpg",
-    alt: "Dining Experience",
-    category: "Dining",
+    src: "/baraka/roof.jpg",
+    alt: "restaurant",
+    category: "restaurant",
   },
   {
     src: "/baraka/room4.jpg",
     alt: "Standard Room",
     category: "Rooms",
   },
-  {
-    src: "/baraka/_DSC7559.jpg",
-    alt: "Hotel Amenities",
-    category: "Amenities",
-  },
+  
   {
     src: "/baraka/room5.jpg",
     alt: "Family Suite",
@@ -88,13 +80,13 @@ const images = [
   },
   {
     src: "/baraka/_DSC7576.jpg",
-    alt: "Relaxation Area",
-    category: "Lounge",
+    alt: "Reception",
+    category: "reception",
   },
   {
     src: "/baraka/hero3.jpg",
-    alt: "Hotel Grounds",
-    category: "Exterior",
+    alt: "Hotel staff",
+    category: "Staff",
   },
   {
     src: "/baraka/_DSC7601.jpg",
@@ -108,8 +100,8 @@ const images = [
   },
   {
     src: "/baraka/_DSC7620.jpg",
-    alt: "Hotel Interior",
-    category: "Interior",
+    alt: "Hotel Exterior",
+    category: "Night View",
   },
 ];
 

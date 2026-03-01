@@ -67,7 +67,7 @@ const rooms: Room[] = [
     description:
       "A budget-friendly twin room suitable for friends or travelers who prefer shared facilities.",
     price: 60000,
-    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/69839a78000036441902/view?project=6983916c002e052ab84d",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/69a498370018bc6e140b/view?project=6983916c002e052ab84d",
     guests: 2,
     features: ["Two beds", "Wi-Fi", "Shared bathroom", "Fan"],
     badge: "Great for Groups",
