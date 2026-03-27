@@ -35,8 +35,10 @@ export const metadata: Metadata = {
   },
   description: "Experience unparalleled luxury at Baraka Hotel in Uganda. Discover a sanctuary of elegance, comfort, and world-class hospitality with stunning rooms, premium amenities, exceptional service, and authentic Ugandan cuisine.",
   keywords: [
-    "Baraka Hotel",
+    "Baraka Hotel Bweyale",
     "Uganda hotel",
+    "Bweyale Hotel",
+    "Bweyale accommodation",
     "luxury accommodation",
     "hotel in Uganda",
     "affordable hotel",
@@ -64,6 +66,12 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/baraka/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Baraka Hotel - Luxury Accommodation",
+      },
+      {
+        url: "/baraka/hero3.jpg",
         width: 1200,
         height: 630,
         alt: "Baraka Hotel - Luxury Accommodation",
