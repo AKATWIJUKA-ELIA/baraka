@@ -15,21 +15,21 @@ import { Calendar, MapPin, Star, ChevronDown } from "lucide-react";
 
 const heroSlides = [
   {
-    image: "/images/hero.jpg",
-    title: "Experience",
-    highlight: "Unparalleled Luxury",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/6983983d000c2644f5df/view?project=6983916c002e052ab84d",
+    title: " Rest, refresh, and recharge",
+    highlight: "For a memorable experience",
     description:
       "Welcome to Baraka Hotel, where every moment is crafted to perfection. Discover a sanctuary of elegance, comfort, and world-class hospitality.",
   },
   {
-    image: "/images/hero2.jpg",
-    title: "Discover",
-    highlight: "Timeless Elegance",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/6983934a0024357726e2/view?project=6983916c002e052ab84d",
+    title: "Welcome to Baraka ",
+    highlight: "Hotel",
     description:
-      "Immerse yourself in the refined atmosphere of our meticulously designed spaces, where modern comfort meets classic sophistication.",
+      " a welcoming haven for travelers and guests seeking comfort, great meals, and a peaceful stay.",
   },
   {
-    image: "/images/hero3.jpg",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/6983935c000fc3d2ab75/view?project=6983916c002e052ab84d",
     title: "Indulge in",
     highlight: "World-Class Amenities",
     description:
@@ -57,13 +57,13 @@ export function Hero() {
 
     const interval = setInterval(() => {
       api.scrollNext();
-    }, 6000);
+    }, 12000);
 
     return () => clearInterval(interval);
   }, [api]);
 
   const scrollToRooms = () => {
-    document.getElementById("rooms")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("belowHero")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -101,7 +101,7 @@ export function Hero() {
 
 
       {/* Floating Elements */}
-      <div className="absolute top-40 left-10 hidden lg:block z-20">
+      {/* <div className="absolute top-40 left-10 hidden lg:block z-20">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-white animate-pulse">
           <div className="flex items-center gap-2">
             <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
@@ -109,27 +109,18 @@ export function Hero() {
           </div>
           <p className="text-sm text-white/70">500+ Reviews</p>
         </div>
-      </div>
+      </div> */}
 
-      <div className="absolute bottom-40 right-10 hidden lg:block z-20">
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-white">
-          <div className="flex items-center gap-2">
-            <MapPin className="h-5 w-5 text-amber-400" />
-            <span className="font-semibold">Prime Location</span>
-          </div>
-          <p className="text-sm text-white/70">Downtown Paradise</p>
-        </div>
-      </div>
 
       {/* Main Content */}
-      <div className=" absolute z-10 md:left-20 mx-2 top-[60%] md:top-[50%] backdrop-blur-xl bg-black/10 rounded-2xl  p-4 text-center">
+      <div className=" absolute z-10 md:left-20 mx-2 top-[60%] md:top-[50%]  bg-black/50   p-4 text-center">
         {/* <Badge className="bg-amber-600/90 text-white border-none mb-6 px-4 py-1.5">
           ✨ Luxury Redefined
         </Badge> */}
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
           {heroSlides[current]?.title || "Experience"}
-          <span className="block text-transparent bg-clip-text bg-linear-to-b from-amber-400 to-amber-600">
+          <span className="block text-transparent bg-clip-text bg-linear-to-b from-bblue to-bred">
             {heroSlides[current]?.highlight || "Unparalleled Luxury"}
           </span>
         </h1>
@@ -200,9 +191,9 @@ export function Hero() {
       {/* Scroll Indicator */}
       <button
         onClick={scrollToRooms}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce cursor-pointer"
+        className="absolute bg-white/50 border border-bblue/30 rounded-full py-4 z-40 bottom-0 left-1/2 transform -translate-x-1/2 text-bred  cursor-pointer"
       >
-        <ChevronDown className="h-8 w-8" />
+        <ChevronDown className="h-12 w-9 animate-bounce " />
       </button>
     </section>
   );

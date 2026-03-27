@@ -1,0 +1,257 @@
+import type { Metadata } from "next";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { 
+  Building2, 
+  Sun, 
+  Car, 
+  Shirt, 
+  Tv,
+  Users,
+  Wind,
+  Lightbulb,
+  PartyPopper,
+  Eye,
+  Shield,
+  Phone
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Facilities",
+  description: "Explore Baraka Hotel facilities including conference room, rooftop venue, secure parking, laundry services, and DSTV entertainment. Perfect for business and leisure travelers.",
+  openGraph: {
+    title: "Hotel Facilities | Baraka Hotel",
+    description: "Explore our facilities: conference room, rooftop venue, secure parking, laundry services, and DSTV entertainment.",
+    images: ["/baraka/hero3.jpg"],
+  },
+  twitter: {
+    title: "Hotel Facilities | Baraka Hotel",
+    description: "Explore Baraka Hotel facilities including conference room, rooftop venue, and more.",
+    images: ["/baraka/hero3.jpg"],
+  },
+  alternates: {
+    canonical: "/facilities",
+  },
+};
+
+const facilities = [
+  {
+    id: "conference",
+    title: "Conference Room",
+    description: "Perfect for meetings, workshops, and corporate events. Our well-equipped conference room provides a professional setting for your business needs.",
+    images: [
+      "/baraka/conference.jpg",
+      "/baraka/conference1.jpg",
+      "/baraka/conference2.jpg",
+    ],
+    features: [
+      { icon: Users, text: "Seats up to 45 people" },
+      { icon: Wind, text: "Well aerated and air-conditioned" },
+      { icon: Lightbulb, text: "Bright and well lit" },
+      { icon: Building2, text: "Ideal for meetings and workshops" },
+    ],
+  },
+  {
+    id: "rooftop",
+    title: "Rooftop",
+    description: "An open-air relaxing atmosphere perfect for small events, gatherings, and evening relaxation with scenic views of the surroundings.",
+    images: [
+      "/baraka/roof.jpg",
+      "/baraka/roof1.jpg",
+      "/baraka/roof2.jpg",
+      "/baraka/roof3.jpg",
+      "/baraka/roof4.jpg",
+    ],
+    features: [
+      { icon: Sun, text: "Open-air and relaxing atmosphere" },
+      { icon: PartyPopper, text: "Ideal for small events and birthday parties" },
+      { icon: Eye, text: "Scenic views of the surroundings" },
+      { icon: Wind, text: "Fresh and airy setting" },
+    ],
+  },
+  {
+    id: "parking",
+    title: "Parking",
+    description: "Rest easy knowing your vehicle is safe in our spacious, secure parking area with 24/7 surveillance.",
+    images: [
+      "/baraka/parking.jpg",
+      "/baraka/parking1.jpg",
+      "/baraka/parking2.jpg",
+    ],
+    features: [
+      { icon: Car, text: "Spacious parking area" },
+      { icon: Shield, text: "Safe and secure" },
+      { icon: Eye, text: "24/7 surveillance" },
+    ],
+  },
+  {
+    id: "laundry",
+    title: "Laundry Services",
+    description: "Professional washing and ironing services at affordable rates. Keep your clothes fresh during your stay.",
+    images: [
+      "/baraka/laundry.jpg",
+      "/baraka/laundry1.jpg",
+      "/baraka/laundry2.jpg",
+    ],
+    features: [
+      { icon: Shirt, text: "Professional washing" },
+      { icon: Shirt, text: "Ironing services" },
+      { icon: Building2, text: "Affordable rates" },
+    ],
+  },
+  {
+    id: "dstv",
+    title: "DSTV Entertainment",
+    description: "Stay entertained with our DSTV service. Watch live football matches and stay updated with local and international news.",
+    images: [
+      "/baraka/dstv.jpg",
+      "/baraka/dstv1.jpg",
+      "/baraka/dstv2.jpg",
+    ],
+    features: [
+      { icon: Tv, text: "Live football matches" },
+      { icon: Tv, text: "Local and international news" },
+      { icon: Tv, text: "Entertainment channels" },
+    ],
+  },
+];
+
+export default function FacilitiesPage() {
+  return (
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative py-24 lg:py-32 bg-stone-900">
+        <div className="absolute inset-0">
+          <Image
+            src="/baraka/hero3.jpg"
+            alt="Facilities at Baraka Hotel"
+            fill
+            className="object-cover opacity-30"
+          />
+        </div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          {/* <Badge className="bg-bblue/20 text-bblue border-bblue/30 mb-4">
+            Extra Facilities
+          </Badge> */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Our <span className="text-bred">Facilities</span>
+          </h1>
+          <p className="text-stone-300 text-lg md:text-xl max-w-3xl mx-auto">
+            Beyond comfortable rooms and great food, we offer additional facilities 
+            to make your stay even more convenient and enjoyable.
+          </p>
+        </div>
+      </section>
+
+      {/* Facilities Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="space-y-24">
+            {facilities.map((facility, index) => (
+              <div 
+                key={facility.id} 
+                className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+              >
+                {/* Images Gallery */}
+                <div className={`relative ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <div className="space-y-3">
+                    {/* Main Image */}
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                      <Image
+                        src={facility.images[0]}
+                        alt={facility.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-[300px] lg:h-[350px] object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    </div>
+                    {/* Thumbnail Gallery */}
+                    {facility.images.length > 1 && (
+                      <div className="grid grid-cols-4 gap-2">
+                        {facility.images.slice(1, 5).map((img, imgIndex) => (
+                          <div key={imgIndex} className="relative rounded-lg overflow-hidden aspect-square">
+                            <Image
+                              src={img}
+                              alt={`${facility.title} ${imgIndex + 2}`}
+                              fill
+                              className="object-cover hover:scale-110 transition-transform duration-300"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  {/* Decorative elements */}
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-bblue/20 rounded-full blur-xl" />
+                  <div className={`absolute -top-4 ${index % 2 === 1 ? '-right-4' : '-left-4'} w-32 h-32 border-2 border-bred/20 rounded-2xl -z-10`} />
+                </div>
+
+                {/* Content */}
+                <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  {/* <Badge className="bg-bblue/10 text-bblue border-none">
+                    {facility.title}
+                  </Badge> */}
+                  <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
+                    {facility.title}
+                  </h2>
+                  <p className="text-stone-600 text-lg leading-relaxed">
+                    {facility.description}
+                  </p>
+                  
+                  {/* Features */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                    {facility.features.map((feature, featureIndex) => (
+                      <div 
+                        key={featureIndex}
+                        className="flex items-center gap-3 p-3 bg-stone-50 rounded-xl"
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-bred/10 flex items-center justify-center flex-shrink-0">
+                          <feature.icon className="w-5 h-5 text-bred" />
+                        </div>
+                        <span className="text-stone-700 font-medium">{feature.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-bred text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">Need More Information?</h2>
+          <p className="text-red-100 mb-8 max-w-xl mx-auto">
+            Contact us to learn more about our facilities or to make a booking for 
+            our conference room or rooftop space.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button
+              size="lg"
+              className="bg-white text-bred hover:bg-stone-100 px-8"
+              asChild
+            >
+              <Link href="/contact">Contact Us</Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white bg-bblue text-white hover:bg-white/10 px-8"
+              asChild
+            >
+              <a href="tel:+256768666505">
+                <Phone className="w-4 h-4 mr-2" />
+                +256 768 666 505
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

@@ -1,37 +1,107 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+  description: "Take a visual tour of Baraka Hotel. Browse our photo gallery featuring stunning rooms, restaurant, lobby, and facilities in Kiryandongo, Uganda.",
+  openGraph: {
+    title: "Photo Gallery | Baraka Hotel",
+    description: "Take a visual tour of Baraka Hotel. Browse photos of our stunning rooms, restaurant, and facilities.",
+    images: ["/baraka/hero.jpg"],
+  },
+  twitter: {
+    title: "Photo Gallery | Baraka Hotel",
+    description: "Take a visual tour of Baraka Hotel.",
+    images: ["/baraka/hero.jpg"],
+  },
+  alternates: {
+    canonical: "/gallery",
+  },
+};
 
 const images = [
   {
-    src: "/images/IMG-20251214-WA0007.jpg",
+    src: "/baraka/hero.jpg",
     alt: "Hotel Exterior",
     category: "Exterior",
   },
+
   {
-    src: "/images/IMG-20251214-WA0009.jpg",
-    alt: "Lobby",
-    category: "Lobby",
+    src: "/baraka/room.jpg",
+    alt: "Deluxe Suite",
+    category: "Rooms",
+  },
+
+  {
+    src: "/baraka/room2.jpg",
+    alt: "Premium Room",
+    category: "Rooms",
+  },
+ 
+  {
+    src: "/baraka/room3.jpg",
+    alt: "Executive Suite",
+    category: "Rooms",
+  },
+  
+  {
+    src: "/baraka/hero2.jpg",
+    alt: "Hotel View",
+    category: "Exterior",
+  },
+
+    {
+    src: "/baraka/dstv.jpg",
+    alt: "Dstv",
+    category: "Dstv",
+  },
+
+    {
+    src: "/baraka/laundry.jpg",
+    alt: "Laundry",
+    category: "Laundry",
   },
   {
-    src: "/images/IMG-20251214-WA0010.jpg",
-    alt: "Deluxe Room",
+    src: "/baraka/roof.jpg",
+    alt: "restaurant",
+    category: "restaurant",
+  },
+  {
+    src: "/baraka/room4.jpg",
+    alt: "Standard Room",
+    category: "Rooms",
+  },
+  
+  {
+    src: "/baraka/room5.jpg",
+    alt: "Family Suite",
     category: "Rooms",
   },
   {
-    src: "/images/IMG-20251214-WA0011.jpg",
-    alt: "Spa",
-    category: "Spa",
+    src: "/baraka/_DSC7576.jpg",
+    alt: "Reception",
+    category: "reception",
   },
   {
-    src: "/images/IMG-20251214-WA0014.jpg",
-    alt: "Restaurant",
-    category: "Dining",
+    src: "/baraka/hero3.jpg",
+    alt: "Hotel staff",
+    category: "Staff",
   },
   {
-    src: "/images/IMG-20251214-WA0019.jpg",
-    alt: "Pool",
-    category: "Pool",
+    src: "/baraka/_DSC7601.jpg",
+    alt: "Meeting Space",
+    category: "Facilities",
+  },
+  {
+    src: "/baraka/room6.jpg",
+    alt: "Cozy Room",
+    category: "Rooms",
+  },
+  {
+    src: "/baraka/_DSC7620.jpg",
+    alt: "Hotel Exterior",
+    category: "Night View",
   },
 ];
 
@@ -41,9 +111,6 @@ export default function Gallery() {
       <div className="container mx-auto px-4 mt-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge className="bg-amber-600 text-white border-none mb-4">
-            Photo Gallery
-          </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Baraka in Pictures
           </h2>
@@ -62,16 +129,19 @@ export default function Gallery() {
                 index === 0 ? "md:col-span-2 md:row-span-2" : ""
               }`}
             >
-              <img
+              <Image
                 src={image.src}
                 alt={image.alt}
+                width={500}
+                height={300}
                 className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
                   index === 0 ? "h-[500px]" : "h-60"
                 }`}
+                
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <Badge className="bg-amber-600 text-white border-none mb-2">
+                <Badge className="bg-bblue text-white border-none mb-2">
                   {image.category}
                 </Badge>
                 <h3 className="text-xl font-semibold text-white">
