@@ -1,230 +1,162 @@
 "use client";
-import * as React from "react"
-import Link from "next/link"
-import { Menu, Phone, MapPin, Mail } from "lucide-react"
-import { Button } from "@/components/ui/button"
+
+import * as React from "react";
 import Image from "next/image";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { cn } from "@/lib/utils"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, Phone, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { title: "Home", href: "/" },
   { title: "Rooms", href: "/rooms" },
-  { title: "Amenities", href: "/#amenities" },
+  { title: "Amenities", href: "/amenities" },
   { title: "Gallery", href: "/gallery" },
-  { title: "Testimonials", href: "/#testimonials" },
+  { title: "Testimonials", href: "/testimonials" },
   { title: "Contact", href: "/contact" },
   { title: "About Us", href: "/about" },
-]
+];
 
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = React.useState(false)
-  const [isOpen, setIsOpen] = React.useState(false)
+  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    const handleScroll = () => setIsScrolled(window.scrollY > 12);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isActive = (href: string, title: string) => {
+    if (href === "/") return pathname === "/";
+    if (title === "Amenities" && pathname.startsWith("/facilities")) return true;
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled
-          ? "bg-white/98 backdrop-blur-lg shadow-xl border-b border-bblue/20"
-          : "bg-linear-to-b from-black/60 via-black/40 to-transparent",
+        "fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-bnavy/[0.92] text-white backdrop-blur-xl transition-all duration-300",
+        isScrolled && "shadow-[0_16px_50px_rgba(10,26,36,0.22)]",
       )}
     >
-      {/* Top Bar - Only visible when not scrolled */}
-      <div
-        className={cn(
-          "border-b hidden md:flex border-white/10 transition-all duration-500",
-          isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto  ",
-        )}
-      >
-        <div className="container mx-auto px-4 backdrop-blur-lg">
-          <div className="flex items-center justify-between h-10 text-sm">
-            <div className="flex items-center gap-6 text-white/90">
-              <div className="flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5" />
-                <span>Along Kampala-Gulu Highway, Bweyale, Kiryandongo District – Uganda</span>
-              </div>
-              {/* <div className="hidden md:flex items-center gap-2">
-                <Mail className="h-3.5 w-3.5" />
-                <span>info@barakahotel.com</span>
-              </div> */}
-            </div>
-            <div className="flex items-center gap-2 text-white/90">
-              <Phone className="h-3.5 w-3.5" />
-              <span  className="font-medium"> <a href="tel:+256768666505">+256 768 666 505</a> / <a href="tel:+256744628976">+256 744 628 976</a></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navigation */}
-      <div className="container mx-auto px-4">
-        <div
-          className={cn("flex items-center justify-between transition-all duration-300", isScrolled ? "h-20" : "h-24")}
-        >
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className={cn("relative transition-all duration-300", isScrolled ? "w-12 h-12" : "w-16 h-14")}>
-              <div className="absolute inset-0 rounded-lg   transition-transform duration-500"></div>
-              <div className="relative  w-full h-full   rounded-lg  group-hover:scale-110 transition-transform duration-300 flex items-center justify-center ">
-                <Image className=" flex bg-transparent h-full w-full  font-bold text-2xl"
-                src="/logonbg.png"
-                alt="Baraka Hotel Logo"
-                width={isScrolled ? 48 : 56}
-                height={isScrolled ? 48 : 56}
-                />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span
-                className={cn(
-                  "font-serif text-2xl font-bold tracking-wide transition-colors duration-300",
-                  isScrolled ? "text-gray-900" : "text-bred",
-                )}
-              >
-                Baraka <span className="text-bblue" >Hotel</span>
-              </span>
-              <span
-                className={cn(
-                  "text-xs tracking-widest uppercase transition-colors duration-300",
-                  isScrolled ? "text-amber-500" : "text-amber-200",
-                )}
-              >
-               For a memorable experience
-              </span>
+      <div className="site-container">
+        <div className="flex h-[4.5rem] items-center justify-between gap-5">
+          <Link
+            href="/"
+            className="flex min-w-0 items-center gap-3 rounded-full focus-visible:ring-offset-bnavy"
+          >
+            <Image
+              src="/logonbg.png"
+              alt="Baraka Hotel"
+              width={42}
+              height={42}
+              className="size-10 shrink-0 object-contain"
+              priority
+            />
+            <div className="min-w-0">
+              <p className="text-lg font-black leading-none text-white">Baraka Hotel</p>
+              <p className="mt-1 hidden text-xs font-semibold text-bblue/90 sm:block">
+                For a memorable experience
+              </p>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.title}
-                href={item.href}
-                className={cn(
-                  "relative px-5 py-2 text-sm font-medium tracking-wide transition-all duration-300 rounded-lg group",
-                  isScrolled ? "bg-transparent text-gray-700 hover:text-bred" : "text-white hover:text-bblue",
-                )}
-              >
-                {item.title}
-                <span
+          <nav className="hidden items-center justify-center gap-1 lg:flex">
+            {navItems.map((item) => {
+              const active = isActive(item.href, item.title);
+              return (
+                <Link
+                  key={item.title}
+                  href={item.href}
                   className={cn(
-                    "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-3/4 transition-all duration-300",
-                    isScrolled ? "bg-bred" : "bg-bblue",
+                    "relative rounded-full px-3.5 py-2 text-sm font-semibold text-white/80 transition hover:text-white focus-visible:ring-offset-bnavy xl:px-4",
+                    active && "text-white",
                   )}
-                ></span>
-              </Link>
-            ))}
+                >
+                  {item.title}
+                  <span
+                    className={cn(
+                      "absolute inset-x-4 -bottom-1 h-0.5 origin-center scale-x-0 rounded-full bg-bblue transition-transform",
+                      active && "scale-x-100",
+                    )}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-3">
-
-            
-              
-              <Link href="tel:+256768666505" className="flex  items-center justify-center rounded-lg  p-2 gap-3 ml-2 bg-linear-to-r from-bred to-bred/90 hover:from-bred/90 hover:to-bred text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6">
-              <Phone className="h-4 w-4" /> Book Now 
-              </Link>
+          <div className="hidden shrink-0 items-center gap-3 lg:flex">
+            <Button asChild>
+              <a href="tel:+256768666505">
+                <Phone className="size-4" />
+                Book Now
+              </a>
+            </Button>
           </div>
 
-          {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="lg:hidden">
+            <SheetTrigger asChild>
               <Button
-                variant="ghost"
+                variant="outline"
                 size="icon"
-                className={cn(
-                  "transition-colors duration-300",
-                  isScrolled ? "text-gray-900 hover:bg-bblue/10" : "text-white hover:bg-white/10",
-                )}
+                className="border-white/25 bg-white/[0.08] text-white hover:bg-white hover:text-bnavy focus-visible:ring-offset-bnavy lg:hidden"
+                aria-label="Open navigation menu"
               >
-                <Menu className="h-6 w-6" />
+                <Menu className="size-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 bg-white">
-              <div className="flex flex-col space-y-8 mt-8 p-2">
-                {/* Mobile Logo */}
-                <Link href="/" className="flex items-center space-x-3">
-                  <div className="relative w-12 h-12">
-                    <div className="absolute inset-0  rounded-lg"></div>
-                   <div className="relative  w-full h-full   rounded-lg  group-hover:scale-110 transition-transform duration-300 flex items-center justify-center ">
-                <Image className=" flex bg-transparent h-full w-full  font-bold text-2xl"
-                src="/logonbg.png"
-                alt="Baraka Hotel Logo"
-                width={isScrolled ? 48 : 56}
-                height={isScrolled ? 48 : 56}
-                />
-              </div>
-                  </div>
-                  <div className="flex flex-col">
-                    <span
-                className={cn(
-                  "font-serif text-2xl font-bold tracking-wide transition-colors duration-300",
-                  isScrolled ? "text-gray-900" : "text-bred",
-                )}
-              >
-                Baraka <span className="text-bblue" >Hotel</span>
-              </span>
-                    <span
-                className={cn(
-                  "text-xs tracking-widest uppercase transition-colors duration-300",
-                  isScrolled ? "text-amber-500" : "text-amber-200",
-                )}
-              >
-               For a memorable experience
-              </span>
-                  </div>
-                </Link>
+            <SheetContent side="right" className="w-[min(90vw,360px)] border-bline bg-bnavy p-0 text-white">
+              <div className="flex h-full flex-col">
+                <div className="flex h-[4.5rem] items-center justify-between border-b border-white/10 px-5">
+                  <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
+                    <Image src="/logonbg.png" alt="Baraka Hotel" width={38} height={38} className="size-9" />
+                    <span className="font-black">Baraka Hotel</span>
+                  </Link>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-white hover:bg-white/10 hover:text-white focus-visible:ring-offset-bnavy"
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close navigation menu"
+                  >
+                    <X className="size-5" />
+                  </Button>
+                </div>
 
-                {/* Mobile Navigation */}
-                <nav className="flex flex-col space-y-1">
+                <nav className="flex flex-1 flex-col gap-2 px-5 py-8">
                   {navItems.map((item) => (
                     <Link
                       key={item.title}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-base font-medium text-gray-700 hover:text-bred hover:bg-bred/5 transition-colors py-3 px-4 rounded-lg border-b border-gray-100 last:border-0"
+                      className={cn(
+                        "rounded-2xl px-4 py-3 text-base font-semibold text-white/75 transition hover:bg-white/[0.08] hover:text-white",
+                        isActive(item.href, item.title) && "bg-white/10 text-white",
+                      )}
                     >
                       {item.title}
                     </Link>
                   ))}
                 </nav>
 
-                {/* Mobile Contact Info */}
-                <div className="flex flex-col space-y-3 p-4 border-t border-gray-200">
-                  <div className="flex items-center gap-3 text-gray-600 text-sm">
-                    <Phone className="h-4 w-4 text-bred" />
-                    <span>+256 768 666 505/ +256 744 628 976 / +256 770 404 091</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-600 text-sm">
-                    <Mail className="h-4 w-4 text-bred" />
-                    <span className="text-gray-400">
-                      <a href="mailto:barakahotelbweyale@gmail.com">barakahotelbweyale@gmail.com</a>
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-600 text-sm">
-                    <MapPin className="h-4 w-4 text-bblue" />
-                    <span>Along Kampala-Gulu Highway, Bweyale, Kiryandongo District – Uganda</span>
-                  </div>
+                <div className="border-t border-white/10 p-5">
+                  <Button className="w-full" asChild>
+                    <a href="tel:+256768666505">
+                      <Phone className="size-4" />
+                      Book Now
+                    </a>
+                  </Button>
                 </div>
-
-                {/* Mobile CTA */}
-                {/* <Button className="w-full bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white shadow-lg font-semibold py-6">
-                  Book Now
-                </Button> */}
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
     </header>
-  )
+  );
 }

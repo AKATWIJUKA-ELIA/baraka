@@ -1,25 +1,20 @@
 import type { Metadata } from "next";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { 
-  Target, 
-  Eye, 
-  MapPin, 
-  Shield, 
-  Users, 
-  DollarSign,
-  Building2,
-  Calendar
-} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Building2, Calendar, DollarSign, Eye, MapPin, Shield, Target, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { PageHero } from "@/components/PageHero";
+import { SectionHeader } from "@/components/SectionHeader";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about Baraka Hotel's story, mission, and vision. Discover why we're the preferred hotel in Kiryandongo District, Uganda, offering exceptional hospitality since December 2024.",
+  description:
+    "Learn about Baraka Hotel's story, mission, and vision. Discover why we're the preferred hotel in Kiryandongo District, Uganda, offering exceptional hospitality since December 2024.",
   openGraph: {
     title: "About Baraka Hotel | Our Story & Mission",
-    description: "Learn about Baraka Hotel's story, mission, and vision. Discover why we're the preferred hotel in Kiryandongo District, Uganda.",
+    description:
+      "Learn about Baraka Hotel's story, mission, and vision. Discover why we're the preferred hotel in Kiryandongo District, Uganda.",
     images: ["/baraka/hero2.jpg"],
   },
   twitter: {
@@ -33,173 +28,140 @@ export const metadata: Metadata = {
 };
 
 const whyUsPoints = [
-  {
-    icon: Building2,
-    title: "Clean and comfortable rooms",
-  },
-  {
-    icon: DollarSign,
-    title: "Affordable pricing",
-  },
-  {
-    icon: Users,
-    title: "Friendly and professional staff",
-  },
-  {
-    icon: MapPin,
-    title: "Convenient location",
-  },
-  {
-    icon: Shield,
-    title: "Secure environment",
-  },
+  { icon: Building2, title: "Clean comfortable rooms" },
+  { icon: DollarSign, title: "Affordable direct pricing" },
+  { icon: Users, title: "Friendly professional staff" },
+  { icon: MapPin, title: "Convenient highway location" },
+  { icon: Shield, title: "Secure environment" },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-24 lg:py-32 bg-stone-900">
-        <div className="absolute inset-0">
-          <Image
-            src="/baraka/hero2.jpg"
-            alt="About Baraka Hotel"
-            fill
-            className="object-cover opacity-30"
-          />
-        </div>
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Welcome to <span className="text-bblue">Baraka Hotel</span>
-          </h1>
-          <p className="text-stone-300 text-lg md:text-xl max-w-3xl mx-auto">
-            A welcoming haven for travelers and guests seeking comfort, great meals, and a peaceful stay.
-          </p>
-        </div>
-      </section>
+    <main className="min-h-screen bg-bpaper">
+      <PageHero
+        kicker="About Baraka Hotel"
+        title="A trusted"
+        accent="Bweyale stop"
+        description="A welcoming haven for travelers and guests seeking comfort, great meals, and a peaceful stay."
+        image="/baraka/hero2.jpg"
+        primaryAction={{ href: "/rooms", label: "View Rooms" }}
+        secondaryAction={{ href: "/contact", label: "Contact Us" }}
+      />
 
-      {/* Our Story Section */}
-      <section className="py-20 bg-white ">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center  border-r-3 border-r-red-700">
-            <div className="relative">
+      <section className="section-shell">
+        <div className="site-container">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="image-frame">
               <Image
                 src="/baraka/hero.jpg"
-                alt="Baraka Hotel Story"
-                width={600}
-                height={450}
-                className="rounded-2xl shadow-2xl"
+                alt="Baraka Hotel story"
+                width={900}
+                height={700}
+                className="h-[420px] w-full object-cover md:h-[560px]"
               />
-              <div className="absolute -bottom-6 -right-6 bg-red-700 text-white p-6 rounded-2xl shadow-xl hidden md:flex items-center gap-3">
-                <Calendar className="w-8 h-8" />
-                <div>
-                  <p className="text-2xl font-bold">Dec 13</p>
-                  <p className="text-sm">2024 Opening</p>
+              <div className="absolute bottom-6 left-6 right-6 rounded-[1.5rem] bg-bnavy/[0.82] p-5 text-white backdrop-blur">
+                <div className="flex items-center gap-3">
+                  <span className="flex size-12 items-center justify-center rounded-full bg-bred">
+                    <Calendar className="size-5" />
+                  </span>
+                  <div>
+                    <p className="text-2xl font-black">Dec 13, 2024</p>
+                    <p className="text-sm text-white/70">Official opening</p>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            <div className="space-y-6">
-              <div className=" text-3xl text-bred font-bold bg-bblue/10  border-none">
-                Our Story
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
-                A Trusted Stop for Comfort
-              </h2>
-              <p className="text-stone-600 text-lg leading-relaxed">
-                Officially opened on the 13th December, 2024 along Kampala-Gulu Highway 
-                in Bweyale, Kiryandongo with the aim of providing quality hospitality to 
-                travelers and locals alike, Baraka Hotel has grown into a trusted stop 
-                for comfort and refreshment.
+
+            <div>
+              <p className="section-kicker">Our story</p>
+              <h2 className="display-heading">Hospitality with a clear purpose</h2>
+              <div className="mt-6 h-1 w-20 rounded-full bg-bred" />
+              <p className="section-copy mt-7">
+                Officially opened on December 13, 2024 along Kampala-Gulu Highway in
+                Bweyale, Kiryandongo, Baraka Hotel was created to provide quality
+                hospitality to travelers and locals alike.
               </p>
-              <p className="text-stone-600 text-lg leading-relaxed">
-                We take pride in offering a welcoming environment where every guest feels valued.
+              <p className="section-copy mt-5">
+                We take pride in offering a welcoming environment where every guest feels
+                valued, cared for, and ready for the next part of the journey.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
-      <section className="py-20 bg-stone-50 ">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 border-t-4 border-l-4 border-bblue p-2">
-            {/* Mission */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-stone-100">
-              <div className="w-16 h-16 rounded-2xl bg-bred/10 flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-bred" />
-              </div>
-              <h3 className="text-2xl font-bold text-stone-800 mb-4">Our Mission</h3>
-              <p className="text-stone-600 text-lg leading-relaxed">
-                To provide exceptional hospitality, ensuring every guest feels welcomed, 
-                valued and cared for.
-              </p>
-            </div>
+      <section className="bg-white py-16 md:py-24">
+        <div className="site-container">
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card className="hotel-card-hover">
+              <CardContent className="p-8">
+                <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-bred text-white">
+                  <Target className="size-7" />
+                </div>
+                <h2 className="text-3xl font-black text-bnavy">Our Mission</h2>
+                <p className="section-copy mt-4">
+                  To provide exceptional hospitality, ensuring every guest feels welcomed,
+                  valued, and cared for.
+                </p>
+              </CardContent>
+            </Card>
 
-            {/* Vision */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-stone-100">
-              <div className="w-16 h-16 rounded-2xl bg-bblue/10 flex items-center justify-center mb-6">
-                <Eye className="w-8 h-8 text-bblue" />
-              </div>
-              <h3 className="text-2xl font-bold text-stone-800 mb-4">Our Vision</h3>
-              <p className="text-stone-600 text-lg leading-relaxed">
-                To be the preferred hotel in Kiryandongo District by offering superior 
-                service and memorable guest experiences.
-              </p>
-            </div>
+            <Card className="hotel-card-hover">
+              <CardContent className="p-8">
+                <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-bblue text-bnavy">
+                  <Eye className="size-7" />
+                </div>
+                <h2 className="text-3xl font-black text-bnavy">Our Vision</h2>
+                <p className="section-copy mt-4">
+                  To be the preferred hotel in Kiryandongo District by offering superior
+                  service and memorable guest experiences.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-white ">
-        <div className="container mx-auto px-4 border-b-4 border-r-4 border-bred p-2">
-          <div className="text-center mb-12 ">
-            {/* <Badge className="bg-bred/10 text-bred border-none mb-4">
-              Why Choose Us
-            </Badge> */}
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
-              What Makes Us Different
-            </h2>
-          </div>
+      <section className="section-shell">
+        <div className="site-container">
+          <SectionHeader
+            kicker="Why choose us"
+            title="What makes us different"
+            description="Baraka Hotel is built around practical comforts delivered with polish and genuine care."
+            className="mb-12"
+          />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {whyUsPoints.map((point, index) => (
-              <div
-                key={index}
-                className="text-center p-6 rounded-2xl bg-stone-50 hover:bg-bblue/5 border border-stone-100 hover:border-bblue/20 transition-all duration-300"
-              >
-                <div className="w-14 h-14 mx-auto rounded-xl bg-bblue/10 flex items-center justify-center mb-4">
-                  <point.icon className="w-7 h-7 text-bblue" />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {whyUsPoints.map((point) => (
+              <article key={point.title} className="hotel-card hotel-card-hover p-6 text-center">
+                <div className="mx-auto mb-5 flex size-14 items-center justify-center rounded-2xl bg-bmist text-bblue">
+                  <point.icon className="size-7" />
                 </div>
-                <p className="text-stone-700 font-medium">{point.title}</p>
-              </div>
+                <h3 className="font-black text-bnavy">{point.title}</h3>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gray-900">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Experience Baraka Hotel?
-          </h2>
-          <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
+      <section className="bg-bnavy py-16 text-white">
+        <div className="site-container text-center">
+          <h2 className="text-3xl font-black md:text-5xl">Ready to experience Baraka Hotel?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-white/75">
             Book your stay today and discover why guests love coming back.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/rooms">
-              <Button size="lg" className="bg-white text-bred hover:bg-stone-100 px-8 py-6 text-lg rounded-xl">
-                View Our Rooms
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white bg-bblue px-8 py-6 text-lg rounded-xl">
-                Contact Us
-              </Button>
-            </Link>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button size="lg" asChild>
+              <Link href="/rooms">View Our Rooms</Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/30 bg-white/10 text-white hover:bg-white hover:text-bnavy"
+              asChild
+            >
+              <Link href="/contact">Contact Us</Link>
+            </Button>
           </div>
         </div>
       </section>
