@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Bed, ChevronDown, MapPin, Phone, Shield, UtensilsCrossed } from "lucide-react";
+import { Bed, ChevronDown, Phone, Shield, UtensilsCrossed } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -90,13 +90,13 @@ export function Hero() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-5 hidden border-white/20 bg-white/10 text-white hover:bg-white hover:text-bnavy md:inline-flex" />
-        <CarouselNext className="right-5 hidden border-white/20 bg-white/10 text-white hover:bg-white hover:text-bnavy md:inline-flex" />
+        <CarouselPrevious className="left-5 hidden z-20 border-white/20 bg-white/10 text-white hover:bg-white hover:text-bnavy md:inline-flex" />
+        <CarouselNext className="right-5 hidden z-20 border-white/20 bg-white/10 text-white hover:bg-white hover:text-bnavy md:inline-flex" />
       </Carousel>
 
       <div className="hero-gradient absolute inset-0" />
-      <div className="pointer-events-none absolute left-4 top-24 z-10 select-none text-[5rem] font-black leading-none text-white/70 sm:text-[8rem] lg:left-10 lg:top-[5.5rem] lg:text-[14rem]">
-        BARAKA
+      <div className="pointer-events-none lg:absolute hidden z-10 select-none text-[5rem] font-black leading-none text-white/5 sm:text-[8rem] lg:left-10 lg:top-[5.5rem] lg:text-[14rem]">
+        BARAKA HOTEL
       </div>
 
       <div className="site-container relative z-20 flex min-h-screen flex-col justify-end pb-8 pt-28 md:pb-10">
@@ -107,7 +107,7 @@ export function Hero() {
           </p> */}
           <h1 className="text-5xl font-black leading-[0.92] text-white sm:text-6xl lg:text-7xl">
             {slide.title}
-            <span className="block text-bblue">{slide.highlight}</span>
+            <span className="block text-bblue lg:text-4xl">{slide.highlight}</span>
           </h1>
           <div className="mt-6 h-1 w-20 rounded-full bg-bred" />
           <p className="mt-7 max-w-2xl text-lg leading-8 text-white/85 md:text-xl">

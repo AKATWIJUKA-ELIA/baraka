@@ -1,4 +1,6 @@
 import { MetadataRoute } from "next";
+import { rooms } from "@/lib/rooms-data";
+import { facilities } from "@/lib/facilities-data";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://barakahotel.com";
 
@@ -32,6 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/amenities`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
       url: `${siteUrl}/facilities`,
       lastModified,
       changeFrequency: "monthly" as const,
@@ -52,20 +60,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic room pages
-  const roomClassifications = [
-    "standard",
-    "standard-plus",
-    "deluxe-executive",
-    "family-suite",
-    "budget-dormitory",
-  ];
-
-  const roomPages = roomClassifications.map((classification) => ({
-    url: `${siteUrl}/rooms/${classification}`,
+  const roomPages = rooms.map((room) => ({
+    url: `${siteUrl}/rooms/${room.classification}`,
     lastModified,
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 
-  return [...staticPages, ...roomPages];
+  // Dynamic facility pages
+  const facilityPages = facilities.map((facility) => ({
+    url: `${siteUrl}/facilities/${facility.id}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...roomPages, ...facilityPages];
 }

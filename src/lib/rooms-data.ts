@@ -22,7 +22,7 @@ export interface Room {
   guests: number;
   beds: number;
   bathrooms: number;
-  size: string;
+  size?: string;
   amenities: string[];
   features: string[];
   badge: string;
@@ -43,7 +43,7 @@ export const rooms: Room[] = [
     guests: 1,
     beds: 1,
     bathrooms: 1,
-    size: "15 sqm",
+    // size: "15 sqm",
     amenities: [
       "Comfortable bed",
       "Private bathroom and toilet",
@@ -69,7 +69,7 @@ export const rooms: Room[] = [
     guests: 2,
     beds: 1,
     bathrooms: 1,
-    size: "20 sqm",
+    // size: "20 sqm",
     amenities: [
       "Comfortable bed",
       "Private bathroom and toilet",
@@ -99,7 +99,7 @@ export const rooms: Room[] = [
     guests: 2,
     beds: 1,
     bathrooms: 1,
-    size: "28 sqm",
+    // size: "28 sqm",
     amenities: [
       "Comfortable bed",
       "Private bathroom and toilet",
@@ -132,7 +132,7 @@ export const rooms: Room[] = [
     guests: 2,
     beds: 2,
     bathrooms: 0,
-    size: "22 sqm",
+    // size: "22 sqm",
     amenities: [
       "Two comfortable beds",
       "Fan",

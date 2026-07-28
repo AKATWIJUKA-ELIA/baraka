@@ -14,7 +14,7 @@ const navItems = [
   { title: "Rooms", href: "/rooms" },
   { title: "Amenities", href: "/amenities" },
   { title: "Gallery", href: "/gallery" },
-  { title: "Testimonials", href: "/testimonials" },
+  { title: "Testimonials", href: "/#testimonials" },
   { title: "Contact", href: "/contact" },
   { title: "About Us", href: "/about" },
 ];

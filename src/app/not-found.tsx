@@ -1,65 +1,70 @@
-"use client";
-import Link from "next/link"
-import { Search, ArrowLeft, Frown, House,Filter } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { ArrowLeft, BedDouble, Frown, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function NotFound() {
-
   return (
-        <div className="container mx-auto px-4 py-12">
-      <div className="flex flex-col items-center text-center mb-12">
-        <div className="h-48 w-48 mb-6 relative">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Frown className="h-24 w-24 text-gray-300 " strokeWidth={2} />
-          </div>
-         
+    <div className="site-container py-24 md:py-32">
+      <div className="mb-12 flex flex-col items-center text-center">
+        <div className="mb-6 flex size-24 items-center justify-center rounded-full bg-bmist">
+          <Frown className="size-12 text-bblue" strokeWidth={2} />
         </div>
 
-        <h1 className="text-3xl text-dark font-bold mb-4">No Matches Found for your search</h1>
-        <p className="text-gray-600 max-w-lg mb-8">
-          We couldn&apos;t find any  matches for your search criteria. Try adjusting your filters or search terms.
+        <h1 className="display-heading text-4xl sm:text-5xl">Page Not Found</h1>
+        <p className="section-copy mt-4 max-w-lg">
+          Sorry, we couldn&apos;t find the page you&apos;re looking for. It may have
+          been moved or no longer exists.
         </p>
 
-        <div className="flex gap-4">
-          <Button variant="outline" asChild>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Button asChild>
             <Link href="/">
-              <ArrowLeft className="mr-2 h-4 w-4" />
+              <ArrowLeft className="size-4" />
               Back to Home
             </Link>
           </Button>
           <Button variant="outline" asChild>
             <Link href="/rooms">
-              <House className="mr-2 h-4 w-4" />
-              Browse rooms
+              <BedDouble className="size-4" />
+              Browse Rooms
             </Link>
           </Button>
         </div>
       </div>
 
-
-      <div className="mt-12 border-t pt-8">
-        <h2 className="text-xl font-semibold mb-4 text-center">Need Help Finding Something?</h2>
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <Card>
-            <CardContent className="p-6 flex flex-col items-center text-center">
-              <Filter className="h-8 w-8 mb-4 text-gray-500" />
-              <h3 className="font-medium mb-2">Adjust Your Filters</h3>
-              <p className="text-sm text-gray-500">Try removing some filters to see more products</p>
+      <div className="mt-12 border-t border-bline pt-10">
+        <h2 className="mb-6 text-center text-xl font-black text-bnavy">
+          Looking for something else?
+        </h2>
+        <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-2">
+          <Card className="hotel-card-hover">
+            <CardContent className="flex flex-col items-center p-6 text-center">
+              <BedDouble className="mb-4 size-8 text-bblue" />
+              <h3 className="mb-2 font-black text-bnavy">View Our Rooms</h3>
+              <p className="text-sm text-bink/70">
+                Explore our range of comfortable rooms and rates.
+              </p>
+              <Link href="/rooms" className="mt-4 text-sm font-bold text-bred">
+                See rooms
+              </Link>
             </CardContent>
           </Card>
 
-          <Card>
-            <CardContent className="p-6 flex flex-col items-center text-center">
-              <Search className="h-8 w-8 mb-4 text-gray-500" />
-              <h3 className="font-medium mb-2">Check Your Spelling</h3>
-              <p className="text-sm text-gray-500">Make sure all words are spelled correctly</p>
+          <Card className="hotel-card-hover">
+            <CardContent className="flex flex-col items-center p-6 text-center">
+              <Phone className="mb-4 size-8 text-bblue" />
+              <h3 className="mb-2 font-black text-bnavy">Get in Touch</h3>
+              <p className="text-sm text-bink/70">
+                Have a question? Our team is here to help.
+              </p>
+              <Link href="/contact" className="mt-4 text-sm font-bold text-bred">
+                Contact us
+              </Link>
             </CardContent>
           </Card>
         </div>
       </div>
-     
     </div>
-    
   );
 }
