@@ -1,85 +1,66 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import { Phone, Calendar, MapPin, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { MapPin, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function CallToAction() {
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/baraka/hero3.jpg"
-          alt="Baraka Hotel"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/95 via-stone-900/80 to-stone-900/70" />
-      </div>
+    <section className="relative overflow-hidden py-24 text-white lg:py-32">
+      <Image src="/baraka/hero3.jpg" alt="Baraka Hotel exterior" fill className="object-cover" sizes="100vw" />
+      <div className="hero-gradient absolute inset-0" />
 
-      {/* Content */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="site-container relative z-10">
         <div className="max-w-3xl">
-          {/* Heading */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-            Planning your journey?{" "}
-            <span className="text-bblue">Make Baraka Hotel</span> your stop of choice.
+          <p className="mb-3 text-sm font-bold uppercase text-bblue">Book direct</p>
+          <h2 className="text-4xl font-black leading-tight text-white md:text-6xl">
+            Planning your journey? Make Baraka Hotel your stop of choice.
           </h2>
-
-          {/* Description */}
-          <p className="text-stone-300 text-lg md:text-xl mb-8 leading-relaxed">
-            Whether you&apos;re traveling for business or leisure, we&apos;re here to provide 
-            comfort, great food, and a peaceful stay. Book your room today and experience 
-            our warm Ugandan hospitality.
+          <p className="mt-6 text-lg leading-8 text-white/80 md:text-xl">
+            Whether traveling for business or leisure, we are here with comfortable rooms,
+            fresh meals, secure parking, and warm Ugandan hospitality.
           </p>
 
-          {/* Contact Info */}
-          <div className="flex flex-wrap gap-6 mb-10">
-            <div className="flex items-center gap-3 text-stone-300">
-              <div className="w-10 h-10 rounded-full bg-bred/20 flex items-center justify-center">
-                <Phone className="w-5 h-5 text-bred" />
-              </div>
+          <div className="mt-8 flex flex-wrap gap-5 text-white/80">
+            <div className="flex items-center gap-3">
+              <span className="flex size-11 items-center justify-center rounded-full bg-bred text-white">
+                <Phone className="size-5" />
+              </span>
               <span>+256 768 666 505</span>
             </div>
-            <div className="flex items-center gap-3 text-stone-300">
-              <div className="w-10 h-10 rounded-full bg-bblue/20 flex items-center justify-center">
-                <MapPin className="w-5 h-5 text-bblue" />
-              </div>
+            <div className="flex items-center gap-3">
+              <span className="flex size-11 items-center justify-center rounded-full bg-bblue text-bnavy">
+                <MapPin className="size-5" />
+              </span>
               <span>Bweyale, Kiryandongo</span>
             </div>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4">
-           <a
-                  href={`https://wa.me/256768666505?text=${encodeURIComponent(
-                    `Hello Baraka Hotel!\n\nI would like to book a room
-                    Please let me know the availability. Thank you!`
-                  )}`}
-                  className="hover:cursor-pointer border-white/30  bg-red-400 font-bold  hover:bg-red-500 transition duration-300 px-4 py-3 text-lg rounded-xl backdrop-blur-sm "
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  
-                    Book Now
-                </a>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Button size="lg" asChild>
+              <a
+                href={`https://wa.me/256768666505?text=${encodeURIComponent(
+                  "Hello Baraka Hotel. I would like to book a room. Please let me know the availability. Thank you.",
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book Now
+              </a>
+            </Button>
             <Button
-            onClick={() => window.location.href = '/contact'}
               size="lg"
               variant="outline"
-              className=" hover:cursor-pointer border-white/30 text-white bg-bblue hover:bg-white/10 px-8 py-6 text-lg rounded-xl backdrop-blur-sm"
+              className="border-white/30 bg-white/10 text-white hover:bg-white hover:text-bnavy"
+              asChild
             >
-              <Phone className="w-5 h-5 mr-2" />
-              Contact Us
+              <Link href="/contact">
+                <Phone className="size-4" />
+                Contact Us
+              </Link>
             </Button>
           </div>
         </div>
       </div>
-
-      {/* Decorative elements */}
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-bred/10 rounded-full blur-3xl" />
-      <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-bblue/5 rounded-full blur-2xl" />
     </section>
   );
 }
