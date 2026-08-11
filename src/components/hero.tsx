@@ -1,199 +1,159 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Bed, ChevronDown, Phone, Shield, UtensilsCrossed } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { useEffect } from "react";
 import {
   Carousel,
+  CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Calendar, MapPin, Star, ChevronDown } from "lucide-react";
 
 const heroSlides = [
   {
-    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/6983983d000c2644f5df/view?project=6983916c002e052ab84d",
-    title: " Rest, refresh, and recharge",
+    image: "/baraka/hero.jpg",
+    title: "Bweyale Baraka Hotel",
+    highlight: "Stay beautifully on the journey",
+    description:
+      "Clean rooms, fresh meals, secure parking, and a calm stop along the Kampala-Gulu Highway.",
+  },
+  {
+    image: "/baraka/hero2.jpg",
+    title: "Rest, refresh, recharge",
     highlight: "For a memorable experience",
     description:
-      "Welcome to Baraka Hotel, where every moment is crafted to perfection. Discover a sanctuary of elegance, comfort, and world-class hospitality.",
+      "A welcoming hotel for transit guests, business travelers, families, and event hosts.",
   },
   {
-    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/6983934a0024357726e2/view?project=6983916c002e052ab84d",
-    title: "Welcome to Baraka ",
-    highlight: "Hotel",
+    image: "/baraka/hero3.jpg",
+    title: "Warm Ugandan hospitality",
+    highlight: "With modern comfort",
     description:
-      " a welcoming haven for travelers and guests seeking comfort, great meals, and a peaceful stay.",
-  },
-  {
-    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/6983917c0008568a2555/files/6983935c000fc3d2ab75/view?project=6983916c002e052ab84d",
-    title: "Indulge in",
-    highlight: "World-Class Amenities",
-    description:
-      "From our infinity pool to our award-winning spa, experience amenities that redefine luxury and create unforgettable memories.",
+      "From conference space to rooftop moments, every detail is prepared for an easy stay.",
   },
 ];
 
+const highlights = [
+  { icon: Bed, title: "Rooms", text: "Clean, restful spaces from UGX 40,000." },
+  { icon: UtensilsCrossed, title: "Dining", text: "Fresh local and continental meals daily." },
+  { icon: Shield, title: "Secure", text: "24/7 reception, parking, and security." },
+];
+
 export function Hero() {
-  const [api, setApi] = React.useState<any>();
+  const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!api) return;
 
-    setCurrent(api.selectedScrollSnap());
+    const handleSelect = () => setCurrent(api.selectedScrollSnap());
+    handleSelect();
+    api.on("select", handleSelect);
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
+    return () => {
+      api.off("select", handleSelect);
+    };
   }, [api]);
 
-  // Auto-play functionality
-  useEffect(() => {
+  React.useEffect(() => {
     if (!api) return;
 
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 12000);
-
-    return () => clearInterval(interval);
+    const interval = window.setInterval(() => api.scrollNext(), 9000);
+    return () => window.clearInterval(interval);
   }, [api]);
 
-  const scrollToRooms = () => {
+  const scrollToIntro = () => {
     document.getElementById("belowHero")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const slide = heroSlides[current] ?? heroSlides[0];
+
   return (
-    <section
-      id="home"
-      className="relative min-h-screen w-full flex items-center justify-center  overflow-hidden"
-    >
-      {/* Background Carousel */}
-      <Carousel
-        setApi={setApi}
-        opts={{
-          loop: true,
-        }}
-        className="absolute inset-0 w-full h-full"
-      >
-        <CarouselContent className="h-screen ml-0">
-          {heroSlides.map((slide, index) => (
-            <CarouselItem key={index} className="h-full pl-0 relative">
-              <div
-                className="w-full h-full bg-cover bg-center bg-no-repeat"
-                style={{
-                  backgroundImage: `url('${slide.image}')`,
-                }}
-              >
-                <div className="absolute bottom-0 left-0 right-0 top-2 bg" />
-              </div>
+    <section id="home" className="relative min-h-screen overflow-hidden bg-bnavy text-white">
+      <Carousel setApi={setApi} opts={{ loop: true }} className="absolute inset-0">
+        <CarouselContent className="ml-0 h-screen">
+          {heroSlides.map((item) => (
+            <CarouselItem key={item.title} className="relative h-full pl-0">
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                priority={item.image === "/baraka/hero.jpg"}
+                sizes="100vw"
+                className="object-cover"
+              />
             </CarouselItem>
           ))}
         </CarouselContent>
-
-        <CarouselPrevious className="left-4 md:left-8 h-12 w-12 bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 hover:text-white" />
-        <CarouselNext className="right-4 md:right-8 h-12 w-12 bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 hover:text-white" />
+        <CarouselPrevious className="left-5 hidden z-20 border-white/20 bg-white/10 text-white hover:bg-white hover:text-bnavy md:inline-flex" />
+        <CarouselNext className="right-5 hidden z-20 border-white/20 bg-white/10 text-white hover:bg-white hover:text-bnavy md:inline-flex" />
       </Carousel>
 
-
-
-      {/* Floating Elements */}
-      {/* <div className="absolute top-40 left-10 hidden lg:block z-20">
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-white animate-pulse">
-          <div className="flex items-center gap-2">
-            <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
-            <span className="font-semibold">4.9 Rating</span>
-          </div>
-          <p className="text-sm text-white/70">500+ Reviews</p>
-        </div>
-      </div> */}
-
-
-      {/* Main Content */}
-      <div className=" absolute z-10 md:left-20 mx-2 top-[60%] md:top-[50%]  bg-black/50   p-4 text-center">
-        {/* <Badge className="bg-amber-600/90 text-white border-none mb-6 px-4 py-1.5">
-          ✨ Luxury Redefined
-        </Badge> */}
-
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          {heroSlides[current]?.title || "Experience"}
-          <span className="block text-transparent bg-clip-text bg-linear-to-b from-bblue to-bred">
-            {heroSlides[current]?.highlight || "Unparalleled Luxury"}
-          </span>
-        </h1>
-
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10">
-          {heroSlides[current]?.description ||
-            "Welcome to Baraka Hotel, where every moment is crafted to perfection."}
-        </p>
-
-        {/* Search/Booking Form */}
-                {/* <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-lg rounded-2xl p-6 mb-10">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="bg-white rounded-xl p-4 text-left">
-                <label className="text-sm text-gray-500 font-medium">
-                        Check In
-                </label>
-                <div className="flex items-center gap-2 mt-1">
-                        <Calendar className="h-5 w-5 text-amber-600" />
-                        <span className="font-semibold text-gray-800">
-                        Dec 15, 2025
-                        </span>
-                </div>
-                </div>
-                <div className="bg-white rounded-xl p-4 text-left">
-                <label className="text-sm text-gray-500 font-medium">
-                        Check Out
-                </label>
-                <div className="flex items-center gap-2 mt-1">
-                        <Calendar className="h-5 w-5 text-amber-600" />
-                        <span className="font-semibold text-gray-800">
-                        Dec 20, 2025
-                        </span>
-                </div>
-                </div>
-                <div className="bg-white rounded-xl p-4 text-left">
-                <label className="text-sm text-gray-500 font-medium">Guests</label>
-                <div className="flex items-center gap-2 mt-1">
-                        <span className="font-semibold text-gray-800">2 Adults</span>
-                </div>
-                </div>
-                <Button className="h-full bg-amber-600 hover:bg-amber-700 text-white text-lg font-semibold rounded-xl">
-                Check Availability
-                </Button>
-                </div>
-                </div> */}
-
-        {/* Stats */}
-        {/* <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-white">150+</p>
-            <p className="text-white/70">Luxury Rooms</p>
-          </div>
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-white">4.9</p>
-            <p className="text-white/70">Guest Rating</p>
-          </div>
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-white">50+</p>
-            <p className="text-white/70">Awards Won</p>
-          </div>
-          <div className="text-center">
-            <p className="text-3xl md:text-4xl font-bold text-white">10K+</p>
-            <p className="text-white/70">Happy Guests</p>
-          </div>
-        </div> */}
+      <div className="hero-gradient absolute inset-0" />
+      <div className="pointer-events-none lg:absolute hidden z-10 select-none text-[5rem] font-black leading-none text-white/5 sm:text-[8rem] lg:left-10 lg:top-[5.5rem] lg:text-[14rem]">
+        BARAKA HOTEL
       </div>
 
-      {/* Scroll Indicator */}
+      <div className="site-container relative z-20 flex min-h-screen flex-col justify-end pb-8 pt-28 md:pb-10">
+        <div className="max-w-4xl pb-8 md:pb-12">
+          {/* <p className="mb-4 flex items-center gap-2 text-sm font-bold uppercase text-bblue">
+            <MapPin className="size-4" />
+            Bweyale, Kiryandongo District
+          </p> */}
+          <h1 className="text-5xl font-black leading-[0.92] text-white sm:text-6xl lg:text-7xl">
+            {slide.title}
+            <span className="block text-bblue lg:text-4xl">{slide.highlight}</span>
+          </h1>
+          <div className="mt-6 h-1 w-20 rounded-full bg-bred" />
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-white/85 md:text-xl">
+            {slide.description}
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Button size="lg" asChild>
+              <a href="tel:+256768666505">
+                <Phone className="size-4" />
+                Book Now
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/30 bg-white/10 text-white hover:bg-white hover:text-bnavy"
+              asChild
+            >
+              <Link href="/rooms">Explore Rooms</Link>
+            </Button>
+          </div>
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-3">
+          {highlights.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-[1.5rem] border border-white/[0.14] bg-white/[0.09] p-5 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/[0.13]"
+            >
+              <div className="mb-4 flex size-11 items-center justify-center rounded-full bg-bblue text-bnavy">
+                <item.icon className="size-5" />
+              </div>
+              <h2 className="text-lg font-black">{item.title}</h2>
+              <p className="mt-1 text-sm leading-6 text-white/70">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <button
-        onClick={scrollToRooms}
-        className="absolute bg-white/50 border border-bblue/30 rounded-full py-4 z-40 bottom-0 left-1/2 transform -translate-x-1/2 text-bred  cursor-pointer"
+        type="button"
+        onClick={scrollToIntro}
+        className="absolute bottom-5 left-1/2 z-30 flex size-12 -translate-x-1/2 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur transition hover:bg-white hover:text-bnavy focus-visible:ring-offset-bnavy"
+        aria-label="Scroll to hotel introduction"
       >
-        <ChevronDown className="h-12 w-9 animate-bounce " />
+        <ChevronDown className="size-6" />
       </button>
     </section>
   );

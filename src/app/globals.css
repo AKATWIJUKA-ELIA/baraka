@@ -6,6 +6,11 @@
 @theme inline {
   --color-bred: #f71f14;
   --color-bblue: #46c1ee;
+  --color-bnavy: #0a1a24;
+  --color-bink: #102b3a;
+  --color-bpaper: #f6fbfe;
+  --color-bmist: #e8f7fd;
+  --color-bline: #cfe5ef;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -46,30 +51,30 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --radius: 1.5rem;
+  --background: #f6fbfe;
+  --foreground: #0a1a24;
+  --card: #ffffff;
+  --card-foreground: #102b3a;
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --popover-foreground: #0a1a24;
+  --primary: #f71f14;
+  --primary-foreground: #ffffff;
+  --secondary: #46c1ee;
+  --secondary-foreground: #0a1a24;
+  --muted: #e8f7fd;
+  --muted-foreground: #4e6b78;
+  --accent: #46c1ee;
+  --accent-foreground: #0a1a24;
+  --destructive: #f71f14;
+  --border: #cfe5ef;
+  --input: #cfe5ef;
+  --ring: #46c1ee;
+  --chart-1: #46c1ee;
+  --chart-2: #f71f14;
+  --chart-3: #0a1a24;
+  --chart-4: #102b3a;
+  --chart-5: #e8f7fd;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -120,5 +125,68 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  }
+  ::selection {
+    background: #46c1ee;
+    color: #0a1a24;
+  }
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bblue focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+  }
+  img {
+    @apply max-w-full;
+  }
+}
+
+@layer components {
+  .site-container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-shell {
+    @apply py-16 md:py-24 lg:py-28;
+  }
+
+  .section-kicker {
+    @apply mb-3 text-sm font-bold uppercase text-bred;
+  }
+
+  .display-heading {
+    @apply text-4xl font-black leading-[0.95] text-bnavy sm:text-5xl lg:text-7xl;
+  }
+
+  .section-heading {
+    @apply text-3xl font-black leading-tight text-bnavy md:text-5xl;
+  }
+
+  .section-copy {
+    @apply text-base leading-8 text-bink/75 md:text-lg;
+  }
+
+  .hotel-card {
+    @apply overflow-hidden rounded-[1.75rem] border border-bline/80 bg-white shadow-[0_22px_70px_rgba(10,26,36,0.10)] transition-all duration-300;
+  }
+
+  .hotel-card-hover {
+    @apply hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(10,26,36,0.16)];
+  }
+
+  .image-frame {
+    @apply relative overflow-hidden rounded-[1.75rem] border border-white/70 shadow-[0_24px_80px_rgba(10,26,36,0.16)];
+  }
+
+  .hero-gradient {
+    background:
+      linear-gradient(90deg, rgba(10, 26, 36, 0.92) 0%, rgba(10, 26, 36, 0.72) 44%, rgba(10, 26, 36, 0.26) 100%),
+      linear-gradient(180deg, rgba(10, 26, 36, 0.45) 0%, rgba(10, 26, 36, 0.12) 42%, rgba(10, 26, 36, 0.88) 100%);
+  }
+
+  .form-field {
+    @apply h-12 rounded-2xl border border-bline bg-white px-4 text-bnavy shadow-sm transition placeholder:text-bink/40 focus-visible:border-bblue focus-visible:ring-bblue/40;
   }
 }

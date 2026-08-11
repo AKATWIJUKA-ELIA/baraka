@@ -1,196 +1,88 @@
-"use client";
-
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Wifi,
-  UtensilsCrossed,
-  Car,
-  Clock,
-  Shield,
-  Coffee,
-  Tv,
-  Building2,
-  Shirt,
-  Sun,
-  ArrowRight,
-} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-const amenities = [
-  {
-    id: "restaurant",
-    icon: UtensilsCrossed,
-    title: "Restaurant",
-    description: "Fresh local and continental dishes served daily",
-  },
-  {
-    id: "coffee-bar",
-    icon: Coffee,
-    title: "Coffee Bar",
-    description: "Premium coffee and refreshing beverages",
-  },
-  {
-    id: "conference",
-    icon: Building2,
-    title: "Conference Room",
-    description: "Well-lit, air-conditioned room seating up to 45 people",
-  },
-  {
-    id: "rooftop",
-    icon: Sun,
-    title: "Rooftop",
-    description: "Open-air space perfect for events and relaxation",
-  },
-  {
-    id: "wifi",
-    icon: Wifi,
-    title: "Free Wi-Fi",
-    description: "Complimentary high-speed internet access",
-  },
-  {
-    id: "parking",
-    icon: Car,
-    title: "Safe Parking",
-    description: "Spacious and secure parking area",
-  },
-  {
-    id: "laundry",
-    icon: Shirt,
-    title: "Laundry Service",
-    description: "Professional washing and ironing at affordable rates",
-  },
-  {
-    id: "security",
-    icon: Shield,
-    title: "24/7 Security",
-    description: "Round-the-clock security for your peace of mind",
-  },
-  {
-    id: "dstv",
-    icon: Tv,
-    title: "DSTV",
-    description: "Enjoy live football and international news",
-  },
-
-];
+import { ArrowRight, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SectionHeader } from "@/components/SectionHeader";
+import { facilities } from "@/lib/facilities-data";
 
 export function Amenities() {
-
   return (
-    <section id="amenities" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our Facilities & Services
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Everything you need for a comfortable stay. From delicious meals to 
-            modern amenities, we&apos;ve got you covered.
-          </p>
-        </div>
+    <section id="amenities" className="section-shell bg-white">
+      <div className="site-container">
+        <SectionHeader
+          kicker="Amenities"
+          title="Everything needed for an easy stay"
+          description="Dining, coffee, rooftop views, conference space, secure parking, Wi-Fi, laundry, and round-the-clock support."
+          className="mb-12"
+        />
 
-        {/* Amenities Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {amenities.map((amenity) => (
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {facilities.slice(0, 8).map((amenity) => (
             <Link
               key={amenity.id}
               href={`/facilities/${amenity.id}`}
-              className="group p-6 rounded-2xl bg-gray-50 hover:bg-bblue/5 border border-transparent hover:border-bblue/20 transition-all duration-300 hover:shadow-lg cursor-pointer"
+              className="hotel-card hotel-card-hover group p-6"
             >
-              <div className="w-14 h-14 rounded-xl bg-bblue/10 group-hover:bg-bblue flex items-center justify-center mb-4 transition-colors duration-300">
-                <amenity.icon className="h-7 w-7 text-bblue group-hover:text-white transition-colors duration-300" />
+              <div className="mb-5 flex size-14 items-center justify-center rounded-2xl bg-bmist text-bblue transition group-hover:bg-bblue group-hover:text-bnavy">
+                <amenity.icon className="size-7" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                {amenity.title}
-              </h3>
-              <p className="text-sm text-gray-600">{amenity.description}</p>
+              <h3 className="text-lg font-black text-bnavy">{amenity.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-bink/70">{amenity.shortDescription}</p>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-bred">
+                View details
+                <ArrowRight className="size-4 transition group-hover:translate-x-1" />
+              </span>
             </Link>
           ))}
         </div>
 
-        {/* View All Facilities Button */}
-        <div className="flex justify-center mt-10">
-          <Link href="/facilities">
-            <Button className="bg-bblue hover:bg-bblue/90 text-white px-8 py-6 text-lg rounded-xl group">
-              View All Facilities
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
+        <div className="mt-12 flex justify-center">
+          <Button size="lg" variant="secondary" asChild>
+            <Link href="/amenities">
+              View All Amenities
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
         </div>
 
-        {/* Feature Highlight */}
-        <div className="mt-20 grid md:grid-cols-2 gap-8 items-center">
-          <div className="relative">
+        <div className="mt-20 grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="image-frame">
             <Image
               src="/images/whyus.jpg"
-              alt="Hotel Spa"
-              width={600}
-                  height={400}
-              className="rounded-2xl shadow-2xl"
+              alt="Baraka Hotel guest spaces"
+              width={900}
+              height={650}
+              className="h-[400px] w-full object-cover md:h-[540px]"
             />
-            <div className="absolute -bottom-6 -right-6 bg-bred text-white p-6 rounded-2xl shadow-xl hidden md:block">
-              <p className="text-3xl font-bold">2024</p>
-              <p className="text-sm">Newly Opened</p>
+            <div className="absolute bottom-5 right-5 rounded-full bg-bred px-5 py-3 text-sm font-black text-white">
+              Opened 2024
             </div>
           </div>
-          <div className="space-y-6">
-                {/* <Badge className="bg-bred/10 text-bred border-none">
-                Why Choose Us
-                </Badge> */}
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Your Comfort is Our Priority
-            </h3>
-            <p className="text-gray-600 text-lg">
-              Officially opened on December 13th, 2024, Baraka Hotel has quickly 
-              become a trusted stop for comfort and refreshment along the Kampala-Gulu 
-              Highway. We take pride in offering a welcoming environment where every 
-              guest feels valued.
+          <div>
+            <p className="section-kicker">Guest comfort</p>
+            <h3 className="section-heading">Prepared for stopovers, stays, and small events</h3>
+            <p className="section-copy mt-5">
+              Baraka Hotel has quickly become a trusted stop for comfort and refreshment
+              along the Kampala-Gulu Highway. The experience is practical, polished, and
+              easy to settle into.
             </p>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-bred/10 flex items-center justify-center">
-                  <span className="text-bred text-sm">✓</span>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {[
+                "Clean and comfortable rooms",
+                "Affordable direct rates",
+                "Friendly professional staff",
+                "Convenient highway location",
+                "Secure environment",
+                "Fresh meals and drinks",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-2xl bg-bpaper p-4 text-bink">
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-bmist text-bblue">
+                    <Check className="size-4" />
+                  </span>
+                  <span className="font-semibold">{item}</span>
                 </div>
-                <span className="text-gray-700">
-                  Clean and comfortable rooms
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-bblue/10 flex items-center justify-center">
-                  <span className="text-bblue text-sm">✓</span>
-                </div>
-                <span className="text-gray-700">
-                  Affordable pricing
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-bred/10 flex items-center justify-center">
-                  <span className="text-bred text-sm">✓</span>
-                </div>
-                <span className="text-gray-700">
-                  Friendly and professional staff
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-bblue/10 flex items-center justify-center">
-                  <span className="text-bblue text-sm">✓</span>
-                </div>
-                <span className="text-gray-700">
-                  Convenient location
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center">
-                  <span className="text-amber-600 text-sm">✓</span>
-                </div>
-                <span className="text-gray-700">
-                  Secure environment
-                </span>
-              </li>
-            </ul>
+              ))}
+            </div>
           </div>
         </div>
       </div>

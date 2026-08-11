@@ -1,17 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Phone, 
-  MapPin, 
-  Clock,
-  MessageCircle,
-  Send
-} from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
+import { Clock, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { PageHero } from "@/components/PageHero";
 
 export function ContactContent() {
   const [formData, setFormData] = useState({
@@ -25,314 +19,308 @@ export function ContactContent() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const whatsappMessage = `Hello! I would like to make a reservation.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nCheck-in: ${formData.checkIn}\nCheck-out: ${formData.checkOut}\nGuests: ${formData.guests}\nRoom: ${formData.roomType}\nMessage: ${formData.message}`;
-    window.open(`https://wa.me/+256770404091?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+  const updateField = (field: keyof typeof formData, value: string) => {
+    setFormData((current) => ({ ...current, [field]: value }));
   };
 
-  return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-24 lg:py-32 bg-stone-900">
-        <div className="absolute inset-0">
-          <Image
-            src="/baraka/hero.jpg"
-            alt="Contact Baraka Hotel"
-            fill
-            className="object-cover opacity-30"
-          />
-        </div>
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Get in <span className="text-bblue">Touch</span>
-          </h1>
-          <p className="text-stone-300 text-lg md:text-xl max-w-3xl mx-auto">
-            We would love to hear from you. Whether you&apos;re making a reservation or 
-            have an inquiry, our team is ready to assist you.
-          </p>
-        </div>
-      </section>
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const whatsappMessage = `Hello Baraka Hotel.\n\nI would like to make a reservation.\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCheck-in: ${formData.checkIn}\nCheck-out: ${formData.checkOut}\nGuests: ${formData.guests}\nRoom: ${formData.roomType}\nMessage: ${formData.message}`;
+    window.open(`https://wa.me/256770404091?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+  };
 
-      {/* Contact Info & Form Section */}
-      <section className="py-20 bg-red-50">
-        <div className=" px-2 w-full">
-          <div className="flex flex-col lg:flex-row gap-12">
-            {/* Contact Information */}
-            <div className="px-6 w-full  ">
-              <div>
-                <h2 className="text-3xl font-bold text-stone-800 mb-6">
-                  Contact Information
-                </h2>
-                <p className="text-stone-600 text-lg">
-                  Reach out to us through any of these channels. We&apos;re here to help!
-                </p>
+  const contactCards = [
+    {
+      icon: Phone,
+      title: "Phone",
+      body: (
+        <>
+          <a href="tel:+256768666505" className="block transition hover:text-bred">
+            +256 768 666 505
+          </a>
+          <a href="tel:+256744628976" className="block transition hover:text-bred">
+            +256 744 628 976
+          </a>
+          <a href="tel:+256770404091" className="block transition hover:text-bred">
+            +256 770 404 091
+          </a>
+        </>
+      ),
+      accent: "red",
+    },
+    {
+      icon: MessageCircle,
+      title: "WhatsApp",
+      body: (
+        <>
+          <a href="https://wa.me/256770404091" target="_blank" rel="noopener noreferrer" className="transition hover:text-bred">
+            +256 770 404 091
+          </a>
+          <p className="mt-1 text-sm text-bink/55">Click to chat with reservations.</p>
+        </>
+      ),
+      accent: "blue",
+    },
+    {
+      icon: MapPin,
+      title: "Address",
+      body: (
+        <span>
+          Along Kampala-Gulu Highway
+          <br />
+          Bweyale, Kiryandongo District
+          <br />
+          Uganda
+        </span>
+      ),
+      accent: "blue",
+    },
+    {
+      icon: Clock,
+      title: "Front Desk",
+      body: (
+        <span>
+          24 hours / 7 days a week
+          <br />
+          Reception always available.
+        </span>
+      ),
+      accent: "red",
+    },
+  ];
+
+  return (
+    <main className="min-h-screen bg-bpaper">
+      <PageHero
+        kicker="Contact & reservations"
+        title="Get in"
+        accent="touch"
+        description="Make a reservation, ask about availability, or speak with the team before your arrival."
+        image="/baraka/hero.jpg"
+        primaryAction={{ href: "/rooms", label: "Explore Rooms" }}
+        secondaryAction={{ href: "/gallery", label: "View Gallery" }}
+      />
+
+      <section className="section-shell">
+        <div className="site-container">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="section-kicker">Contact information</p>
+              <h2 className="section-heading">Reach us directly</h2>
+              <p className="section-copy mt-5">
+                Our team is available around the clock for room bookings, dining questions,
+                conference inquiries, and arrival support.
+              </p>
+
+              <div className="mt-8 grid gap-5 sm:grid-cols-2">
+                {contactCards.map((card) => (
+                  <Card key={card.title} className="hotel-card-hover">
+                    <CardContent className="p-6">
+                      <div
+                        className={`mb-4 flex size-12 items-center justify-center rounded-2xl ${
+                          card.accent === "red" ? "bg-bred text-white" : "bg-bblue text-bnavy"
+                        }`}
+                      >
+                        <card.icon className="size-5" />
+                      </div>
+                      <h3 className="text-lg font-black text-bnavy">{card.title}</h3>
+                      <div className="mt-2 leading-7 text-bink/70">{card.body}</div>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
 
-              {/* Contact Cards */}
-              <div className="space-y-4  w-full grid md:grid-cols-2 gap-4">
-                <Card className="border-0 shadow-lg">
-                  <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-bred/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-bred" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-stone-800 mb-1">Phone Numbers</h3>
-                      <p className="text-stone-600">
-                        <a href="tel:+256768666505" className="hover:text-bred transition-colors">
-                          +256 768 666 505
-                        </a>
-                      </p>
-                      <p className="text-stone-600">
-                        <a href="tel:+256744628976" className="hover:text-bred transition-colors">
-                          +256 744 628 976
-                        </a>
-                      </p>
-                      <p>
-                        <a href="tel:+256770404091" className="hover:text-bred transition-colors">
-                          +256 770 404 091
-                        </a>
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-lg">
-                  <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
-                      <MessageCircle className="w-6 h-6 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-stone-800 mb-1">WhatsApp</h3>
-                      <p className="text-stone-600">
-                        <a 
-                          href="https://wa.me/+256770404091" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="hover:text-green-600 transition-colors"
-                        >
-                          +256 770 404 091
-                        </a>
-                      </p>
-                      <p className="text-stone-500 text-sm">Click to chat with us</p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-lg">
-                  <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-bblue/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-bblue" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-stone-800 mb-1">Physical Address</h3>
-                      <p className="text-stone-600">
-                        Along Kampala-Gulu Highway<br />
-                        Bweyale, Kiryandongo District<br />
-                        Uganda
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-lg">
-                  <CardContent className="p-4 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-6 h-6 text-purple-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-stone-800 mb-1">Hours</h3>
-                      <p className="text-stone-600">
-                        24 Hours / 7 Days a Week<br />
-                        <span className="text-stone-500">Reception always available</span>
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
+              <div className="mt-6 hotel-card p-6">
+                <div className="flex items-start gap-4">
+                  <Mail className="mt-1 size-5 shrink-0 text-bblue" />
+                  <div>
+                    <h3 className="font-black text-bnavy">Email</h3>
+                    <a
+                      href="mailto:barakahotelbweyale@gmail.com"
+                      className="break-all leading-7 text-bink/70 transition hover:text-bred"
+                    >
+                      barakahotelbweyale@gmail.com
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Booking Form */}
-            {/* <div>
-              <Card className="border-0 shadow-xl">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-stone-800 mb-2">
-                    Make a Reservation
-                  </h2>
-                  <p className="text-stone-600 mb-6">
-                    Fill out the form below and we&apos;ll get back to you shortly.
-                  </p>
+            <Card>
+              <CardContent className="p-6 md:p-8">
+                <p className="section-kicker">Reservation request</p>
+                <h2 className="text-3xl font-black text-bnavy">Tell us about your stay</h2>
+                <p className="mt-3 leading-7 text-bink/70">
+                  Submit the form and we will open WhatsApp with your reservation details ready to send.
+                </p>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-stone-700 mb-1">
-                          Full Name *
-                        </label>
-                        <Input
-                          required
-                          placeholder="Your name"
-                          value={formData.name}
-                          onChange={(e) => setFormData({...formData, name: e.target.value})}
-                          className="border-stone-300"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-stone-700 mb-1">
-                          Phone Number *
-                        </label>
-                        <Input
-                          required
-                          type="tel"
-                          placeholder="+256 7XX XXX XXX"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                          className="border-stone-300"
-                        />
-                      </div>
-                    </div>
-
+                <form onSubmit={handleSubmit} className="mt-7 space-y-5">
+                  <div className="grid gap-4 md:grid-cols-2">
                     <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-1">
-                        Email Address
+                      <label htmlFor="name" className="mb-2 block text-sm font-bold text-bnavy">
+                        Full Name *
                       </label>
                       <Input
-                        type="email"
-                        placeholder="your@email.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="border-stone-300"
+                        id="name"
+                        required
+                        placeholder="Your name"
+                        value={formData.name}
+                        onChange={(event) => updateField("name", event.target.value)}
                       />
                     </div>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-stone-700 mb-1">
-                          Check-in Date *
-                        </label>
-                        <Input
-                          required
-                          type="date"
-                          value={formData.checkIn}
-                          onChange={(e) => setFormData({...formData, checkIn: e.target.value})}
-                          className="border-stone-300"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-stone-700 mb-1">
-                          Check-out Date *
-                        </label>
-                        <Input
-                          required
-                          type="date"
-                          value={formData.checkOut}
-                          onChange={(e) => setFormData({...formData, checkOut: e.target.value})}
-                          className="border-stone-300"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-stone-700 mb-1">
-                          Number of Guests
-                        </label>
-                        <Input
-                          type="number"
-                          min="1"
-                          placeholder="1"
-                          value={formData.guests}
-                          onChange={(e) => setFormData({...formData, guests: e.target.value})}
-                          className="border-stone-300"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-stone-700 mb-1">
-                          Room Type
-                        </label>
-                        <select
-                          value={formData.roomType}
-                          onChange={(e) => setFormData({...formData, roomType: e.target.value})}
-                          className="w-full h-10 px-3 rounded-md border border-stone-300 bg-white text-stone-900"
-                        >
-                          <option value="">Select a room</option>
-                          <option value="Standard Room - UGX 40,000">Standard Room - UGX 40,000</option>
-                          <option value="Standard Plus Room - UGX 50,000">Standard Plus Room - UGX 50,000</option>
-                          <option value="Deluxe Executive Room - UGX 70,000">Deluxe Executive Room - UGX 70,000</option>
-                          <option value="Twin Economy Room - UGX 60,000">Twin Economy Room - UGX 60,000</option>
-                        </select>
-                      </div>
-                    </div>
-
                     <div>
-                      <label className="block text-sm font-medium text-stone-700 mb-1">
-                        Additional Message
+                      <label htmlFor="phone" className="mb-2 block text-sm font-bold text-bnavy">
+                        Phone Number *
                       </label>
-                      <textarea
-                        rows={4}
-                        placeholder="Any special requests or questions..."
-                        value={formData.message}
-                        onChange={(e) => setFormData({...formData, message: e.target.value})}
-                        className="w-full px-3 py-2 rounded-md border border-stone-300 bg-white text-stone-900 resize-none"
+                      <Input
+                        id="phone"
+                        required
+                        type="tel"
+                        placeholder="+256 7XX XXX XXX"
+                        value={formData.phone}
+                        onChange={(event) => updateField("phone", event.target.value)}
                       />
                     </div>
+                  </div>
 
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-bred hover:bg-bred/90 text-white py-6 text-lg rounded-xl"
-                    >
-                      <Send className="w-5 h-5 mr-2" />
-                      Send Reservation Request
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div> */}
+                  <div>
+                    <label htmlFor="email" className="mb-2 block text-sm font-bold text-bnavy">
+                      Email Address
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={(event) => updateField("email", event.target.value)}
+                    />
+                  </div>
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div>
+                      <label htmlFor="checkIn" className="mb-2 block text-sm font-bold text-bnavy">
+                        Check-in Date *
+                      </label>
+                      <Input
+                        id="checkIn"
+                        required
+                        type="date"
+                        value={formData.checkIn}
+                        onChange={(event) => updateField("checkIn", event.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="checkOut" className="mb-2 block text-sm font-bold text-bnavy">
+                        Check-out Date *
+                      </label>
+                      <Input
+                        id="checkOut"
+                        required
+                        type="date"
+                        value={formData.checkOut}
+                        onChange={(event) => updateField("checkOut", event.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div>
+                      <label htmlFor="guests" className="mb-2 block text-sm font-bold text-bnavy">
+                        Guests
+                      </label>
+                      <Input
+                        id="guests"
+                        type="number"
+                        min="1"
+                        placeholder="1"
+                        value={formData.guests}
+                        onChange={(event) => updateField("guests", event.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="roomType" className="mb-2 block text-sm font-bold text-bnavy">
+                        Room Type
+                      </label>
+                      <select
+                        id="roomType"
+                        value={formData.roomType}
+                        onChange={(event) => updateField("roomType", event.target.value)}
+                        className="form-field w-full"
+                      >
+                        <option value="">Select a room</option>
+                        <option value="Standard Room - UGX 40,000">Standard Room - UGX 40,000</option>
+                        <option value="Standard Plus Room - UGX 50,000">Standard Plus Room - UGX 50,000</option>
+                        <option value="Deluxe Executive Room - UGX 70,000">Deluxe Executive Room - UGX 70,000</option>
+                        <option value="Twin Economy Room - UGX 60,000">Twin Economy Room - UGX 60,000</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="mb-2 block text-sm font-bold text-bnavy">
+                      Additional Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={5}
+                      placeholder="Any special requests or questions..."
+                      value={formData.message}
+                      onChange={(event) => updateField("message", event.target.value)}
+                      className="form-field min-h-32 w-full resize-y py-3"
+                    />
+                  </div>
+
+                  <Button type="submit" size="lg" className="w-full">
+                    <Send className="size-5" />
+                    Send Reservation Request
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Google Map Section */}
-      <section className="h-96 bg-stone-200">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.513504230181!2d32.13965640000001!3d1.9502472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177a9b00702ab5f3%3A0x2ec6c28ed78ce1a2!2sBaraka%20Hotel%20-%20Bweyale%20-%20Kiryandongo!5e1!3m2!1sen!2sug!4v1770488092503!5m2!1sen!2sug" 
-          width="100%" 
-          height="100%" 
-          style={{border:0}}
-          allowFullScreen 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Baraka Hotel Location"
-        />
+      <section className="bg-white py-10">
+        <div className="site-container">
+          <div className="hotel-card overflow-hidden p-0">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.513504230181!2d32.13965640000001!3d1.9502472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177a9b00702ab5f3%3A0x2ec6c28ed78ce1a2!2sBaraka%20Hotel%20-%20Bweyale%20-%20Kiryandongo!5e1!3m2!1sen!2sug!4v1770488092503!5m2!1sen!2sug"
+              width="100%"
+              height="420"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Baraka Hotel Location"
+            />
+          </div>
+        </div>
       </section>
 
-      {/* Quick Contact CTA */}
-      <section className="py-12 bg-stone-900">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold text-white mb-2">
-                Need Immediate Assistance?
-              </h3>
-              <p className="text-stone-400">
-                Call us directly or send a WhatsApp message.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4">
+      <section className="bg-bnavy py-16 text-white">
+        <div className="site-container flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
+          <div>
+            <h2 className="text-3xl font-black">Need immediate assistance?</h2>
+            <p className="mt-2 text-white/75">Call us directly or send a WhatsApp message.</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button asChild>
               <a href="tel:+256768666505">
-                <Button className="bg-bred hover:bg-bred/90 text-white px-8 py-6 text-lg rounded-xl">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Call Now
-                </Button>
+                <Phone className="size-4" />
+                Call Now
               </a>
-              <a href="https://wa.me/+256770404091" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg rounded-xl">
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  WhatsApp
-                </Button>
+            </Button>
+            <Button
+              variant="outline"
+              className="border-white/30 bg-white/10 text-white hover:bg-white hover:text-bnavy"
+              asChild
+            >
+              <a href="https://wa.me/256770404091" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="size-4" />
+                WhatsApp
               </a>
-            </div>
+            </Button>
           </div>
         </div>
       </section>

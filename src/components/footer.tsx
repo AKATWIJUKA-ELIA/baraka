@@ -1,140 +1,77 @@
 "use client";
 
 import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Facebook,
-  Instagram,
-  Twitter,
-  Youtube,
-  Send,
-} from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 
 const quickLinks = [
   { title: "Home", href: "/" },
-  { title: "Rooms & Suites", href: "/rooms" },
-  { title: "Amenities", href: "/#amenities" },
+  { title: "Rooms", href: "/rooms" },
+  { title: "Amenities", href: "/amenities" },
   { title: "Gallery", href: "/gallery" },
   { title: "Testimonials", href: "/#testimonials" },
   { title: "Contact", href: "/contact" },
+  { title: "About Us", href: "/about" },
 ];
 
-const services = [
-  "Room Service",
-  "Fine Dining",
-  "Event Hosting",
-];
+const services = ["Accommodation", "Restaurant", "Coffee Bar", "Conference Room", "Rooftop Events"];
 
 export function Footer() {
-        const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer id="contact" className="bg-gray-900 text-white">
-      {/* Newsletter Section */}
-      {/* <div className="bg-amber-600">
-        <div className="container mx-auto px-4 py-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-2">
-                Subscribe to Our Newsletter
-              </h3>
-              <p className="text-amber-100">
-                Get exclusive offers and updates delivered to your inbox.
-              </p>
-            </div>
-            <div className="flex w-full md:w-auto gap-2">
+    <footer className="bg-bnavy text-white">
+      <div className="site-container py-14 md:py-[4.5rem]">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+          <div>
+            <p className="text-sm font-bold uppercase text-bblue">Baraka Hotel</p>
+            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight md:text-5xl">
+              Rest, refresh, and recharge along the Kampala-Gulu Highway.
+            </h2>
+          </div>
+
+          <form
+            className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur"
+            onSubmit={(event) => event.preventDefault()}
+          >
+            <label htmlFor="footer-email" className="mb-3 block text-sm font-semibold text-white/75">
+              Receive stay offers and hotel updates
+            </label>
+            <div className="flex flex-col gap-3 sm:flex-row">
               <Input
-                placeholder="Enter your email"
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/70 min-w-[300px]"
+                id="footer-email"
+                type="email"
+                placeholder="Email address"
+                className="bg-white text-bnavy"
               />
-              <Button className="bg-gray-900 hover:bg-gray-800 text-white">
-                <Send className="h-4 w-4 mr-2" />
+              <Button type="submit" className="sm:w-auto">
+                <Send className="size-4" />
                 Subscribe
               </Button>
             </div>
-          </div>
+          </form>
         </div>
-      </div> */}
 
-      {/* Main Footer */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* About */}
-          <div className="p-2" >
-            <Link href="/" className="flex flex-col  items-center space-x-2 mb-6">
-            <div className="flex  " >
-                <Image
-                  src="/logowide.png"
-                  alt="Baraka Hotel Logo"
-                  className="flex "
-                  width={300}
-                  height={100}
-                />
-            </div>
+        <Separator className="my-10 bg-white/10" />
 
-              <div className="gap-6  rounded-full flex items-center justify-center">
-                <Image
-                  src="/logonbg.png"
-                  alt="Baraka Hotel Logo"
-                  className="flex "
-                  width={24}
-                  height={24}
-                />
-
-                  <div className="flex text-2xl font-bold">
-                        <h1 className="" >
-                        Baraka Hotel</h1>
-                        </div>
-              </div>
-            
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <Link href="/" className="inline-flex items-center rounded-full text-2xl font-black">
+              Baraka <span className="ml-1 text-bblue">Hotel</span>
             </Link>
-            <p className="text-center font-bold text-gray-400 mb-6">
-               For a memorable experience
+            <p className="mt-4 max-w-xs leading-7 text-white/70">
+              A welcoming haven for travelers seeking clean rooms, fresh meals, secure parking, and warm service.
             </p>
-            {/* <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-bred flex items-center justify-center transition-colors"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-bblue flex items-center justify-center transition-colors"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-bred flex items-center justify-center transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-bblue flex items-center justify-center transition-colors"
-              >
-                <Youtube className="h-5 w-5" />
-              </a>
-            </div> */}
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+            <h3 className="mb-4 text-base font-black">Explore</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.title}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-bblue transition-colors"
-                  >
+                  <Link href={link.href} className="text-white/70 transition hover:text-bblue">
                     {link.title}
                   </Link>
                 </li>
@@ -142,61 +79,64 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Our Services</h4>
+            <h3 className="mb-4 text-base font-black">Services</h3>
             <ul className="space-y-3">
               {services.map((service) => (
-                <li key={service}>
-                  <span className="text-gray-400">{service}</span>
+                <li key={service} className="text-white/70">
+                  {service}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Contact Us</h4>
-            <ul className="space-y-4">
+            <h3 className="mb-4 text-base font-black">Contact</h3>
+            <ul className="space-y-4 text-white/70">
               <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-bred mt-1 shrink-0" />
-                <span className="text-gray-400">
-                Along Kampala-Gulu Highway,
+                <MapPin className="mt-1 size-5 shrink-0 text-bblue" />
+                <span>
+                  Along Kampala-Gulu Highway
                   <br />
-                  Bweyale, Kiryandongo District – Uganda
+                  Bweyale, Kiryandongo District, Uganda
                 </span>
               </li>
-               
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-bblue shrink-0" />
-                    <span  className="text-sm font-medium flex flex-col"> 
-                        <a href="tel:+256768666505">+256 768 666 505</a>
-                    <a href="tel:+256744628976">+256 744 628 976</a>
-                        <a href="tel:+256770404091">+256 770 404 091</a>
-                    
-                    </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-amber-500 shrink-0" />
-                <span className="text-gray-400">
-                  <a href="mailto:barakahotelbweyale@gmail.com">barakahotelbweyale@gmail.com</a>
+              <li className="flex items-start gap-3">
+                <Phone className="mt-1 size-5 shrink-0 text-bred" />
+                <span className="flex flex-col">
+                  <a href="tel:+256768666505" className="transition hover:text-bblue">
+                    +256 768 666 505
+                  </a>
+                  <a href="tel:+256744628976" className="transition hover:text-bblue">
+                    +256 744 628 976
+                  </a>
+                  <a href="tel:+256770404091" className="transition hover:text-bblue">
+                    +256 770 404 091
+                  </a>
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Clock className="h-5 w-5 text-amber-500 shrink-0" />
-                <span className="text-gray-400">24/7 Front Desk</span>
+                <Mail className="size-5 shrink-0 text-bblue" />
+                <a
+                  href="mailto:barakahotelbweyale@gmail.com"
+                  className="break-all transition hover:text-bblue"
+                >
+                  barakahotelbweyale@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Clock className="size-5 shrink-0 text-bred" />
+                <span>24/7 Front Desk</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <Separator className="my-8 bg-gray-800" />
+        <Separator className="my-8 bg-white/10" />
 
-        {/* Bottom Footer */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
-            © {currentYear} Baraka Hotel. All rights reserved.
-          </p>
+        <div className="flex flex-col gap-3 text-sm text-white/55 md:flex-row md:items-center md:justify-between">
+          <p>© {currentYear} Baraka Hotel. All rights reserved.</p>
+          <p>Designed for a memorable experience.</p>
         </div>
       </div>
     </footer>
