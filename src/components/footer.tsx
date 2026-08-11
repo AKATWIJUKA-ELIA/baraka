@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 const quickLinks = [
   { title: "Home", href: "/" },
@@ -24,34 +22,11 @@ export function Footer() {
   return (
     <footer className="bg-bnavy text-white">
       <div className="site-container py-14 md:py-[4.5rem]">
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
-          <div>
-            <p className="text-sm font-bold uppercase text-bblue">Baraka Hotel</p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight md:text-5xl">
-              Rest, refresh, and recharge along the Kampala-Gulu Highway.
-            </h2>
-          </div>
-
-          <form
-            className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur"
-            onSubmit={(event) => event.preventDefault()}
-          >
-            <label htmlFor="footer-email" className="mb-3 block text-sm font-semibold text-white/75">
-              Receive stay offers and hotel updates
-            </label>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Input
-                id="footer-email"
-                type="email"
-                placeholder="Email address"
-                className="bg-white text-bnavy"
-              />
-              <Button type="submit" className="sm:w-auto">
-                <Send className="size-4" />
-                Subscribe
-              </Button>
-            </div>
-          </form>
+        <div>
+          <p className="text-sm font-bold uppercase text-bblue">Baraka Hotel</p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-black leading-tight md:text-5xl">
+            Rest, refresh, and recharge along the Kampala-Gulu Highway.
+          </h2>
         </div>
 
         <Separator className="my-10 bg-white/10" />
