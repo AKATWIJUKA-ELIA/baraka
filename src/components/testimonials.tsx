@@ -5,45 +5,65 @@ import { SectionHeader } from "@/components/SectionHeader";
 export const testimonials = [
   {
     id: 1,
-    name: "Grace Nakato",
-    role: "Business Traveler",
+    name: "John Kulman",
+    role: "Local Guide · 30 reviews",
+    date: "a year ago",
     rating: 5,
-    comment:
-      "I stayed in the Deluxe Executive Room and it was spacious, quiet, and easy to work from. The rooftop was beautiful for evening relaxation.",
+    comment: "Awesome hotel, I enjoyed it so much",
   },
   {
     id: 2,
-    name: "Patrick Ochen",
-    role: "Solo Traveler",
+    name: "ssendiwala brian",
+    role: "Local Guide · 46 reviews",
+    date: "a year ago",
     rating: 5,
-    comment:
-      "Great location for travelers. The standard room was simple, comfortable, budget-friendly, and very clean.",
+    comment: "It a nice place for travelers.",
   },
   {
     id: 3,
-    name: "Maria Atim",
-    role: "Frequent Guest",
+    name: "DANIEL Kasa",
+    role: "2 reviews",
+    date: "11 months ago",
     rating: 5,
-    comment:
-      "The hotel has everything you need: comfortable rooms, a conference room, safe parking, laundry service, and tasty meals.",
+    comment: "Very clean place",
   },
   {
     id: 4,
-    name: "John Okello",
-    role: "Transit Guest",
+    name: "Ngabire Lillian",
+    role: "1 review",
+    date: "a year ago",
     rating: 5,
     comment:
-      "The hotel is in a quiet area, which made sleeping easy. Staff were friendly and helped with directions and luggage.",
+      "It's the best Hotel ever in the whole of Bweyale and Kiryandongo district at large\nWater and power sources are constant their hospitality, Security and meals are so amazing",
   },
   {
     id: 5,
-    name: "Sarah Achieng",
-    role: "Workshop Organizer",
+    name: "Mike Ug (Ronald)",
+    role: "3 reviews",
+    date: "2 months ago",
     rating: 5,
-    comment:
-      "I organized a small workshop at Baraka Hotel. The conference room was spacious, air-conditioned, well-lit, and well managed.",
+    comment: "Best accommodation offered",
+  },
+  {
+    id: 6,
+    name: "Christine Abalo",
+    role: "2 reviews",
+    date: "a year ago",
+    rating: 4,
+    comment: "A very nice place with the best security and services so far",
   },
 ];
+
+const MAX_RATING = 5;
+
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part.replace(/[^a-z]/gi, "")[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("");
+}
 
 export function Testimonials() {
   return (
@@ -62,22 +82,29 @@ export function Testimonials() {
               <CardContent className="flex h-full flex-col p-7">
                 <Quote className="size-10 text-bblue/45" />
 
-                <div className="mt-5 flex gap-1">
-                  {Array.from({ length: testimonial.rating }).map((_, index) => (
-                    <Star key={index} className="size-5 fill-bblue text-bblue" />
-                  ))}
+                <div className="mt-5 flex items-center gap-3">
+                  <div className="flex gap-1">
+                    {Array.from({ length: MAX_RATING }).map((_, index) => (
+                      <Star
+                        key={index}
+                        className={
+                          index < testimonial.rating
+                            ? "size-5 fill-bblue text-bblue"
+                            : "size-5 fill-bink/10 text-bink/20"
+                        }
+                      />
+                    ))}
+                  </div>
+                  <span className="text-sm text-bink/55">{testimonial.date}</span>
                 </div>
 
-                <p className="mt-5 flex-1 leading-7 text-bink/75">
+                <p className="mt-5 flex-1 whitespace-pre-line leading-7 text-bink/75">
                   &quot;{testimonial.comment}&quot;
                 </p>
 
                 <div className="mt-7 flex items-center gap-4 border-t border-bline pt-5">
-                  <div className="flex size-12 items-center justify-center rounded-full bg-bnavy text-sm font-black text-white">
-                    {testimonial.name
-                      .split(" ")
-                      .map((part) => part[0])
-                      .join("")}
+                  <div className="flex size-12 items-center justify-center rounded-full bg-bnavy text-sm font-black uppercase text-white">
+                    {getInitials(testimonial.name)}
                   </div>
                   <div>
                     <p className="font-black text-bnavy">{testimonial.name}</p>
