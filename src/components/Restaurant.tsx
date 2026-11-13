@@ -31,7 +31,7 @@ export function Restaurant() {
     <section id="restaurant" className="section-shell bg-bnavy text-white">
       <div className="site-container">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div>
+          <div data-animate="fade-right">
             <p className="mb-3 text-sm font-bold uppercase text-bblue">Restaurant & coffee bar</p>
             <h2 className="text-4xl font-black leading-tight text-white md:text-6xl">
               Feast well, pause longer.
@@ -42,7 +42,7 @@ export function Restaurant() {
               offer a polished place to unwind after a long journey.
             </p>
 
-            <div className="mt-9 grid gap-4 sm:grid-cols-2">
+            <div className="mt-9 grid gap-4 sm:grid-cols-2" data-animate="stagger">
               {features.map((feature) => (
                 <div key={feature.title} className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5">
                   <div className="mb-4 flex size-11 items-center justify-center rounded-full bg-bblue text-bnavy">
@@ -69,13 +69,14 @@ export function Restaurant() {
             </div>
           </div>
 
-          <div className="image-frame border-white/10">
+          <div className="image-frame border-white/10" data-animate="reveal">
             <Image
               src="/baraka/coffebar.jpg"
               alt="Restaurant and coffee bar at Baraka Hotel"
               width={900}
               height={760}
               className="h-[430px] w-full object-cover md:h-[620px]"
+              data-parallax
             />
             <div className="absolute inset-0 bg-linear-to-t from-bnavy/75 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 rounded-[1.5rem] border border-white/15 bg-bnavy/70 p-5 text-white backdrop-blur">

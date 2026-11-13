@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
+import { ScrollAnimations } from "@/components/ScrollAnimations";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -51,13 +52,14 @@ export default function AboutPage() {
       <section className="section-shell">
         <div className="site-container">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="image-frame">
+            <div className="image-frame" data-animate="reveal">
               <Image
                 src="/baraka/hero.jpg"
                 alt="Baraka Hotel story"
                 width={900}
                 height={700}
                 className="h-[420px] w-full object-cover md:h-[560px]"
+                data-parallax
               />
               <div className="absolute bottom-6 left-6 right-6 rounded-[1.5rem] bg-bnavy/[0.82] p-5 text-white backdrop-blur">
                 <div className="flex items-center gap-3">
@@ -72,7 +74,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div>
+            <div data-animate="fade-left">
               <p className="section-kicker">Our story</p>
               <h2 className="display-heading">Hospitality with a clear purpose</h2>
               <div className="mt-6 h-1 w-20 rounded-full bg-bred" />
@@ -92,7 +94,7 @@ export default function AboutPage() {
 
       <section className="bg-white py-16 md:py-24">
         <div className="site-container">
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2" data-animate="stagger">
             <Card className="hotel-card-hover">
               <CardContent className="p-8">
                 <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-bred text-white">
@@ -131,7 +133,7 @@ export default function AboutPage() {
             className="mb-12"
           />
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5" data-animate="stagger">
             {whyUsPoints.map((point) => (
               <article key={point.title} className="hotel-card hotel-card-hover p-6 text-center">
                 <div className="mx-auto mb-5 flex size-14 items-center justify-center rounded-2xl bg-bmist text-bblue">
@@ -145,7 +147,7 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-bnavy py-16 text-white">
-        <div className="site-container text-center">
+        <div className="site-container text-center" data-animate="fade-up">
           <h2 className="text-3xl font-black md:text-5xl">Ready to experience Baraka Hotel?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-white/75">
             Book your stay today and discover why guests love coming back.
@@ -165,6 +167,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <ScrollAnimations />
     </main>
   );
 }

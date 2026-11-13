@@ -13,11 +13,12 @@ export function Rooms() {
         <SectionHeader
           kicker="Rooms & rates"
           title="Relax in comfort"
+          align="left"
           description="Thoughtfully prepared rooms for solo travelers, couples, business guests, and friends traveling together."
           className="mb-12"
         />
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4" data-animate="stagger">
           {rooms.map((room) => (
             <Card key={room.id} className="group hotel-card-hover">
               <div className="relative aspect-[4/3] overflow-hidden">
