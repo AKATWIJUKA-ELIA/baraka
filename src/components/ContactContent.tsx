@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageHero } from "@/components/PageHero";
+import { ScrollAnimations } from "@/components/ScrollAnimations";
 
 export function ContactContent() {
   const [formData, setFormData] = useState({
@@ -104,7 +105,7 @@ export function ContactContent() {
       <section className="section-shell">
         <div className="site-container">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
+            <div data-animate="fade-right">
               <p className="section-kicker">Contact information</p>
               <h2 className="section-heading">Reach us directly</h2>
               <p className="section-copy mt-5">
@@ -112,7 +113,7 @@ export function ContactContent() {
                 conference inquiries, and arrival support.
               </p>
 
-              <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <div className="mt-8 grid gap-5 sm:grid-cols-2" data-animate="stagger">
                 {contactCards.map((card) => (
                   <Card key={card.title} className="hotel-card-hover">
                     <CardContent className="p-6">
@@ -146,7 +147,7 @@ export function ContactContent() {
               </div>
             </div>
 
-            <Card>
+            <Card data-animate="fade-left">
               <CardContent className="p-6 md:p-8">
                 <p className="section-kicker">Reservation request</p>
                 <h2 className="text-3xl font-black text-bnavy">Tell us about your stay</h2>
@@ -283,7 +284,7 @@ export function ContactContent() {
 
       <section className="bg-white py-10">
         <div className="site-container">
-          <div className="hotel-card overflow-hidden p-0">
+          <div className="hotel-card overflow-hidden p-0" data-animate="fade-up">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3852.513504230181!2d32.13965640000001!3d1.9502472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177a9b00702ab5f3%3A0x2ec6c28ed78ce1a2!2sBaraka%20Hotel%20-%20Bweyale%20-%20Kiryandongo!5e1!3m2!1sen!2sug!4v1770488092503!5m2!1sen!2sug"
               width="100%"
@@ -299,7 +300,10 @@ export function ContactContent() {
       </section>
 
       <section className="bg-bnavy py-16 text-white">
-        <div className="site-container flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
+        <div
+          data-animate="fade-up"
+          className="site-container flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left"
+        >
           <div>
             <h2 className="text-3xl font-black">Need immediate assistance?</h2>
             <p className="mt-2 text-white/75">Call us directly or send a WhatsApp message.</p>
@@ -324,6 +328,7 @@ export function ContactContent() {
           </div>
         </div>
       </section>
+      <ScrollAnimations />
     </main>
   );
 }

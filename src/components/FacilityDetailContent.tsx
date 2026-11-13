@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { ScrollAnimations } from "@/components/ScrollAnimations";
 import { useState } from "react";
 
 interface SerializableFacility {
@@ -44,23 +45,26 @@ export function FacilityDetailContent({ facility, otherFacilities }: FacilityDet
       {/* Hero Section with Image Gallery */}
       <section className="relative">
         {/* Main Image */}
-        <div className="relative h-[50vh] md:h-[60vh] lg:h-[70vh]">
+        <div className="relative h-[50vh] overflow-hidden md:h-[60vh] lg:h-[70vh]">
           <Image
             src={facility.images[currentImageIndex]}
             alt={facility.title}
             fill
             className="object-cover"
             priority
+            data-parallax="hero"
           />
           <div className="hero-gradient absolute inset-0" />
 
           {/* Title */}
-          <div className="site-container absolute inset-x-0 top-0 z-10 pt-28 md:pt-32">
+          <div data-hero-fade className="site-container absolute inset-x-0 top-0 z-10 pt-28 md:pt-32">
+            <div className="animate-in fade-in slide-in-from-bottom-6 duration-1000 fill-mode-both">
             <p className="mb-3 text-sm font-bold uppercase text-bblue">Facility</p>
-            <h1 className="text-3xl font-black leading-[0.95] text-white sm:text-4xl lg:text-5xl">
+            <h1 className="text-3xl font-black leading-[0.95] text-white break-words hyphens-auto sm:text-4xl lg:text-5xl">
               {facility.title}
             </h1>
             <div className="mt-4 h-1 w-16 rounded-full bg-bred" />
+            </div>
           </div>
 
           {/* Image Navigation */}
@@ -127,7 +131,7 @@ export function FacilityDetailContent({ facility, otherFacilities }: FacilityDet
         <div className="site-container">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main Content */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-8" data-animate="stagger">
               {/* Back Button */}
               <div className="mb-4">
                 <Link href="/facilities">
@@ -159,7 +163,7 @@ export function FacilityDetailContent({ facility, otherFacilities }: FacilityDet
               <Card>
                 <CardContent className="p-6 md:p-8">
                   <h2 className="text-xl font-bold text-bnavy mb-6">Features & Highlights</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4" data-animate="stagger">
                     {facility.features.map((feature, index) => (
                       <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-bpaper">
                         <div className="w-8 h-8 rounded-full bg-bblue/10 flex items-center justify-center flex-shrink-0">
@@ -174,7 +178,7 @@ export function FacilityDetailContent({ facility, otherFacilities }: FacilityDet
             </div>
 
             {/* Sidebar */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1" data-animate="fade-left">
               <div className="sticky top-8">
                 {/* Contact Card */}
                 <Card>
@@ -245,7 +249,7 @@ export function FacilityDetailContent({ facility, otherFacilities }: FacilityDet
             <h2 className="text-2xl md:text-3xl font-black text-bnavy mb-8 text-center">
               Explore Other Facilities
             </h2>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6" data-animate="stagger">
               {otherFacilities.map((otherFacility) => (
                 <Link key={otherFacility.id} href={`/facilities/${otherFacility.id}`}>
                   <Card className="hotel-card-hover overflow-hidden group cursor-pointer h-full">
@@ -275,7 +279,7 @@ export function FacilityDetailContent({ facility, otherFacilities }: FacilityDet
 
       {/* CTA Section */}
       <section className="py-16 bg-bred text-white">
-        <div className="site-container text-center">
+        <div className="site-container text-center" data-animate="fade-up">
           <h2 className="text-3xl font-black mb-4">Ready to Experience Baraka Hotel?</h2>
           <p className="text-white/80 mb-8 max-w-xl mx-auto">
             Book your stay today and enjoy all our facilities and services.
@@ -299,6 +303,7 @@ export function FacilityDetailContent({ facility, otherFacilities }: FacilityDet
           </div>
         </div>
       </section>
+      <ScrollAnimations />
     </main>
   );
 }

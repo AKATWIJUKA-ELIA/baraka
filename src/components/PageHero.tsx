@@ -29,14 +29,27 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section className="relative min-h-[68vh] overflow-hidden pt-24 text-white md:min-h-[74vh]">
-      <Image src={image} alt="" fill priority className="object-cover" sizes="100vw" />
+      <div className="hero-zoom absolute inset-0">
+        <Image
+          src={image}
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+          data-parallax="hero"
+        />
+      </div>
       <div className="hero-gradient absolute inset-0" />
       {/* <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-bpaper to-transparent" /> */}
 
-      <div className="site-container relative z-10 flex min-h-[calc(68vh-6rem)] items-end pb-16 md:min-h-[calc(74vh-6rem)] md:pb-20">
-        <div className="max-w-4xl">
+      <div
+        data-hero-fade
+        className="site-container relative z-10 flex min-h-[calc(68vh-6rem)] items-end pb-16 md:min-h-[calc(74vh-6rem)] md:pb-20"
+      >
+        <div className="w-full min-w-0 max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both">
           {kicker && <p className="mb-4 text-sm font-bold uppercase text-bblue">{kicker}</p>}
-          <h1 className="text-5xl font-black leading-[0.92] text-white sm:text-6xl lg:text-8xl">
+          <h1 className="text-[clamp(2.25rem,10vw,3rem)] font-black leading-[0.92] text-white break-words hyphens-auto sm:text-6xl lg:text-8xl">
             {title}
             {accent && <span className="block text-bblue">{accent}</span>}
           </h1>

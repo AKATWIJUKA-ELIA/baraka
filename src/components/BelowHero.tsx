@@ -8,13 +8,14 @@ export function BelowHero() {
     <section id="belowHero" className="section-shell bg-bpaper">
       <div className="site-container">
         <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <div className="image-frame">
+          <div className="image-frame" data-animate="reveal">
             <Image
               src="/baraka/hero.jpg"
               alt="Baraka Hotel exterior"
               width={900}
               height={700}
               className="h-[420px] w-full object-cover md:h-[560px]"
+              data-parallax
             />
             <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-bnavy/85 to-transparent p-6 text-white">
               <Quote className="mb-3 size-8 text-bblue" />
@@ -22,7 +23,7 @@ export function BelowHero() {
             </div>
           </div>
 
-          <div>
+          <div data-animate="fade-left">
             <p className="section-kicker">About the stay</p>
             <h2 className="display-heading">
               Bweyale Baraka <span className="text-bblue">Hotel</span>
@@ -39,7 +40,7 @@ export function BelowHero() {
               </p>
             </div>
 
-            <div className="mt-9 grid gap-4 sm:grid-cols-2">
+            <div className="mt-9 grid gap-4 sm:grid-cols-2" data-animate="stagger">
               <div className="hotel-card p-5">
                 <div className="mb-4 flex size-12 items-center justify-center rounded-full bg-bblue text-bnavy">
                   <MapPin className="size-5" />

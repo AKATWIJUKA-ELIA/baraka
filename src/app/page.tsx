@@ -6,6 +6,7 @@ import { Restaurant } from "@/components/Restaurant";
 import { Amenities } from "@/components/amenities";
 import { Testimonials } from "@/components/testimonials";
 import { CallToAction } from "@/components/CallToAction";
+import { ScrollAnimations } from "@/components/ScrollAnimations";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Amenities />
       <Testimonials />
       <CallToAction />
+      <ScrollAnimations />
     </main>
   );
 }

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
+import { ScrollAnimations } from "@/components/ScrollAnimations";
 import { rooms } from "@/lib/rooms-data";
 
 export const metadata: Metadata = {
@@ -46,16 +47,28 @@ export default function RoomsPage() {
           <SectionHeader
             kicker="Choose your room"
             title="A room for every kind of stay"
+            align="left"
             description="Every option includes attentive service, clean bedding, daily housekeeping, and easy access to dining and hotel facilities."
             className="mb-12"
           />
 
           <div className="space-y-10">
             {rooms.map((room, index) => (
-              <Card key={room.id} className="hotel-card-hover">
+              <Card
+                key={room.id}
+                className="hotel-card-hover"
+                data-animate={index % 2 === 1 ? "fade-left" : "fade-right"}
+              >
                 <div className="grid overflow-hidden lg:grid-cols-2">
-                  <div className={`relative min-h-[320px] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <Image src={room.image} alt={room.name} fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+                  <div className={`relative min-h-[320px] overflow-hidden ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                    <Image
+                      src={room.image}
+                      alt={room.name}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      data-parallax
+                    />
                     <div className="absolute inset-0 bg-linear-to-t from-bnavy/70 to-transparent" />
                     <span className="absolute left-5 top-5 rounded-full bg-bred px-4 py-1.5 text-sm font-bold text-white">
                       {room.badge}
@@ -78,7 +91,7 @@ export default function RoomsPage() {
                     <h2 className="text-3xl font-black text-bnavy md:text-4xl">{room.name}</h2>
                     <p className="section-copy mt-4">{room.description}</p>
 
-                    <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                    <div className="mt-7 grid gap-3 sm:grid-cols-2" data-animate="stagger">
                       {room.amenities.slice(0, 8).map((amenity) => (
                         <div key={amenity} className="flex items-center gap-3 text-sm font-semibold text-bink/75">
                           <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-bmist text-bblue">
@@ -120,7 +133,7 @@ export default function RoomsPage() {
       </section>
 
       <section className="bg-bnavy py-16 text-white">
-        <div className="site-container text-center">
+        <div className="site-container text-center" data-animate="fade-up">
           <h2 className="text-3xl font-black md:text-5xl">Ready to book your stay?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-white/75">
             Contact us directly for the best available room and current availability.
@@ -143,6 +156,7 @@ export default function RoomsPage() {
           </div>
         </div>
       </section>
+      <ScrollAnimations />
     </main>
   );
 }
