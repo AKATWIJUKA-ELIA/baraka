@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The backend is a separate project with its own package.json/tsconfig.
+    "backend/**",
   ]),
 ]);
 
