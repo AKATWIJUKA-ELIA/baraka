@@ -182,11 +182,89 @@
 
   .hero-gradient {
     background:
-      linear-gradient(90deg, rgba(10, 26, 36, 0.92) 0%, rgba(10, 26, 36, 0.72) 44%, rgba(10, 26, 36, 0.26) 100%),
-      linear-gradient(180deg, rgba(10, 26, 36, 0.45) 0%, rgba(10, 26, 36, 0.12) 42%, rgba(10, 26, 36, 0.88) 100%);
+      linear-gradient(90deg, rgba(10, 26, 36, 0.55) 0%, rgba(10, 26, 36, 0.3) 44%, rgba(10, 26, 36, 0.02) 100%),
+      linear-gradient(180deg, rgba(10, 26, 36, 0.2) 0%, rgba(10, 26, 36, 0) 42%, rgba(10, 26, 36, 0.55) 100%);
+  }
+
+  /* Page heroes: background settles from a slight zoom on load. */
+  .hero-zoom {
+    animation: hero-zoom 2.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-zoom {
+      animation: none;
+    }
   }
 
   .form-field {
     @apply h-12 rounded-2xl border border-bline bg-white px-4 text-bnavy shadow-sm transition placeholder:text-bink/40 focus-visible:border-bblue focus-visible:ring-bblue/40;
+  }
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Hero slider effects (see src/components/hero.tsx). Applied to the incoming slide. */
+.hero-fx-crossfade {
+  animation: hero-fx-fade-in 1.3s ease-in-out both;
+}
+
+.hero-fx-blur {
+  animation: hero-fx-blur-in 1.4s ease-out both;
+}
+
+.hero-fx-blur-out {
+  animation: hero-fx-blur-out 1.4s ease-in both;
+}
+
+.hero-fx-blind {
+  animation: hero-fx-blind-in 0.8s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes hero-fx-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-fx-blur-in {
+  from {
+    opacity: 0;
+    filter: blur(24px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-fx-blur-out {
+  to {
+    filter: blur(24px);
+  }
+}
+
+@keyframes hero-fx-blind-in {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fx-crossfade,
+  .hero-fx-blur,
+  .hero-fx-blur-out,
+  .hero-fx-blind {
+    animation: none;
   }
 }

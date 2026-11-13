@@ -13,11 +13,19 @@ import {
   ArrowLeft,
   ChevronLeft,
   ChevronRight,
+  MessageCircle,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { ScrollAnimations } from "@/components/ScrollAnimations";
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 import type { SerializableRoom } from "@/lib/rooms-data";
+
+const HERO_AUTOPLAY_MS = 6000;
+// Entry order: badges → name → description → detail chips → price & buttons.
+// Gaps shrink so it starts unhurried and speeds up (same feel as the home hero).
+const HERO_STEP_OFFSETS_MS = [200, 650, 1000, 1300, 1550];
 
 interface RoomDetailContentProps {
   room: SerializableRoom;
@@ -35,71 +43,166 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
     setCurrentImageIndex((prev) => (prev - 1 + room.images.length) % room.images.length);
   };
 
+  // Swipe left/right on phones to change photo.
+  const touchStartX = useRef<number | null>(null);
+  const handleTouchEnd = (event: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = event.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(delta) > 50) (delta < 0 ? nextImage : prevImage)();
+  };
+
+  // Auto-advance the hero photos; restarts after every manual change.
+  useEffect(() => {
+    if (room.images.length < 2) return;
+    const timeout = window.setTimeout(
+      () => setCurrentImageIndex((prev) => (prev + 1) % room.images.length),
+      HERO_AUTOPLAY_MS,
+    );
+    return () => window.clearTimeout(timeout);
+  }, [currentImageIndex, room.images.length]);
+
+  const heroDetails = [
+    { icon: Users, label: `${room.guests} ${room.guests > 1 ? "Guests" : "Guest"}` },
+    { icon: Bed, label: `${room.beds} ${room.beds > 1 ? "Beds" : "Bed"}` },
+    { icon: Bath, label: room.bathrooms > 0 ? "Private Bathroom" : "Shared Bathroom" },
+    ...(room.size ? [{ icon: Maximize, label: room.size }] : []),
+  ];
+
+  const whatsappHref = `https://wa.me/256768666505?text=${encodeURIComponent(
+    `Hello Baraka Hotel!\n\nI would like to book the following room:\n\n🏨 Room: ${room.name}\n💰 Price: UGX ${room.price.toLocaleString()} per night\n👥 Guests: ${room.guests}\n🛏️ Beds: ${room.beds}\n\nPlease let me know the availability. Thank you!`,
+  )}`;
+
+  const heroReveal = "animate-in fade-in slide-in-from-bottom-6 duration-900 ease-out fill-mode-both";
+  const heroStep = (step: number) => ({ animationDelay: `${HERO_STEP_OFFSETS_MS[step]}ms` });
+
   return (
     <main className="min-h-screen bg-bpaper">
-      {/* Hero Section with Image Gallery */}
+      {/* Hero: cross-fading room photos with the room's key details on top. */}
       <section className="relative">
-        {/* Main Image */}
-        <div className="relative h-[50vh] md:h-[60vh] lg:h-[70vh]">
-          <Image
-            src={room.images[currentImageIndex]}
-            alt={room.name}
-            fill
-            className="object-cover"
-            priority
-          />
+        <div
+          className="relative h-[82vh] min-h-[600px] overflow-hidden"
+          onTouchStart={(event) => (touchStartX.current = event.touches[0].clientX)}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Photos sit side by side in a strip that slides horizontally. */}
+          <div className="absolute inset-0" data-parallax="hero">
+            <div
+              className="flex h-full transition-transform duration-1000 ease-[cubic-bezier(0.65,0,0.35,1)] motion-reduce:transition-none"
+              style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+            >
+              {room.images.map((image, index) => (
+                <div key={image} className="relative h-full w-full shrink-0">
+                  <Image
+                    src={image}
+                    alt={index === currentImageIndex ? room.name : ""}
+                    fill
+                    sizes="100vw"
+                    priority={index === 0}
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="hero-gradient absolute inset-0" />
+          <div className="absolute inset-0 bg-linear-to-t from-bnavy/85 via-bnavy/15 to-transparent" />
 
-          {/* Title */}
-          <div className="site-container absolute inset-x-0 top-0 z-10 pt-28 md:pt-32">
-            <p className="mb-3 text-sm font-bold uppercase text-bblue">Room</p>
-            <div className="flex flex-wrap items-end gap-3">
-              <h1 className="text-3xl font-black leading-[0.95] text-white sm:text-4xl lg:text-5xl">
+          {/* Details. Bottom padding keeps them clear of the thumbnails. */}
+          <div
+            data-hero-fade
+            className="site-container absolute inset-x-0 bottom-0 z-10 pb-24 text-white md:pb-28"
+          >
+            <div className="min-w-0 max-w-3xl">
+              <div className={cn(heroReveal, "flex flex-wrap items-center gap-3")} style={heroStep(0)}>
+                <span className="text-sm font-bold uppercase tracking-wide text-bblue">Room</span>
+                <Badge className="border-none bg-bred px-3 py-1 text-xs text-white">{room.badge}</Badge>
+                {room.isShared && (
+                  <Badge className="border-none bg-bblue px-3 py-1 text-xs text-bnavy">
+                    Shared Facilities
+                  </Badge>
+                )}
+              </div>
+
+              <h1
+                className={cn(heroReveal, "mt-4 text-4xl font-black leading-[0.95] break-words hyphens-auto sm:text-5xl lg:text-7xl")}
+                style={heroStep(1)}
+              >
                 {room.name}
               </h1>
-              <Badge className="bg-bred text-white border-none text-sm px-4 py-1">
-                {room.badge}
-              </Badge>
-              {room.isShared && (
-                <Badge className="bg-bblue text-white border-none text-sm px-4 py-1">
-                  Shared Facilities
-                </Badge>
-              )}
+
+              <div className={heroReveal} style={heroStep(2)}>
+                <div className="mt-5 h-1 w-20 rounded-full bg-bred" />
+                <p className="mt-5 max-w-2xl text-lg leading-8 text-white/85 md:text-xl">
+                  {room.description}
+                </p>
+              </div>
+
+              <div className={cn(heroReveal, "mt-6 flex flex-wrap gap-2.5")} style={heroStep(3)}>
+                {heroDetails.map((detail) => (
+                  <span
+                    key={detail.label}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold backdrop-blur"
+                  >
+                    <detail.icon className="size-4 text-bblue" />
+                    {detail.label}
+                  </span>
+                ))}
+              </div>
+
+              <div
+                className={cn(heroReveal, "mt-8 flex flex-wrap items-center gap-x-6 gap-y-4")}
+                style={heroStep(4)}
+              >
+                <p>
+                  <span className="text-3xl font-black md:text-4xl">
+                    UGX {room.price.toLocaleString()}
+                  </span>
+                  <span className="ml-2 text-white/70">/ night</span>
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Button size="lg" asChild>
+                    <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="size-4" />
+                      Book This Room
+                    </a>
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white/30 bg-white/10 text-white hover:bg-white hover:text-bnavy"
+                    asChild
+                  >
+                    <a href="tel:+256768666505">
+                      <Phone className="size-4" />
+                      Call
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
-            <div className="mt-4 h-1 w-16 rounded-full bg-bred" />
           </div>
 
-          {/* Image Navigation */}
+          {/* Arrows only on wide screens, where they can't overlap the text. */}
           {room.images.length > 1 && (
             <>
               <button
+                type="button"
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+                aria-label="Previous photo"
+                className="absolute left-5 top-1/2 z-20 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur transition hover:bg-white hover:text-bnavy xl:flex"
               >
-                <ChevronLeft className="w-6 h-6 text-bnavy" />
+                <ChevronLeft className="size-5" />
               </button>
               <button
+                type="button"
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+                aria-label="Next photo"
+                className="absolute right-5 top-1/2 z-20 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur transition hover:bg-white hover:text-bnavy xl:flex"
               >
-                <ChevronRight className="w-6 h-6 text-bnavy" />
+                <ChevronRight className="size-5" />
               </button>
             </>
-          )}
-
-          {/* Image Indicators */}
-          {room.images.length > 1 && (
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-              {room.images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentImageIndex ? 'bg-white w-6' : 'bg-white/50'
-                  }`}
-                />
-              ))}
-            </div>
           )}
         </div>
 
@@ -110,7 +213,9 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
               {room.images.map((image, index) => (
                 <button
                   key={index}
+                  type="button"
                   onClick={() => setCurrentImageIndex(index)}
+                  aria-label={`Show photo ${index + 1}`}
                   className={`relative w-24 h-16 md:w-32 md:h-20 rounded-xl overflow-hidden shadow-md transition-all ${
                     index === currentImageIndex ? 'ring-4 ring-bred scale-105' : 'opacity-70 hover:opacity-100'
                   }`}
@@ -133,7 +238,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
         <div className="site-container">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main Content */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-8" data-animate="stagger">
               {/* Back Button */}
               <div className="mb-4">
                 <Link href="/rooms">
@@ -180,7 +285,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
               <Card>
                 <CardContent className="p-6 md:p-8">
                   <h2 className="text-xl font-bold text-bnavy mb-6">Amenities & Features</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4" data-animate="stagger">
                     {room.amenities.map((amenity, index) => (
                       <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-bpaper">
                         <div className="w-8 h-8 rounded-full bg-bblue/10 flex items-center justify-center flex-shrink-0">
@@ -195,7 +300,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
             </div>
 
             {/* Sidebar - Booking Card */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1" data-animate="fade-left">
               <div className="sticky top-8">
                 <Card>
                   <CardContent className="p-6 md:p-8">
@@ -278,7 +383,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
           <h2 className="text-2xl md:text-3xl font-black text-bnavy mb-8 text-center">
             Explore Other Rooms
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6" data-animate="stagger">
             {otherRooms.map((otherRoom) => (
               <Link key={otherRoom.id} href={`/rooms/${otherRoom.classification}`}>
                 <Card className="hotel-card-hover cursor-pointer h-full">
@@ -314,7 +419,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
 
       {/* CTA Section */}
       <section className="py-16 bg-bnavy">
-        <div className="site-container text-center">
+        <div className="site-container text-center" data-animate="fade-up">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
             Ready to Book Your Stay?
           </h2>
@@ -340,6 +445,7 @@ export function RoomDetailContent({ room, otherRooms }: RoomDetailContentProps) 
           </div>
         </div>
       </section>
+      <ScrollAnimations />
     </main>
   );
 }

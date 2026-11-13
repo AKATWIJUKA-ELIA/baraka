@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
+import { ScrollAnimations } from "@/components/ScrollAnimations";
 import { facilities } from "@/lib/facilities-data";
 
 export function AmenitiesPageContent() {
@@ -25,11 +26,12 @@ export function AmenitiesPageContent() {
           <SectionHeader
             kicker="Hotel amenities"
             title="Everything in one polished stay"
+            align="split"
             description="Explore practical services and guest spaces prepared for travelers, business visitors, and small event hosts."
             className="mb-12"
           />
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-animate="stagger">
             {facilities.map((facility) => (
               <Link key={facility.id} href={`/facilities/${facility.id}`} className="group">
                 <Card className="hotel-card-hover h-full">
@@ -64,14 +66,14 @@ export function AmenitiesPageContent() {
       <section className="bg-white py-16 md:py-24">
         <div className="site-container">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-            <div>
+            <div data-animate="fade-right">
               <p className="section-kicker">Guest assurance</p>
               <h2 className="section-heading">A practical hotel experience with a premium finish</h2>
               <p className="section-copy mt-5">
                 Whether you are booking a room, hosting a workshop, stopping for a meal,
                 or relaxing on the rooftop, the same service standard runs through every detail.
               </p>
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <div className="mt-8 grid gap-3 sm:grid-cols-2" data-animate="stagger">
                 {[
                   "24/7 front desk",
                   "Secure parking",
@@ -90,7 +92,10 @@ export function AmenitiesPageContent() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] bg-bnavy p-7 text-white shadow-[0_24px_80px_rgba(10,26,36,0.16)]">
+            <div
+              data-animate="fade-left"
+              className="rounded-[2rem] bg-bnavy p-7 text-white shadow-[0_24px_80px_rgba(10,26,36,0.16)]"
+            >
               <h3 className="text-3xl font-black">Need facility details?</h3>
               <p className="mt-3 leading-7 text-white/75">
                 Call us for conference room, rooftop event, restaurant, or room availability.
@@ -114,6 +119,7 @@ export function AmenitiesPageContent() {
           </div>
         </div>
       </section>
+      <ScrollAnimations />
     </main>
   );
 }

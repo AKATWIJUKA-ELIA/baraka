@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { GalleryGrid, type GalleryImage } from "@/components/GalleryGrid";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
+import { ScrollAnimations } from "@/components/ScrollAnimations";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   },
 };
 
-const images = [
+const images: GalleryImage[] = [
   { src: "/baraka/hero.jpg", alt: "Hotel exterior", category: "Exterior" },
   { src: "/baraka/room.jpg", alt: "Standard room", category: "Rooms" },
   { src: "/baraka/room2.jpg", alt: "Premium room", category: "Rooms" },
@@ -58,35 +59,15 @@ export default function Gallery() {
           <SectionHeader
             kicker="Photo tour"
             title="Spaces made for rest and refreshment"
+            align="split"
             description="Browse a curated look at the guest rooms and public spaces across Baraka Hotel."
             className="mb-12"
           />
 
-          <div className="grid auto-rows-[260px] gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {images.map((image, index) => (
-              <article
-                key={image.src}
-                className={`hotel-card group relative p-0 ${index === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes={index === 0 ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"}
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-bnavy/80 via-bnavy/10 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <span className="rounded-full bg-bblue px-3 py-1 text-xs font-black text-bnavy">
-                    {image.category}
-                  </span>
-                  <h2 className="mt-3 text-2xl font-black">{image.alt}</h2>
-                </div>
-              </article>
-            ))}
-          </div>
+          <GalleryGrid images={images} />
         </div>
       </section>
+      <ScrollAnimations />
     </main>
   );
 }

@@ -6,11 +6,18 @@ import { Button } from "@/components/ui/button";
 export function CallToAction() {
   return (
     <section className="relative overflow-hidden py-24 text-white lg:py-32">
-      <Image src="/baraka/hero3.jpg" alt="Baraka Hotel exterior" fill className="object-cover" sizes="100vw" />
+      <Image
+        src="/baraka/hero3.jpg"
+        alt="Baraka Hotel exterior"
+        fill
+        className="object-cover"
+        sizes="100vw"
+        data-parallax
+      />
       <div className="hero-gradient absolute inset-0" />
 
       <div className="site-container relative z-10">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl" data-animate="fade-up">
           <p className="mb-3 text-sm font-bold uppercase text-bblue">Book direct</p>
           <h2 className="text-4xl font-black leading-tight text-white md:text-6xl">
             Planning your journey? Make Baraka Hotel your stop of choice.

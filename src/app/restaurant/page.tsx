@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageHero } from "@/components/PageHero";
+import { ScrollAnimations } from "@/components/ScrollAnimations";
 import {
   Coffee,
   Clock,
@@ -172,7 +173,7 @@ export default function RestaurantPage() {
       {/* Opening Hours */}
       <section className="py-12 bg-bred">
         <div className="site-container">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16" data-animate="stagger">
             {openingHours.map((item, index) => (
               <div key={index} className="text-center text-white">
                 <div className="flex items-center gap-2 justify-center mb-1">
@@ -189,7 +190,7 @@ export default function RestaurantPage() {
       {/* Menu Section */}
       <section className="py-20 bg-white">
         <div className="site-container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16" data-animate="fade-up">
             <Badge className="bg-bblue/10 text-bblue border-none mb-4">
               Our Menu
             </Badge>
@@ -203,7 +204,7 @@ export default function RestaurantPage() {
           </div>
 
           {/* Menu Categories */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 gap-8 mb-16" data-animate="stagger">
             {menuCategories.map((category, index) => (
               <Card key={index} className="overflow-hidden">
                 <div className="bg-bnavy text-white p-4 flex items-center gap-3">
@@ -225,12 +226,12 @@ export default function RestaurantPage() {
           </div>
 
           {/* Beverages Section */}
-          <div className="bg-bpaper rounded-2xl p-8">
+          <div className="bg-bpaper rounded-2xl p-8" data-animate="fade-up">
             <div className="flex items-center gap-3 mb-6">
               <CupSoda className="w-8 h-8 text-bblue" />
               <h3 className="text-2xl font-black text-bnavy">Beverages</h3>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4" data-animate="stagger">
               {beverages.map((item, index) => (
                 <div key={index} className="bg-white rounded-xl p-4 shadow-sm">
                   <p className="text-bink/80 font-medium">{item.name}</p>
@@ -245,7 +246,7 @@ export default function RestaurantPage() {
       {/* Gallery Section */}
       <section className="py-20 bg-bpaper">
         <div className="site-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-animate="fade-up">
             <Badge className="bg-bred/10 text-bred border-none mb-4">
               Food Gallery
             </Badge>
@@ -253,7 +254,7 @@ export default function RestaurantPage() {
               A Taste of What Awaits
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4" data-animate="stagger">
             {[1, 2, 3, 4, 5, 6].map((num) => (
               <div key={num} className="image-frame relative aspect-square group">
                 <Image
@@ -271,7 +272,7 @@ export default function RestaurantPage() {
 
       {/* CTA Section */}
       <section className="py-16 bg-bnavy text-white">
-        <div className="site-container text-center">
+        <div className="site-container text-center" data-animate="fade-up">
           <h2 className="text-3xl font-black mb-4">Ready to Dine?</h2>
           <p className="text-white/70 mb-8 max-w-xl mx-auto">
             Visit our restaurant or make a reservation. We look forward to serving you!
@@ -294,6 +295,7 @@ export default function RestaurantPage() {
           </div>
         </div>
       </section>
+      <ScrollAnimations />
       </main>
     </>
   );

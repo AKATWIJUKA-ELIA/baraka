@@ -19,33 +19,96 @@ const navItems = [
   { title: "About Us", href: "/about" },
 ];
 
+// Home-page section ids → the nav item to underline while that section is on screen.
+const homeSections: Record<string, string> = {
+  rooms: "Rooms",
+  amenities: "Amenities",
+  testimonials: "Testimonials",
+};
+
 export function Navigation() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const [direction, setDirection] = React.useState<"up" | "down">("up");
   const [isOpen, setIsOpen] = React.useState(false);
+  const [activeSection, setActiveSection] = React.useState<string | null>(null);
+  const progressRef = React.useRef<HTMLSpanElement>(null);
+  const lastY = React.useRef(0);
 
   React.useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 12);
+    const handleScroll = () => {
+      const y = window.scrollY;
+      setIsScrolled(y > 24);
+
+      // Ignore tiny movements so the bar doesn't flicker between states.
+      if (Math.abs(y - lastY.current) > 8) {
+        setDirection(y > lastY.current ? "down" : "up");
+        lastY.current = y;
+      }
+
+      // Written straight to the DOM so the progress line doesn't re-render on every frame.
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (progressRef.current) {
+        progressRef.current.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+      }
+
+      if (pathname !== "/") return;
+      // A section counts as "current" once its top passes 40% down the viewport.
+      const line = window.innerHeight * 0.4;
+      const current = Object.keys(homeSections).find((id) => {
+        const rect = document.getElementById(id)?.getBoundingClientRect();
+        return rect ? rect.top <= line && rect.bottom > line : false;
+      });
+      setActiveSection(current ?? null);
+    };
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const isActive = (href: string, title: string) => {
-    if (href === "/") return pathname === "/";
+    if (pathname === "/") {
+      const sectionTitle = activeSection ? homeSections[activeSection] : null;
+      return sectionTitle ? title === sectionTitle : href === "/";
+    }
+    if (href === "/") return false;
     if (title === "Amenities" && pathname.startsWith("/facilities")) return true;
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
+  // Three looks: a full-width bar at the very top, a compact floating pill while
+  // scrolling down, and a wider floating bar when scrolling back up.
+  // Corners stay square in every mode (no rounded edges).
+  const mode = !isScrolled ? "top" : direction === "down" ? "compact" : "wide";
+  const ease = "ease-[cubic-bezier(0.22,1,0.36,1)]";
+
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-bnavy/[0.92] text-white backdrop-blur-xl transition-all duration-300",
-        isScrolled && "shadow-[0_16px_50px_rgba(10,26,36,0.22)]",
+        "fixed inset-x-0 top-0 z-50 text-white transition-[padding] duration-700",
+        ease,
+        mode === "top" ? "px-0 pt-0" : "px-3 pt-3",
       )}
     >
-      <div className="site-container">
-        <div className="flex h-[4.5rem] items-center justify-between gap-5">
+      <div
+        className={cn(
+          "relative mx-auto overflow-hidden rounded-none border transition-all duration-700",
+          ease,
+          mode === "top" &&
+            "max-w-full border-transparent border-b-white/10 bg-bnavy/25 backdrop-blur-md",
+          mode === "compact" &&
+            "max-w-6xl border-white/15 bg-bink/80 shadow-[0_18px_50px_rgba(10,26,36,0.28)] backdrop-blur-xl",
+          mode === "wide" &&
+            "max-w-7xl border-white/20 bg-bink/65 shadow-[0_12px_40px_rgba(10,26,36,0.18)] backdrop-blur-xl",
+        )}
+      >
+        <div
+          className={cn(
+            "mx-auto flex max-w-7xl items-center justify-between gap-5 px-4 transition-[height] duration-700 sm:px-6 lg:px-8",
+            ease,
+            mode === "top" ? "h-[4.5rem]" : mode === "compact" ? "h-14" : "h-16",
+          )}
+        >
           <Link
             href="/"
             className="flex min-w-0 items-center gap-3 rounded-full focus-visible:ring-offset-bnavy"
@@ -55,12 +118,20 @@ export function Navigation() {
               alt="Baraka Hotel"
               width={42}
               height={42}
-              className="size-10 shrink-0 object-contain"
+              className={cn(
+                "shrink-0 object-contain transition-all duration-700",
+                mode === "compact" ? "size-8" : "size-10",
+              )}
               priority
             />
             <div className="min-w-0">
               <p className="text-lg font-black leading-none text-white">Baraka Hotel</p>
-              <p className="mt-1 hidden text-xs font-semibold text-bblue/90 sm:block">
+              <p
+                className={cn(
+                  "hidden overflow-hidden text-xs font-semibold text-bblue/90 transition-all duration-500 sm:block",
+                  mode === "compact" ? "mt-0 max-h-0 opacity-0" : "mt-1 max-h-5 opacity-100",
+                )}
+              >
                 For a memorable experience
               </p>
             </div>
@@ -156,6 +227,14 @@ export function Navigation() {
             </SheetContent>
           </Sheet>
         </div>
+
+        {/* Scroll progress line */}
+        <span
+          ref={progressRef}
+          aria-hidden
+          style={{ transform: "scaleX(0)" }}
+          className="pointer-events-none absolute bottom-0 left-0 h-0.5 w-full origin-left bg-linear-to-r from-bblue to-bred"
+        />
       </div>
     </header>
   );

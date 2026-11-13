@@ -76,7 +76,7 @@ export function Testimonials() {
           className="mb-12"
         />
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-animate="stagger">
           {testimonials.map((testimonial) => (
             <Card key={testimonial.id} className="hotel-card-hover">
               <CardContent className="flex h-full flex-col p-7">
